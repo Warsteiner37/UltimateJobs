@@ -17,10 +17,22 @@ import de.warsteiner.ultimatejobs.custom.PlayerOpenJobsGUI;
 import de.warsteiner.ultimatejobs.custom.PlayerOpenLevelsGUI;
 import de.warsteiner.ultimatejobs.custom.PlayerOpenQuestsGUI;
 import de.warsteiner.ultimatejobs.custom.PlayerOpenSkillsGUI;
+import de.warsteiner.ultimatejobs.custom.QuestCompleteEvent;
+import de.warsteiner.ultimatejobs.custom.QuestDataChangeEvent;
 
 public class PlayerBasedSounds implements Listener {
 
 	//List<String> list = getSoundAPI().getCustomConfig().getStringList("Sounds");
+	
+	@EventHandler
+	public void onSound(PlayerAlreadyOwnJob e) {
+		PlayerSound(e.p, e.getEventName());
+	}
+	
+	@EventHandler
+	public void onSound(PlayerBuyJob e) {
+		PlayerSound(e.p, e.getEventName());
+	}
 	
 	@EventHandler
 	public void onSound(PlayerOpenJobsGUI e) {
@@ -53,20 +65,24 @@ public class PlayerBasedSounds implements Listener {
 	}
 	
 	@EventHandler
+	public void onSound(QuestDataChangeEvent e) {
+		PlayerSound(e.p, e.getEventName());
+	}
+	
+	@EventHandler
 	public void onSound(PlayerJobChange e) {
 		PlayerSound(e.p, e.getEventName());
 	}
 	
+ 
+	
 	@EventHandler
-	public void onSound(PlayerBuyJob e) {
+	public void onSound(QuestCompleteEvent e) {
 		PlayerSound(e.p, e.getEventName());
 	}
 	
 
-	@EventHandler
-	public void onSound(PlayerAlreadyOwnJob e) {
-		PlayerSound(e.p, e.getEventName());
-	}
+	 
 	
 	public static boolean isEnabled(String event) {
 		

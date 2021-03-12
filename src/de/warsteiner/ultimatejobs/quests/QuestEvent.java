@@ -13,6 +13,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
+import de.warsteiner.ultimatejobs.custom.QuestCompleteEvent;
 import de.warsteiner.ultimatejobs.custom.QuestDataChangeEvent;
 import de.warsteiner.ultimatejobs.utils.ActionBar;
 import de.warsteiner.ultimatejobs.utils.RandomNumberHandler;
@@ -38,7 +39,7 @@ public class QuestEvent implements Listener {
 				 UltimateJobs.getData().setQuestInt(""+p.getUniqueId(), i, 0);
 					UltimateJobs.getData().setQuestBoolean (""+p.getUniqueId(), i, true);
 					String dis = UltimateJobs.getQuestAPI().getCustomConfig().getString("Quests."+id+".ID");
-					
+					new QuestCompleteEvent(p);
 					String[] reward = UltimateJobs.getQuestAPI().getCustomConfig().getString("Quests."+id+".Reward").split(":");
 							String type = reward[0];
 							if(type.equalsIgnoreCase("COMMAND")) {

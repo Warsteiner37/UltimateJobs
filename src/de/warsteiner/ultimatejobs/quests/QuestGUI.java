@@ -18,13 +18,14 @@ import org.bukkit.plugin.Plugin;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.command.PlayerJobCommand;
+import de.warsteiner.ultimatejobs.custom.PlayerOpenQuestsGUI;
 import de.warsteiner.ultimatejobs.custom.PlayerOpenSkillsGUI;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
 
 public class QuestGUI {
 	
 	public static void UpdateItemsWithActionDisplayTIme(Player p) {
-		
+		new PlayerOpenQuestsGUI(p);
 		FileConfiguration cfg = UltimateJobs.getQuestAPI().getCustomConfig();
 		Bukkit.getScheduler().runTaskAsynchronously(UltimateJobs.getPlugin(), new Runnable() {
 

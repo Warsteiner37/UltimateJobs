@@ -16,13 +16,8 @@
 # Events:
 # PlayerOpenJobsGUI
 # PlayerOpenSkillsGUI
-# PlayerOpenLevelsGUI
-# PlayerOpenQuestsGUI
-# PlayerLevelChangeEvent
-# PlayerLevelExpChangeEvent
-# PlayerJobChange
-# PlayerBuyJob
-# PlayerAlreadyOwnJob
+#
+# watch the full list of events here https://github.com/Warsteiner37/UltimateJobs/wiki/API
 #
 # Format: EVENT:SOUND_TYPE:ARG1:ARG2
 #
