@@ -10,7 +10,7 @@
 #| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
 # '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
 
-Enable_Quests: true
+Enable_Quests: false
 
 Time_Format: "%day% days %hours% hours %minutes% minutes %seconds% seconds"
 
@@ -89,6 +89,16 @@ Quests:
     Lore:
       - "&8---------------"
       - "&7We didnt found a quest for you! :("
+      
+  Quest_Done:
+  
+    Display: "&7Quest: <quest_id> &8- &aDone"
+    
+    Material: "LIME_DYE"
+    
+    Lore:
+      - "&8---------------"
+      - "&aYou have completed this quest!"
 
   Quest1:
 

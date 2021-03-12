@@ -171,6 +171,10 @@ public int getPointsByJob(String uuid, String job) {
 			return get().getInt("Quests."+uuid+".ID."+id+".Int");
 		}
 		
+		public boolean getQuestsBoolean(String uuid, int id) {
+			return get().getBoolean("Quests."+uuid+".ID."+id+".Done");
+		}
+		
 		  public void setQuestInt(String uuid, int id, int ints) {
 			  /*  68 */     get().set("Quests."+uuid+".ID."+id+".Int", ints);
 			  /*     */     

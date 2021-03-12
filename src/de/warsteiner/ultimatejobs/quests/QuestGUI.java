@@ -108,36 +108,65 @@ public class QuestGUI {
 		 for (int i = 0; i < slots.size(); i++) {
 			 	String id = UltimateJobs.getData().getQuestByID(""+p.getUniqueId(), i);
 				/*     */
+				String[] action = cfg.getString("Quests."+id+".Action").split(":");
+				String dis = UltimateJobs.getQuestAPI().getCustomConfig().getString("Quests."+id+".ID");
+				
 				if(id != null) { 
-			 
-					String[] action = cfg.getString("Quests."+id+".Action").split(":");
-					 
-					 int has = UltimateJobs.getData().getQuestsInt(""+p.getUniqueId(), i);
-					 int need = Integer.valueOf(action[1]);
-					 
-					 int eins = need / 100;
-					 int all = has * eins;
-					/* 41 */ ItemStack item = new ItemStack(Material.valueOf(cfg.getString("Quests."+id+".Material")), 1);
-					/* 42 */ ItemMeta meta = item.getItemMeta();
-					/* 43 */ meta.setDisplayName(cfg.getString("Quests."+id+".Display")
-							.replaceAll("<complete>", ""+all)	.replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(action[0]))
-							.replaceAll("&", "§"));
-					
-							List<String> lore = cfg.getStringList("Quests."+id+".Lore");
-							 
-							 ArrayList<String> l = new ArrayList<String>();
+
+					if(UltimateJobs.getData().getQuestsBoolean(""+p.getUniqueId(), i)) {
+						
+						/* 41 */ ItemStack item = new ItemStack(Material.valueOf(cfg.getString("Quests.Quest_Done.Material")), 1);
+						/* 42 */ ItemMeta meta = item.getItemMeta();
+						/* 43 */ meta.setDisplayName(cfg.getString("Quests.Quest_Done.Display")	 .replaceAll("<quest_id>", dis)	.replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(action[0]))
+								.replaceAll("&", "§"));
+						
+						 List<String> a = cfg.getStringList("Quests.Quest_Done.Lore");
 						 
-							 
-							 for (int i2 = 0; i2 < lore.size(); i2++) {
-								 l.add(lore.get(i2).replaceAll("<complete>", ""+all).replaceAll("<need>", ""+need).replaceAll("<has>", ""+has).replaceAll("<new>", "").replaceAll("<name>", p.getName()).replaceAll("&", "§"));
-							 }
+						 ArrayList<String> l = new ArrayList<String>();
 						 
-							 meta.setLore(l);
-					
-					/* 44 */ item.setItemMeta(meta);
-					
+						 for (int i2 = 0; i2 < a.size(); i2++) {
+							 l.add(a.get(i2) .replaceAll("<quest_id>", dis).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
+						 }
+						 
+						 meta.setLore(l);
+						
+						/* 44 */ item.setItemMeta(meta);
+						
+						 
+						inventoryView.setItem(Integer.valueOf(slots.get(i)), item);
+						
+					} else {
+						 
 					 
-					inventoryView.setItem(Integer.valueOf(slots.get(i)), item); 
+						 
+						 int has = UltimateJobs.getData().getQuestsInt(""+p.getUniqueId(), i);
+						 int need = Integer.valueOf(action[1]);
+						 
+						 int eins = need / 100;
+						 int all = has * eins;
+						/* 41 */ ItemStack item = new ItemStack(Material.valueOf(cfg.getString("Quests."+id+".Material")), 1);
+						/* 42 */ ItemMeta meta = item.getItemMeta();
+						/* 43 */ meta.setDisplayName(cfg.getString("Quests."+id+".Display")
+								.replaceAll("<complete>", ""+all)	.replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(action[0]))
+								.replaceAll("&", "§"));
+						
+								List<String> lore = cfg.getStringList("Quests."+id+".Lore");
+								 
+								 ArrayList<String> l = new ArrayList<String>();
+							 
+								 
+								 for (int i2 = 0; i2 < lore.size(); i2++) {
+									 l.add(lore.get(i2).replaceAll("<complete>", ""+all).replaceAll("<need>", ""+need).replaceAll("<has>", ""+has).replaceAll("<new>", "").replaceAll("<name>", p.getName()).replaceAll("&", "§"));
+								 }
+							 
+								 meta.setLore(l);
+						
+						/* 44 */ item.setItemMeta(meta);
+						
+						 
+						inventoryView.setItem(Integer.valueOf(slots.get(i)), item); 
+					}
+					
 				} else {
 					/* 41 */ ItemStack item = new ItemStack(Material.valueOf(cfg.getString("Quests.No_Quest_Found.Material")), 1);
 					/* 42 */ ItemMeta meta = item.getItemMeta();

@@ -49,6 +49,33 @@ public class PlayerJobCommand implements CommandExecutor {
 
     }
 	
+	public static void openQuest(Player p) {
+		long dann = UltimateJobs.getData().getCool(""+p.getUniqueId());
+		 
+		 FileConfiguration cfg = UltimateJobs.getQuestAPI().getCustomConfig();
+		long secondsLeft = ((dann/1000)+cfg.getLong("New_Quest")) - System.currentTimeMillis()/1000;
+		 
+
+
+		    if(secondsLeft>0) {
+		    	
+		 
+		    	String t = calculateTime(secondsLeft);
+
+		    	
+		    	if(cfg.getBoolean("Get_Message_Wating_Time.Enabled")) {
+		    		p.sendMessage(cfg.getString("Get_Message_Wating_Time.Message").replaceAll("<new>", ""+t).replaceAll("&", "§"));
+		    	}
+		} else {
+			UltimateJobs.getData().UpdateQuests(""+p.getUniqueId(),  p);
+			if(cfg.getBoolean("Get_Message_If_New_Quest.Enabled")) {
+				p.sendMessage(cfg.getString("Get_Message_If_New_Quest.Message").replaceAll("&", "§"));
+			}
+		 
+		}
+						
+						p.openInventory(QuestGUI.load(p));
+	}
 
 	@Override
 	public boolean onCommand(CommandSender s, Command arg1, String arg2, String[] args) {
@@ -180,31 +207,7 @@ public class PlayerJobCommand implements CommandExecutor {
 				
  
 
-long dann = UltimateJobs.getData().getCool(""+p.getUniqueId());
- 
- FileConfiguration cfg = UltimateJobs.getQuestAPI().getCustomConfig();
-long secondsLeft = ((dann/1000)+cfg.getLong("New_Quest")) - System.currentTimeMillis()/1000;
- 
-
-
-    if(secondsLeft>0) {
-    	
- 
-    	String t = calculateTime(secondsLeft);
-
-    	
-    	if(cfg.getBoolean("Get_Message_Wating_Time.Enabled")) {
-    		p.sendMessage(cfg.getString("Get_Message_Wating_Time.Message").replaceAll("<new>", ""+t).replaceAll("&", "§"));
-    	}
-} else {
-	UltimateJobs.getData().UpdateQuests(""+p.getUniqueId(),  p);
-	if(cfg.getBoolean("Get_Message_If_New_Quest.Enabled")) {
-		p.sendMessage(cfg.getString("Get_Message_If_New_Quest.Message").replaceAll("&", "§"));
-	}
- 
-}
-				
-				p.openInventory(QuestGUI.load(p));
+ openQuest(p);
 				 return true;
 			} else if(args.length == 1 && args[0].equalsIgnoreCase(tab.getString("Options.Exp.Usage"))) {
 				

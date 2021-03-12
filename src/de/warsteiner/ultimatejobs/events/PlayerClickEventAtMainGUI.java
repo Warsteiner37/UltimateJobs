@@ -12,6 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
+import de.warsteiner.ultimatejobs.command.PlayerJobCommand;
 import de.warsteiner.ultimatejobs.custom.PlayerAlreadyOwnJob;
 import de.warsteiner.ultimatejobs.custom.PlayerBuyJob;
 import de.warsteiner.ultimatejobs.custom.PlayerJobChange;
@@ -183,7 +184,14 @@ FileConfiguration m = UltimateJobs.MessageHandler().getCustomConfig();
  									p.sendMessage("§cThis Action is not enabled.");
  								}
  								return;
- 							}  
+ 							}   else if(w.equalsIgnoreCase("QUESTS")) {
+ 								 if(UltimateJobs.getQuestAPI().getCustomConfig().getBoolean("Enable_Quests") ) {
+ 									 PlayerJobCommand.openQuest(p);
+ 									 return;
+ 								 } else {
+  									p.sendMessage("§cThis Action is not enabled.");
+  								}
+ 							}
  							
  						} 
  					}

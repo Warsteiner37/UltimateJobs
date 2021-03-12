@@ -46,7 +46,7 @@ public class RewardHandler {
 				double final_exp = rechnung+exp;
 				
 				double current_exp = UltimateJobs.getData().getExp(""+uuid, job);
-				 test
+				 
 				p.giveExp(vanilla);
 				UltimateJobs.getData().setExp(""+uuid, job, current_exp+final_exp);
 				

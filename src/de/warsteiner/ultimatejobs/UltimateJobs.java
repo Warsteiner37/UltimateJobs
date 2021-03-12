@@ -37,6 +37,7 @@ import de.warsteiner.ultimatejobs.jobs.Job_Shepherd;
 import de.warsteiner.ultimatejobs.jobs.PlayerBlockPlaceEvent;
 import de.warsteiner.ultimatejobs.levels.LevelAPI;
 import de.warsteiner.ultimatejobs.levels.levelgui.LevelClickEvent;
+import de.warsteiner.ultimatejobs.quests.QuestClickEvent;
 import de.warsteiner.ultimatejobs.quests.QuestEvent;
 import de.warsteiner.ultimatejobs.quests.QuestGUI;
 import de.warsteiner.ultimatejobs.ranking.TopClickEvent_GlobalRanking;
@@ -293,6 +294,7 @@ if(UltimateJobs.getChatConfig().getCustomConfig().getBoolean("Enable_Chat")) {
 }
  if(UltimateJobs.getQuestAPI().getCustomConfig().getBoolean("Enable_Quests") ) {
 	 Bukkit.getPluginManager().registerEvents((Listener)new QuestEvent(), this);
+	 Bukkit.getPluginManager().registerEvents((Listener)new QuestClickEvent(), this);
 		Bukkit.getScheduler().runTaskAsynchronously(getPlugin(), new Runnable() {
 			 
 			@Override
