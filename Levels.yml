@@ -14,7 +14,7 @@ Use_Levels: true
 
 Options:
  
-  Title: true
+  Title: true 345
   
   Title_Config:
     First: "&8| &bLevelUP &8|"
