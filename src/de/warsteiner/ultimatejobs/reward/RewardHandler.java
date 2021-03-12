@@ -33,12 +33,20 @@ public class RewardHandler {
 				
 				double multi_for_money_2 = UltimateJobs.getLevelAPI().getMoneyMulti(job, ""+uuid, ""+UltimateJobs.getData().getLevel(""+uuid, job));
 			 
-				double rechnrung = money*multi_for_money-money;
+				double rechnrung = 0;
 		 
-				double money2 = money*multi_for_money_2-money;
-				 
+				if( UltimateJobs.getSkillsConfig().getCustomConfig().getBoolean("Enable_Skills") == true) {
+					rechnrung = money*multi_for_money;
+				}
+				double money2 =0;
+				
+				if( UltimateJobs.getLevelConfig().getCustomConfig().getBoolean("Use_Levels") == true) {
+					money2 =  money*multi_for_money_2;
+				}
+				
+	
 				double final_money = rechnrung+money+money2;
-			 
+
 				double multi_for_exp = UltimateJobs.getSkillAPI().getExpMulti(""+uuid);
 				
 				double rechnung = exp*multi_for_exp;
