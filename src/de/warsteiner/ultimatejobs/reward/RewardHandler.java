@@ -42,6 +42,8 @@ public class RewardHandler {
 				double multi_for_exp = UltimateJobs.getSkillAPI().getExpMulti(""+uuid);
 				
 				double rechnung = exp*multi_for_exp;
+				p.sendMessage("AAAAAAAAAAA");
+				
 				
 				double final_exp = rechnung+exp;
 				
