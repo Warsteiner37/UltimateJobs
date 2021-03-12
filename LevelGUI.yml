@@ -1,0 +1,240 @@
+# .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
+#| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
+#| |   _____      | || |  _________   | || | ____   ____  | || |  _________   | || |   _____      | || |    ______    | || | _____  _____ | || |     _____    | |
+#| |  |_   _|     | || | |_   ___  |  | || ||_  _| |_  _| | || | |_   ___  |  | || |  |_   _|     | || |  .' ___  |   | || ||_   _||_   _|| || |    |_   _|   | |
+#| |    | |       | || |   | |_  \_|  | || |  \ \   / /   | || |   | |_  \_|  | || |    | |       | || | / .'   \_|   | || |  | |    | |  | || |      | |     | |
+#| |    | |   _   | || |   |  _|  _   | || |   \ \ / /    | || |   |  _|  _   | || |    | |   _   | || | | |    ____  | || |  | '    ' |  | || |      | |     | |
+#| |   _| |__/ |  | || |  _| |___/ |  | || |    \ ' /     | || |  _| |___/ |  | || |   _| |__/ |  | || | \ `.___]  _| | || |   \ `--' /   | || |     _| |_    | |
+#| |  |________|  | || | |_________|  | || |     \_/      | || | |_________|  | || |  |________|  | || |  `._____.'   | || |    `.__.'    | || |    |_____|   | |
+#| |              | || |              | || |              | || |              | || |              | || |              | || |              | || |              | |
+#| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
+# '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
+
+Enable_LevelGUI: false
+
+Items:
+ 
+  #
+  # Here you can create unlimited items, with actions! 
+  #
+  # What means ACTION?
+  # By the action, you can choose what does this item does.
+  # For example: "COMMAND" executes an command
+  #
+  # Actions: "COMMAND", "CLOSE", "NOTHING", "MAINPAGE" , "NEXTPAGE", "BACKPAHE"
+  #
+  # Can i use skulls too?
+  # Yes! Replace you're material with the skull name and done! :)
+  # Use "<player>" for the skull of the player (his skin)
+
+  Main_Page:
+
+    Enabled: true
+ 
+    Material: "COMPASS"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 49
+    
+    Display: "&8- &cBack To Main Page &8-"  
+    
+    Action: "ACTION:MAINPAGE"
+    
+    Lore: 
+      - "&7Go to the main Page!"
+      
+  Close:
+
+    Enabled: true
+ 
+    Material: "RED_DYE"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 53
+    
+    Display: "&8- &cClose &8-"  
+    
+    Action: "ACTION:CLOSE"
+    
+    Lore: 
+      - "&7Close this GUI!"
+      
+  Info:
+
+    Enabled: true
+ 
+    Material: "<player>"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 0
+    
+    Display: "&8- &aJob Stats&8: <job> &8-"  
+    
+    Action: "ACTION:NOTHING"
+    
+    Lore: 
+      - "&8&m--------------------"
+      - "&8-> &7Level&8: &7#&b<level>"
+      - "&8-> &7Exp&8: &b<exp> &7Exp"
+      
+  Next_Page:
+
+    Enabled: true
+ 
+    Material: "MHF_ArrowRight"
+    
+    Lore_Option: false
+    
+    Enchanted: false
+    
+    Slot: 50
+    
+    Display: "&8- &aGo to next Page &8-"  
+    
+    Action: "ACTION:NEXTPAGE"
+    
+    Lore: 
+      - "&8&m--------------------"
+      - "&8-> &7Level&8: &7#&b<level>"
+      - "&8-> &7Exp&8: &b<exp> &7Exp"
+      
+  Back_Page:
+
+    Enabled: true
+ 
+    Material: "MHF_ArrowLeft"
+    
+    Lore_Option: false
+    
+    Enchanted: false
+    
+    Slot: 48
+    
+    Display: "&8- &aGo Back &8-"  
+    
+    Action: "ACTION:BACKPAHE"
+    
+    Lore: 
+      - "&8&m--------------------"
+      - "&8-> &7Level&8: &7#&b<level>"
+      - "&8-> &7Exp&8: &b<exp> &7Exp"
+       
+  LevelItems:
+  
+    Displays:
+    
+      Level_Reached: "&8- &aReached Level &8(&b<level>&8) &8-"
+      
+      Not_Reached: "&8- &cLevel Locked &8(&b<level>&8) &8-"
+      
+      Working: "&8- &eWorking on this Level &8(&b<level>&8)&8... &8-"
+      
+    Materials:
+      #
+      # You can use normal minecraft  block ids or skulls!
+      #
+      Level_Reached: "Green_Wool"
+     
+      Not_Reached: "Red_Wool"
+     
+      Working: "Yellow_Wool"
+     
+    Enchanted:
+    
+      Level_Reached: true
+      
+      Not_Reached: false
+      
+      Working: true
+      
+    Lore:
+    
+      Level_Reached:
+        - "&8You have reached this Level!"
+        
+      Not_Reached: 
+        - "&8This Level is locked!"
+        
+      Working: 
+        - "&8You are working on this Level!"
+        - "&7"
+        - "&8-> &7<exp>&8/&7<need> &7Exp"
+  
+Design:
+ 
+   Name: "&aLevels &8- Page &6#<page> &8- <job>"
+
+   Size: 6
+ 
+   Items:
+     - "Info"
+     - "Close"
+     - "Main_Page"
+     - "Back_Page"
+     - "Next_Page"
+ 
+   PlaceHolders: 
+     - "BLACK_STAINED_GLASS_PANE:36:&7" 
+     - "BLACK_STAINED_GLASS_PANE:37:&7"  
+     - "BLACK_STAINED_GLASS_PANE:38:&7" 
+     - "BLACK_STAINED_GLASS_PANE:39:&7"  
+     - "BLACK_STAINED_GLASS_PANE:40:&7" 
+     - "BLACK_STAINED_GLASS_PANE:41:&7"  
+     - "BLACK_STAINED_GLASS_PANE:42:&7" 
+     - "BLACK_STAINED_GLASS_PANE:43:&7"  
+     - "BLACK_STAINED_GLASS_PANE:44:&7"  
+     - "GRAY_STAINED_GLASS_PANE:1:&7"
+     - "GRAY_STAINED_GLASS_PANE:5:&7"
+     - "GRAY_STAINED_GLASS_PANE:10:&7"
+     - "GRAY_STAINED_GLASS_PANE:12:&7"
+     - "GRAY_STAINED_GLASS_PANE:14:&7"
+     - "GRAY_STAINED_GLASS_PANE:16:&7"
+     - "GRAY_STAINED_GLASS_PANE:21:&7"
+     - "GRAY_STAINED_GLASS_PANE:25:&7" 
+     - "GRAY_STAINED_GLASS_PANE:19:&7"
+     - "GRAY_STAINED_GLASS_PANE:23:&7"
+     - "GRAY_STAINED_GLASS_PANE:30:&7"
+     - "GRAY_STAINED_GLASS_PANE:34:&7" 
+ 
+   LevelSlots:
+     - "9"
+     - "18"
+     - "27"
+     - "28"
+     - "29"
+     - "20"
+     - "11"   
+     - "2"
+     - "3"
+     - "4"
+     - "13"
+     - "22"
+     - "31"
+     - "32"   
+     - "33"
+     - "24"
+     - "15"
+     - "6"
+     - "7"
+     - "8"   
+     - "17"
+     - "26" 
+     - "35"
+     
+Messages:
+ 
+   No_Next_Page: "&7There is no next page!"
+   
+   No_Back_Page: "&7There is no other page!"
+    
+
+ 

@@ -1,0 +1,11 @@
+main: de.warsteiner.ultimatejobs.UltimateJobs
+version: v1.4
+name: UltimateJobs
+author: Warsteiner37 
+website: ultimate-plugins.de
+api-version: 1.13
+ 
+commands:  
+  Jobs:
+    aliases: [job, work]
+     

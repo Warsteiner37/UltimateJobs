@@ -1,0 +1,300 @@
+# .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .-----------------. .----------------.   
+#| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |  
+#| |     ______   | || |     ____     | || | ____    ____ | || | ____    ____ | || |      __      | || | ____  _____  | || |  ________    | |  
+#| |   .' ___  |  | || |   .'    `.   | || ||_   \  /   _|| || ||_   \  /   _|| || |     /  \     | || ||_   \|_   _| | || | |_   ___ `.  | |  
+#| |  / .'   \_|  | || |  /  .--.  \  | || |  |   \/   |  | || |  |   \/   |  | || |    / /\ \    | || |  |   \ | |   | || |   | |   `. \ | |  
+#| |  | |         | || |  | |    | |  | || |  | |\  /| |  | || |  | |\  /| |  | || |   / ____ \   | || |  | |\ \| |   | || |   | |    | | | |  
+#| |  \ `.___.'\  | || |  \  `--'  /  | || | _| |_\/_| |_ | || | _| |_\/_| |_ | || | _/ /    \ \_ | || | _| |_\   |_  | || |  _| |___.' / | |  
+#| |   `._____.'  | || |   `.____.'   | || ||_____||_____|| || ||_____||_____|| || ||____|  |____|| || ||_____|\____| | || | |________.'  | |  
+#| |              | || |              | || |              | || |              | || |              | || |              | || |              | |  
+#| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |  
+# '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  
+#
+# Info: All Commands with a permission are useable with: "/Jobs admin <arg>"
+#
+
+TabComplete: true
+
+Options:
+ 
+  Admin:  
+    
+    Usage: "admin"
+    
+    Permission: "utj.tab.admin"
+    
+    Enabled: true
+    
+  Exp: 
+    
+    Usage: "exp"
+    
+    Enabled: true
+    
+  Level:   
+    
+    Usage: "level"
+    
+    Enabled: true
+ 
+  Stats:  
+    
+    Usage: "stats"
+    
+    Enabled: true
+    
+  Leave:  
+    
+    Usage: "leave"
+    
+    Enabled: true
+    
+  Help:  
+    
+    Usage: "help"
+    
+    Enabled: true
+    
+  SetExp:  
+    
+    Usage: "setexp"
+    
+    Permission: "utj.setexp"
+    
+    Enabled: true
+    
+  SetLevel:  
+    
+    Usage: "setlevel"
+    
+    Permission: "utj.setlevel"
+    
+    Enabled: true
+    
+  Version:  
+    
+    Usage: "version"
+    
+    Permission: "utj.version"
+    
+    Enabled: true
+    
+  RemoveJob:  
+    
+    Usage: "removejob"
+    
+    Permission: "utj.remove"
+    
+    Enabled: true
+    
+  Discord:  
+    
+    Usage: "discord"
+    
+    Permission: "utj.discord"
+    
+    Enabled: true
+    
+  AddJob:  
+    
+    Usage: "addjob"
+    
+    Permission: "utj.add"
+    
+    Enabled: true
+    
+  Reload:  
+    
+    Usage: "reload"
+    
+    Permission: "utj.reload"
+    
+    Enabled: true
+    
+  Skills: 
+    
+    #this is only useable if you enable the addon
+    
+    Usage: "skills"
+    
+    Enabled: false
+  
+  Levels:  
+    
+    #this is only useable if you enable the addon
+    
+    Usage: "levels"
+    
+    Enabled: true
+    
+  Quests:  
+    
+    #this is only useable if you enable the addon
+    
+    Usage: "quests"
+    
+    Enabled: true
+    
+  Top:  
+    
+    #this is only useable if you enable the addon
+    
+    Usage: "top"
+    
+    Enabled: true
+    
+Messages:
+
+  Usage: "&cUse /Jobs help!"
+  
+  No_Job: "&cYou are not in an Job!"
+  
+  Doesnt_Exist_Job: "&cThis Job doesnt exist!"
+    
+  Doesnt_Exist: "&3That player doesnt exist!"
+  
+  Exp_Self: "&7Level &b#<level> &8- &a<exp>&8/&c<need> &7Exp reached."
+  
+  Max_Self: "&aYou have reached the max Level in this Job! &8[&6<level>&8]"
+  
+  Max_Other: "&a<name> have reached the max level in the Job <job>&a. &8[&6<level>&8]"
+  
+  Exp_Other: "<name>&8: &7Level &b#<level> &8- &a<exp>&8/&c<need> &7Exp reached."
+  
+  Level_Self: "&7Level &b#<level> &8- &a<exp>&8/&c<need> &7Exp reached."
+  
+  Level_Other: "<name>&8: &7Level &b#<level> &8- &a<exp>&8/&c<need> &7Exp reached."
+  
+  Help: 
+    - "&8----&8 [ &3UltimateJobs &8- &aHelp &8] &8---"
+    - "&8-> &b/Jobs admin <version,discord>"
+    - "&8-> &b/Jobs admin <setexp,setlevel> <player> <int> <job>"
+    - "&8-> &b/Jobs admin <addjob,removejob> <player> <job>"
+    - "&8-> &b/Jobs admin <reload> <config>"
+    - "&8-> &b/Jobs exp <name>"
+    - "&8-> &b/Jobs level <name>"
+    - "&8-> &b/Jobs stats <name>"
+    - "&8-> &b/Jobs levels"
+    - "&8-> &b/Jobs top <job>"
+    - "&8-> &b/Jobs skills"
+    - "&8-> &b/Jobs quests"
+    - "&8----&8 [ &3UltimateJobs &8- &aHelp &8] &8---"
+  
+  Stats_State:
+  
+    Miner: 
+     
+      Name: "Blocks"
+      
+      Message: "Broken Blocks"
+      
+    Lumberjack: 
+     
+      Name: "Blocks"
+      
+      Message: "Broken Blocks"
+      
+    Builder: 
+     
+      Name: "Blocks"
+      
+      Message: "Placed Blocks"
+      
+    Digger: 
+     
+      Name: "Blocks"
+      
+      Message: "Broken Blocks"
+   
+    Milkman: 
+     
+      Name: "Buckets"
+      
+      Message: "Milked Cows"
+      
+    Crafter: 
+     
+      Name: "Items"
+      
+      Message: "Craftet Items"
+      
+    Fisherman: 
+     
+      Name: "Fishes"
+      
+      Message: "Fished Fishes"
+      
+    Shepherd: 
+     
+      Name: "Sheeps"
+      
+      Message: "Sheard Sheeps"
+   
+    CookingMaster: 
+     
+      Name: "Items"
+      
+      Message: "Cooked Items"
+      
+    FoodEater: 
+     
+      Name: "Items"
+      
+      Message: "Eaten Items"
+      
+    Hunter: 
+     
+      Name: "Kills"
+      
+      Message: "Killed Mobs"
+   
+    Farmer: 
+     
+      Name: "Items"
+      
+      Message: "Farmed Items"
+   
+    Baker: 
+     
+      Name: "Items"
+      
+      Message: "Created Items"
+  
+  Stats_Self: 
+    - "&8----&8 [ &7<job> &8] &8---"
+    - "&7Reached Level&8: &b#<level>"
+    - "&7<s>&8: &6<d> <id>"
+    - "&7Earned Money&8: &a$<m>"
+    - "&7Points&8: &e<p>"
+    - "&8----&8 [ &7<job> &8] &8---"
+    
+  Stats_Other: 
+    - "&8----&8 [ &7<job> &8- &7<name> &8] &8---"
+    - "&7Reached Level&8: &b#<level>"
+    - "&7<s>&8: &6<d> <id>"
+    - "&7Earned Money&8: &a$<m>"
+    - "&7Points&8: &e<p>"
+    - "&8----&8 [ &7<job> &8- &7<name> &8] &8---"
+ 
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+ 

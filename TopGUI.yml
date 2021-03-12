@@ -1,0 +1,363 @@
+# .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
+#| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
+#| |  _________   | || |     ____     | || |   ______     | || |    ______    | || | _____  _____ | || |     _____    | |
+#| | |  _   _  |  | || |   .'    `.   | || |  |_   __ \   | || |  .' ___  |   | || ||_   _||_   _|| || |    |_   _|   | |
+#| | |_/ | | \_|  | || |  /  .--.  \  | || |    | |__) |  | || | / .'   \_|   | || |  | |    | |  | || |      | |     | |
+#| |     | |      | || |  | |    | |  | || |    |  ___/   | || | | |    ____  | || |  | '    ' |  | || |      | |     | |
+#| |    _| |_     | || |  \  `--'  /  | || |   _| |_      | || | \ `.___]  _| | || |   \ `--' /   | || |     _| |_    | |
+#| |   |_____|    | || |   `.____.'   | || |  |_____|     | || |  `._____.'   | || |    `.__.'    | || |    |_____|   | |
+#| |              | || |              | || |              | || |              | || |              | || |              | |
+#| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
+# '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'
+
+Enable_Top: false
+ 
+# .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
+#| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
+#| |    ______    | || |   _____      | || |     ____     | || |   ______     | || |      __      | || |   _____      | |
+#| |  .' ___  |   | || |  |_   _|     | || |   .'    `.   | || |  |_   _ \    | || |     /  \     | || |  |_   _|     | |
+#| | / .'   \_|   | || |    | |       | || |  /  .--.  \  | || |    | |_) |   | || |    / /\ \    | || |    | |       | |
+#| | | |    ____  | || |    | |   _   | || |  | |    | |  | || |    |  __'.   | || |   / ____ \   | || |    | |   _   | |
+#| | \ `.___]  _| | || |   _| |__/ |  | || |  \  `--'  /  | || |   _| |__) |  | || | _/ /    \ \_ | || |   _| |__/ |  | |
+#| |  `._____.'   | || |  |________|  | || |   `.____.'   | || |  |_______/   | || ||____|  |____|| || |  |________|  | |
+#| |              | || |              | || |              | || |              | || |              | || |              | |
+#| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
+# '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
+
+#
+# this is only /jobs top and get count by points
+# 
+
+Top_Global: true
+
+Options_Global:
+
+  None: "&cNone Player"
+
+Items_Global:
+ 
+  #
+  # Here you can create unlimited items, with actions! 
+  #
+  # What means ACTION?
+  # By the action, you can choose what does this item does.
+  # For example: "COMMAND" executes an command
+  #
+  # Actions: "COMMAND", "CLOSE", "NOTHING", "MAINPAGE" 
+  #
+  # Can i use skulls too?
+  # Yes! Replace you're material with the skull name and done! :)
+  # Use "<player>" for the skull of the player (his skin)
+  
+  Main_Page:
+
+    Enabled: true
+ 
+    Material: "COMPASS"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 39
+    
+    Display: "&8- &cBack To Main Page &8-"  
+    
+    Action: "ACTION:MAINPAGE"
+    
+    Lore: 
+      - "&7Go to the main Page!"
+      
+  Close:
+
+    Enabled: true
+ 
+    Material: "RED_DYE"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 41
+    
+    Display: "&8- &cClose &8-"  
+    
+    Action: "ACTION:CLOSE"
+    
+    Lore: 
+      - "&7Close this GUI!"
+      
+  Top1:
+
+    Enabled: true
+ 
+    Material: "DIAMOND"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 22
+    
+    Display: "&b#1 <name>"  
+    
+    Action: "ACTION:TOP:1"
+    
+    Lore: 
+      - "&7Points&8: &c<points>"
+      
+  Top2:
+
+    Enabled: true
+ 
+    Material: "GOLD_INGOT"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 20
+    
+    Display: "&6#2 <name>"  
+    
+    Action: "ACTION:TOP:2"
+    
+    Lore: 
+      - "&7Points&8: &c<points>"
+      
+  Top3:
+
+    Enabled: true
+ 
+    Material: "IRON_INGOT"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 24
+    
+    Display: "&7#3 <name>"  
+    
+    Action: "ACTION:TOP:3"
+    
+    Lore: 
+      - "&7Points&8: &c<points>"
+      
+Design_Global:
+
+  Name: "&3Ranking&8: &6TOP Players"
+ 
+  Size: 5
+ 
+  Items: 
+    - "Close"
+    - "Main_Page"
+    - "Top1"
+    - "Top2"
+    - "Top3"
+  
+  #
+  # FORMAT: "MATERIAL:SLOT:DISPLAY"
+  #
+  
+  PlaceHolders: 
+    - "BLACK_STAINED_GLASS_PANE:0:&7" 
+    - "BLACK_STAINED_GLASS_PANE:1:&7" 
+    - "BLACK_STAINED_GLASS_PANE:2:&7"   
+    - "BLACK_STAINED_GLASS_PANE:3:&7" 
+    - "BLACK_STAINED_GLASS_PANE:4:&7" 
+    - "BLACK_STAINED_GLASS_PANE:5:&7" 
+    - "BLACK_STAINED_GLASS_PANE:6:&7" 
+    - "BLACK_STAINED_GLASS_PANE:7:&7" 
+    - "BLACK_STAINED_GLASS_PANE:8:&7" 
+    - "BLACK_STAINED_GLASS_PANE:9:&7" 
+    - "BLACK_STAINED_GLASS_PANE:17:&7" 
+    - "BLACK_STAINED_GLASS_PANE:18:&7" 
+    - "BLACK_STAINED_GLASS_PANE:26:&7" 
+    - "BLACK_STAINED_GLASS_PANE:27:&7" 
+    - "BLACK_STAINED_GLASS_PANE:35:&7" 
+    - "BLACK_STAINED_GLASS_PANE:36:&7" 
+    - "BLACK_STAINED_GLASS_PANE:37:&7" 
+    - "BLACK_STAINED_GLASS_PANE:38:&7" 
+    - "BLACK_STAINED_GLASS_PANE:39:&7" 
+    - "BLACK_STAINED_GLASS_PANE:40:&7" 
+    - "BLACK_STAINED_GLASS_PANE:41:&7" 
+    - "BLACK_STAINED_GLASS_PANE:42:&7" 
+    - "BLACK_STAINED_GLASS_PANE:43:&7" 
+    - "BLACK_STAINED_GLASS_PANE:44:&7" 
+
+# .----------------.  .----------------.  .----------------.  .----------------. 
+#| .--------------. || .--------------. || .--------------. || .--------------. |
+#| |     _____    | || |     ____     | || |   ______     | || |    _______   | |
+#| |    |_   _|   | || |   .'    `.   | || |  |_   _ \    | || |   /  ___  |  | |
+#| |      | |     | || |  /  .--.  \  | || |    | |_) |   | || |  |  (__ \_|  | |
+#| |   _  | |     | || |  | |    | |  | || |    |  __'.   | || |   '.___`-.   | |
+#| |  | |_' |     | || |  \  `--'  /  | || |   _| |__) |  | || |  |`\____) |  | |
+#| |  `.___.'     | || |   `.____.'   | || |  |_______/   | || |  |_______.'  | |
+#| |              | || |              | || |              | || |              | |
+#| '--------------' || '--------------' || '--------------' || '--------------' |
+# '----------------'  '----------------'  '----------------'  '----------------' 
+
+#
+# this is per job /jobs top <job> and counts by points in that job
+#
+
+Top_per_Job: true
+
+Options_Global:
+
+  None: "&cNone Player"
+
+Items_PerJob:
+ 
+  #
+  # Here you can create unlimited items, with actions! 
+  #
+  # What means ACTION?
+  # By the action, you can choose what does this item does.
+  # For example: "COMMAND" executes an command
+  #
+  # Actions: "COMMAND", "CLOSE", "NOTHING", "MAINPAGE" 
+  #
+  # Can i use skulls too?
+  # Yes! Replace you're material with the skull name and done! :)
+  # Use "<player>" for the skull of the player (his skin)
+  
+  Main_Page:
+
+    Enabked: true
+ 
+    Material: "COMPASS"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 39
+    
+    Display: "&8- &cBack To Main Page &8-"  
+    
+    Action: "ACTION:MAINPAGE"
+    
+    Lore: 
+      - "&7Go to the main Page!"
+      
+  Close:
+
+    Enabked: true
+ 
+    Material: "RED_DYE"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 41
+    
+    Display: "&8- &cClose &8-"  
+    
+    Action: "ACTION:CLOSE"
+    
+    Lore: 
+      - "&7Close this GUI!"
+      
+  Top1:
+
+    Enabked: true
+ 
+    Material: "DIAMOND"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 22
+    
+    Display: "&b#1 <name>"  
+    
+    Action: "ACTION:TOP:1"
+    
+    Lore: 
+      - "&7Points&8: &c<points>"
+      
+  Top2:
+
+    Enabked: true
+ 
+    Material: "GOLD_INGOT"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 20
+    
+    Display: "&6#2 <name>"  
+    
+    Action: "ACTION:TOP:2"
+    
+    Lore: 
+      - "&7Points&8: &c<points>"
+      
+  Top3:
+
+    Enabked: true
+ 
+    Material: "IRON_INGOT"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 24
+    
+    Display: "&7#3 <name>"  
+    
+    Action: "ACTION:TOP:3"
+    
+    Lore: 
+      - "&7Points&8: &c<points>"
+      
+Design_PerJob:
+
+  Name: "&3Ranking&8: <job>"
+ 
+  Size: 5
+ 
+  Items: 
+    - "Close"
+    - "Main_Page"
+    - "Top1"
+    - "Top2"
+    - "Top3"
+  
+  #
+  # FORMAT: "MATERIAL:SLOT:DISPLAY"
+  #
+  
+  PlaceHolders: 
+    - "BLACK_STAINED_GLASS_PANE:0:&7" 
+    - "BLACK_STAINED_GLASS_PANE:1:&7" 
+    - "BLACK_STAINED_GLASS_PANE:2:&7"   
+    - "BLACK_STAINED_GLASS_PANE:3:&7" 
+    - "BLACK_STAINED_GLASS_PANE:4:&7" 
+    - "BLACK_STAINED_GLASS_PANE:5:&7" 
+    - "BLACK_STAINED_GLASS_PANE:6:&7" 
+    - "BLACK_STAINED_GLASS_PANE:7:&7" 
+    - "BLACK_STAINED_GLASS_PANE:8:&7" 
+    - "BLACK_STAINED_GLASS_PANE:9:&7" 
+    - "BLACK_STAINED_GLASS_PANE:17:&7" 
+    - "BLACK_STAINED_GLASS_PANE:18:&7" 
+    - "BLACK_STAINED_GLASS_PANE:26:&7" 
+    - "BLACK_STAINED_GLASS_PANE:27:&7" 
+    - "BLACK_STAINED_GLASS_PANE:35:&7" 
+    - "BLACK_STAINED_GLASS_PANE:36:&7" 
+    - "BLACK_STAINED_GLASS_PANE:37:&7" 
+    - "BLACK_STAINED_GLASS_PANE:38:&7" 
+    - "BLACK_STAINED_GLASS_PANE:39:&7" 
+    - "BLACK_STAINED_GLASS_PANE:40:&7" 
+    - "BLACK_STAINED_GLASS_PANE:41:&7" 
+    - "BLACK_STAINED_GLASS_PANE:42:&7" 
+    - "BLACK_STAINED_GLASS_PANE:43:&7" 
+    - "BLACK_STAINED_GLASS_PANE:44:&7" 

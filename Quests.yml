@@ -1,0 +1,298 @@
+# .----------------.  .----------------.  .----------------.  .----------------.  .----------------.  .----------------. 
+#| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
+#| |    ___       | || | _____  _____ | || |  _________   | || |    _______   | || |  _________   | || |    _______   | |
+#| |  .'   '.     | || ||_   _||_   _|| || | |_   ___  |  | || |   /  ___  |  | || | |  _   _  |  | || |   /  ___  |  | |
+#| | /  .-.  \    | || |  | |    | |  | || |   | |_  \_|  | || |  |  (__ \_|  | || | |_/ | | \_|  | || |  |  (__ \_|  | |
+#| | | |   | |    | || |  | '    ' |  | || |   |  _|  _   | || |   '.___`-.   | || |     | |      | || |   '.___`-.   | |
+#| | \  `-'  \_   | || |   \ `--' /   | || |  _| |___/ |  | || |  |`\____) |  | || |    _| |_     | || |  |`\____) |  | |
+#| |  `.___.\__|  | || |    `.__.'    | || | |_________|  | || |  |_______.'  | || |   |_____|    | || |  |_______.'  | |
+#| |              | || |              | || |              | || |              | || |              | || |              | |
+#| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
+# '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
+
+Enable_Quests: true
+
+Time_Format: "%day% days %hours% hours %minutes% minutes %seconds% seconds"
+
+#in seconds
+# example: 14400 = 4 hours
+New_Quest: 14400  
+
+Get_Message_If_New_Quest: 
+
+  Enabled: true
+  
+  Message: "&7You got new quests!"
+   
+Get_Message_If_New_Quest_by_live_Update: 
+
+  Enabled: true
+  
+  Message: "&7You got new quests! :)"
+
+Get_Message_Wating_Time: 
+  
+  Enabled: true
+  
+  Message: "&7You will get new Quests in &e<new>&7!"
+
+Rewards: 
+  #
+  # What are the types or reward messages?
+  #
+  # "MESSAGE" -> send a message 
+  # "TITLE" -> send a title"
+ 
+  Reward_Type: "TITLE"
+  
+  Message:
+    
+    Message: "&eYou have completed the Quest <quest_id>!"
+  
+  Bossbar: 
+  
+    Message: "&cQuests &8- &7Completed Quest &e<quest_id>"
+    
+    Color: "GREEN"
+    
+    Style: "SEGMENTED_20"
+    
+    #20 ticks = 1 second
+    Time: 100
+ 
+  Title:
+  
+    First: "&8| &cQuests &8|"
+    
+    Second: "&7Completed Quest&8: &e<quest_id>"
+
+Quests:
+
+  Slots: 
+    - "20"
+    - "22"
+    - "24"
+  
+  Used:
+    - "Quest1"
+    - "Quest2"
+    - "Quest3"
+    - "Quest4" 
+    
+  #this only can show up if you add more quest slots
+  No_Quest_Found:
+  
+    Display: "&cNo Quest"
+    
+    Material: "BARRIER"
+    
+    Lore:
+      - "&8---------------"
+      - "&7We didnt found a quest for you! :("
+
+  Quest1:
+
+    Action: "Miner:100:STONE"
+    
+    Display: "&8× &7Quest&8: <job> &8×"
+    
+    #this shows if the player completes the quest
+    ID: "&7100 Stone Blocks"
+    
+    Material: "STONE"
+      
+    Reward: "COMMAND:eco give <player> 100"
+    
+    Lore: 
+      - "&8-------"
+      - "&7Break 100 Stone Blocks"
+      - "&c"
+      - "&7Progress&8:"
+      - " &8-> &b<complete>% &7Completed"
+      - " &8-> &a<has>&8/&a<need> &7Blocks"
+      
+  Quest2:
+
+    Action: "Miner:250:COBBLESTONE"
+    
+    Display: "&8× &7Quest&8: <job> &8×"
+    
+    Material: "COBBLESTONE"
+    
+    #this shows if the player completes the quest
+    ID: "&7250 Cobble Blocks"
+      
+    Reward: "COMMAND:eco give <player> 100"
+    
+    Lore: 
+      - "&8-------"
+      - "&7Break 250 Stone Blocks"
+      - "&c"
+      - "&7Progress&8:"
+      - " &8-> &b<complete>% &7Completed"
+      - " &8-> &a<has>&8/&a<need> &7Blocks"
+      
+  Quest3:
+
+    Action: "Lumberjack:50:OAK_LOG"
+    
+    Display: "&8× &7Quest&8: <job> &8×"
+    
+    Material: "OAK_LOG"
+    
+    #this shows if the player completes the quest
+    ID: "&750 Oak Logs "
+      
+    Reward: "COMMAND:eco give <player> 100"
+    
+    Lore: 
+      - "&8-------"
+      - "&7Break 50 Oak Logs Blocks"
+      - "&c"
+      - "&7Progress&8:"
+      - " &8-> &b<complete>% &7Completed"
+      - " &8-> &a<has>&8/&a<need> &7Blocks"
+      
+  Quest4:
+
+    Action: "Builder:15:QUARTZ_BLOCK"
+    
+    Display: "&8× &7Quest&8: <job> &8×"
+    
+    Material: "QUARTZ_BLOCK"
+    
+    #this shows if the player completes the quest
+    ID: "&715 Quartz Blocks"
+      
+    Reward: "COMMAND:eco give <player> 500"
+    
+    Lore: 
+      - "&8-------"
+      - "&7Place 15 Quartz Blocks"
+      - "&c"
+      - "&7Progress&8:"
+      - " &8-> &b<complete>% &7Completed"
+      - " &8-> &a<has>&8/&a<need> &7Blocks"
+    
+Items:
+ 
+  #
+  # Here you can create unlimited items, with actions! 
+  #
+  # What means ACTION?
+  # By the action, you can choose what does this item does.
+  # For example: "COMMAND" executes an command
+  #
+  # Actions: "COMMAND", "CLOSE", "NOTHING", "MAINPAGE" ,  
+  #
+
+  # Can i use skulls too?
+  # Yes! Replace you're material with the skull name and done! :)
+  # Use "<player>" for the skull of the player (his skin)
+ 
+  Close:
+
+    Enabled: true
+ 
+    Material: "RED_DYE"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 40
+    
+    Display: "&8- &cClose &8-"  
+    
+    Action: "ACTION:CLOSE"
+    
+    Lore: 
+      - "&7Close this GUI!"
+      
+  Info:
+
+    Enabled: true
+ 
+    Material: "<player>"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 4
+    
+    Display: "&8- &aDaily Quests &8-"  
+    
+    Action: "ACTION:DISPLAY_TIME"
+    
+    Lore: 
+      - "&8&m--------------------"
+      - "&7On this page you can find"
+      - "&7you're daily quests!"
+      - "&7"
+      - "&8-> &a<new>"
+ 
+Design:
+
+  Name: "&cYour Quests"
+ 
+  Size: 5
+ 
+  Items:
+    - "Info"
+    - "Close"  
+  
+  #
+  # FORMAT: "MATERIAL:SLOT:DISPLAY"
+  #
+  
+  PlaceHolders: 
+    - "BLACK_STAINED_GLASS_PANE:0:&7" 
+    - "BLACK_STAINED_GLASS_PANE:1:&7" 
+    - "BLACK_STAINED_GLASS_PANE:2:&7"
+    - "BLACK_STAINED_GLASS_PANE:3:&7"
+    - "BLACK_STAINED_GLASS_PANE:4:&7"
+    - "BLACK_STAINED_GLASS_PANE:5:&7"
+    - "BLACK_STAINED_GLASS_PANE:6:&7"
+    - "BLACK_STAINED_GLASS_PANE:7:&7"
+    - "BLACK_STAINED_GLASS_PANE:8:&7"
+    - "BLACK_STAINED_GLASS_PANE:9:&7"
+    - "BLACK_STAINED_GLASS_PANE:17:&7"
+    - "BLACK_STAINED_GLASS_PANE:18:&7"
+    - "BLACK_STAINED_GLASS_PANE:26:&7"
+    - "BLACK_STAINED_GLASS_PANE:27:&7"
+    - "BLACK_STAINED_GLASS_PANE:35:&7"
+    - "BLACK_STAINED_GLASS_PANE:36:&7"
+    - "BLACK_STAINED_GLASS_PANE:37:&7"
+    - "BLACK_STAINED_GLASS_PANE:38:&7"
+    - "BLACK_STAINED_GLASS_PANE:39:&7"
+    - "BLACK_STAINED_GLASS_PANE:40:&7"
+    - "BLACK_STAINED_GLASS_PANE:41:&7"
+    - "BLACK_STAINED_GLASS_PANE:42:&7"
+    - "BLACK_STAINED_GLASS_PANE:43:&7"
+    - "BLACK_STAINED_GLASS_PANE:44:&7"
+ 
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

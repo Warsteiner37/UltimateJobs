@@ -1,0 +1,214 @@
+# .----------------.  .----------------.  .----------------.  .-----------------. .----------------.  .----------------.  .----------------. 
+#| .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. || .--------------. |
+#| | ____    ____ | || |      __      | || |     _____    | || | ____  _____  | || |    ______    | || | _____  _____ | || |     _____    | |
+#| ||_   \  /   _|| || |     /  \     | || |    |_   _|   | || ||_   \|_   _| | || |  .' ___  |   | || ||_   _||_   _|| || |    |_   _|   | |
+#| |  |   \/   |  | || |    / /\ \    | || |      | |     | || |  |   \ | |   | || | / .'   \_|   | || |  | |    | |  | || |      | |     | |
+#| |  | |\  /| |  | || |   / ____ \   | || |      | |     | || |  | |\ \| |   | || | | |    ____  | || |  | '    ' |  | || |      | |     | |
+#| | _| |_\/_| |_ | || | _/ /    \ \_ | || |     _| |_    | || | _| |_\   |_  | || | \ `.___]  _| | || |   \ `--' /   | || |     _| |_    | |
+#| ||_____||_____|| || ||____|  |____|| || |    |_____|   | || ||_____|\____| | || |  `._____.'   | || |    `.__.'    | || |    |_____|   | |
+#| |              | || |              | || |              | || |              | || |              | || |              | || |              | |
+#| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
+# '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'
+
+Options:
+
+  Name: "&bUltimate Jobs"
+  
+  Size: 6
+  
+  #
+  # Choose by: "REOPEN", "CLOSE"
+  # 
+  
+  On_Click_Mode: "REOPEN"
+  
+  #
+  # Does the player gets instant moved in the job, if he buys it?
+  #
+   
+  Player_Gets_In_Job_If_Bought: false
+  
+  #
+  # If the player is in the Job an click again:
+  #
+  # Message == A Message comes
+  # More are in work
+  #
+  
+  PlayerIsInJobOption: "NESSAFE"
+  
+Items:
+
+  #
+  # Here you can create unlimited items, with actions! 
+  #
+  # What means ACTION?
+  # By the action, you can choose what does this item does.
+  # For example: "COMMAND" executes an command
+  #
+  # Actions: "COMMAND", "CLOSE", "NOTHING", "LEVELS", "SKILLS", "QUESTS"
+  #
+  # Can i use skulls too?
+  # Yes! Replace you're material with the skull name and done! :)
+  # Use "<player>" for the skull of the player (his skin)
+
+  Close_Button:
+  
+    Enabled: true
+    
+    Show_Only_If_InJob: false
+  
+    Material: "RED_DYE"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 53
+    
+    Display: "&8- &cClose &8-"  
+    
+    Action: "ACTION:CLOSE"
+    
+    Lore: 
+      - "&7You can edit this lore in the config!"
+      
+  Skills:
+  
+    Enabled: true
+    
+    Show_Only_If_InJob: false
+  
+    Material: "HONEY_BOTTLE"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 48
+    
+    Display: "&8- &aOpen Skills &8-"  
+    
+    Action: "ACTION:SKILLS"
+    
+    Lore: 
+      - "&7You can edit this lore in the config!"
+      
+  Levels:
+  
+    Enabled: true
+    
+    Show_Only_If_InJob: true
+  
+    Material: "COMPASS"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 49
+    
+    Display: "&8- &aOpen Levels &8-"  
+    
+    Action: "ACTION:LEVELS"
+    
+    Lore: 
+      - "&7You can edit this lore in the config!"
+      
+  Quests:
+  
+    Enabled: true
+    
+    Show_Only_If_InJob: false
+  
+    Material: "BOOK"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 50
+    
+    Display: "&8- &aOpen Quests &8-"  
+    
+    Action: "ACTION:QUESTS"
+    
+    Lore: 
+      - "&7You can edit this lore in the config!"
+            
+  Leave_Job:
+  
+    Enabled: true
+    
+    Show_Only_If_InJob: true
+  
+    Material: "BARRIER"
+    
+    Lore_Option: true
+    
+    Enchanted: false
+    
+    Slot: 45
+    
+    Display: "&8- &cLeave Job &8-"  
+    
+    Action: "ACTION:LEAVE"
+    
+    Lore: 
+      - "&7Leave your current Job!"
+      
+  Example_Button:
+  
+    Enabled: true
+    
+    Show_Only_If_InJob: false
+  
+    Material: "<player>"
+    
+    Lore_Option: true
+    
+    Enchanted: true
+    
+    Slot: 4
+    
+    Display: "&8- &bExample &8-"  
+    
+    Action: "ACTION:COMMAND:say hello"
+    
+    Lore: 
+      - "&7This Plugin is coded by &cWarsteiner37&7."
+  
+Design:
+
+  #
+  # Here you can add Items, which will be added in the main gui
+  #
+  # The names in the list are About this text
+  #
+
+  Used_Items:
+    - "Close_Button"
+    - "Example_Button"
+    - "Leave_Job"
+    - "Skills"
+    - "Levels" 
+    - "Quests"
+  
+  #
+  # FORMAT: "MATERIAL:SLOT:DISPLAY"
+  #
+  
+  PlaceHolders: 
+    - "BLACK_STAINED_GLASS_PANE:0:&7" 
+    - "BLACK_STAINED_GLASS_PANE:1:&7"  
+    - "BLACK_STAINED_GLASS_PANE:7:&7"  
+    - "BLACK_STAINED_GLASS_PANE:8:&7"  
+    - "BLACK_STAINED_GLASS_PANE:9:&7"  
+    - "BLACK_STAINED_GLASS_PANE:17:&7"  
+    - "BLACK_STAINED_GLASS_PANE:45:&7"  
+    - "BLACK_STAINED_GLASS_PANE:46:&7"   
+    - "BLACK_STAINED_GLASS_PANE:44:&7" 
+    - "BLACK_STAINED_GLASS_PANE:36:&7" 
+    - "BLACK_STAINED_GLASS_PANE:52:&7"  
+    - "BLACK_STAINED_GLASS_PANE:53:&7" 
+   

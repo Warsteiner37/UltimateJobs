@@ -1,0 +1,688 @@
+# .----------------.  .----------------.  .----------------.  .----------------. 
+#| .--------------. || .--------------. || .--------------. || .--------------. |
+#| |     _____    | || |     ____     | || |   ______     | || |    _______   | |
+#| |    |_   _|   | || |   .'    `.   | || |  |_   _ \    | || |   /  ___  |  | |
+#| |      | |     | || |  /  .--.  \  | || |    | |_) |   | || |  |  (__ \_|  | |
+#| |   _  | |     | || |  | |    | |  | || |    |  __'.   | || |   '.___`-.   | |
+#| |  | |_' |     | || |  \  `--'  /  | || |   _| |__) |  | || |  |`\____) |  | |
+#| |  `.___.'     | || |   `.____.'   | || |  |_______/   | || |  |_______.'  | |
+#| |              | || |              | || |              | || |              | |
+#| '--------------' || '--------------' || '--------------' || '--------------' |
+# '----------------'  '----------------'  '----------------'  '----------------'
+
+#
+# WHAT is the WorldMode?
+#
+# "public" means, that the world by Enabled_Worlds will checked
+# "job" means, that Enabled_Worlds doesnt will checked and you can give every job his own world for example: Miner_Worlds
+#
+
+WorldMode: "public"
+
+Enabled_Worlds:
+  - "world"
+
+#
+# How i can change the name of an job?
+#
+# Change the job "Display"!
+#
+# What means Job Permmssion?
+# If you have the permission, you dont have to pay for the job
+#
+
+Options:
+
+  Permissions_Support: false
+  
+  #Do you want to remove an Job?
+  # Remove that Job from the list!
+  #
+  # And Note: Dont change the names in the list!
+  #
+  
+  GUI:
+   - "Miner" 
+   - "Lumberjack"  
+   - "Builder"  
+   - "Digger" 
+   - "Milkman"  
+   - "Crafter"  
+   - "Fisherman"  
+   - "Shepherd" 
+   - "CookingMaster"  
+   - "FoodEater"  
+   - "Hunter"  
+   - "Farmer"  
+   - "Baker"  
+  
+  Item_Flags:
+    - "HIDE_ENCHANTS"
+    - "HIDE_ATTRIBUTES"
+    - "HIDE_UNBREAKABLE"
+  
+  States:
+    
+    Own_Job: "&8» &aYou own this Job!"
+    
+    Price: "&8» &7Buy this Job&8: &c<price> &7Dollars"
+    
+    In_Job: "&8» &bYou are in this Job!"
+
+#
+# Levels:
+# Can i execute multiplie commands? YES! :)
+#
+# An example for that is by the Miner Job
+# 
+# Other Types: "COMMAND", "MONEY", "EXP", "COMMAND_MAP"
+# 
+# WARNING: If you use the vanilla exp please note
+# the exp is not a complete level its only the EXP for an levelup! you cant use 0.0 for example!
+#
+# Do you want random rewards? https://docs.ultimate-plugins.de/support/faq
+# For example: use %50rd100% to get an int of an number between 50 and 100!
+#
+ 
+Baker:
+ 
+  Price: 15000
+  
+  Permission: "ultimatejobs.Baker"
+  
+  Icon: "BREAD"
+  
+  Color: "&2"
+  
+  Display: "Baker"
+  
+  Worlds:
+    - "world"
+  
+  Slot: 31
+
+  Description:
+    - "&8&m------------"
+    - "&6What you do&8:"
+    - "&7"
+    - "&7Make some great bread!"  
+    - "&7"
+    - "&7<state>"
+  
+  MAP_MINER:
+    - "give <player> diamond"
+    - "say hello" 
+    - "eco give <player> %50ri100%"
+    
+  Levels:  
+      #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
+    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "2:&aLevel II:100:1.05:EXP:1:1"
+    - "3:&9Level III:200:1.15:COMMAND:SAY <name> is now level 3!:1"
+    - "4:&cLevel IV:300:1.19:COMMAND_MAP:MAP_MINER:1"
+    - "MAX:&4&lMax Level:0:2"
+ 
+  #
+  #FORMAT: MODE:MATERIAL:MONEY:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS
+  # 
+ 
+  IDS:
+    - "BREAD:2:80:1.50:1:1"    
+    - "CAKE:1:80:1.50:1:1"    
+    - "COOKIE:1:80:1.50:1:1"    
+    - "MUSHROOM_STEW:1:80:1.50:1:1"     
+ 
+Farmer:
+ 
+  Price: 15000
+  
+  Permission: "ultimatejobs.farmer"
+  
+  Icon: "WOODEN_HOE"
+  
+  Color: "&b"
+  
+  Display: "Farmer"
+  
+  Worlds:
+    - "world"
+  
+  Slot: 30
+
+  Description:
+    - "&8&m------------"
+    - "&6What you do&8:"
+    - "&7"
+    - "&7Farm some good carrots!"  
+    - "&7"
+    - "&7<state>"
+  
+  MAP_MINER:
+    - "give <player> diamond"
+    - "say hello" 
+    
+  Levels:  
+      #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
+    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "2:&aLevel II:100:1.05:EXP:1:1"
+    - "3:&9Level III:200:1.15:COMMAND:SAY <name> is now level 3!:1"
+    - "4:&cLevel IV:300:1.19:COMMAND_MAP:MAP_MINER:1"
+    - "MAX:&4&lMax Level:0:2"
+ 
+  #
+  #FORMAT: MODE:MATERIAL:MONEY:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS
+  # 
+ 
+  IDS:
+    - "BEETROOTS:2:80:1.50:1:1"    
+    - "CARROTS:1:80:1.50:1:1"    
+    - "POTATOES:1:80:1.50:1:1"    
+    - "WHEAT:1:80:1.50:1:1"     
+
+Hunter:
+ 
+  Price: 30000
+  
+  Permission: "ultimatejobs.hunter"
+  
+  Icon: "IRON_SWORD"
+  
+  Color: "&c"
+  
+  Display: "Hunter"
+  
+  Worlds:
+    - "world"
+  
+  Slot: 29
+
+  Description:
+    - "&8&m------------"
+    - "&6What you do&8:"
+    - "&7"
+    - "&7Kill some bad monsters!"  
+    - "&7"
+    - "&7<state>"
+  
+  MAP_MINER:
+    - "give <player> diamond"
+    - "say hello" 
+    
+  Levels:  
+      #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
+    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "2:&aLevel II:100:1.05:EXP:1:1"
+    - "3:&9Level III:200:1.15:COMMAND:SAY <name> is now level 3!:1"
+    - "4:&cLevel IV:300:1.19:COMMAND_MAP:MAP_MINER:1"
+    - "MAX:&4&lMax Level:0:2"
+ 
+  #
+  #FORMAT: MODE:MATERIAL:MONEY:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS
+  # 
+  # Modes:
+  # "ID" = the minecraft id
+  # "DIS" = the displayname of the mob
+  #
+ 
+  IDS:
+    - "ID:ZOMBIE:2:50:1.50:1:1"    
+    - "DIS:&bBad Zombie:3:70:1.50:1:1"    
+
+FoodEater:
+ 
+  Price: 15000
+  
+  Permission: "ultimatejobs.FoodEater"
+  
+  Icon: "COOKED_BEEF"
+  
+  Color: "&6"
+  
+  Display: "Food Eater"
+  
+  Worlds:
+    - "world"
+  
+  Slot: 24
+
+  Description:
+    - "&8&m------------"
+    - "&6What you do&8:"
+    - "&7"
+    - "&7Eat some good Food!"  
+    - "&7"
+    - "&7<state>"
+  
+  MAP_MINER:
+    - "give <player> diamond"
+    - "say hello" 
+    
+  Levels:  
+      #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
+    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "2:&aLevel II:100:1.05:EXP:1:1"
+    - "3:&9Level III:200:1.15:COMMAND:SAY <name> is now level 3!:1"
+    - "4:&cLevel IV:300:1.19:COMMAND_MAP:MAP_MINER:1"
+    - "MAX:&4&lMax Level:0:2"
+ 
+  #
+  #FORMAT: MODE:MATERIAL:MONEY:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS
+  # 
+ 
+  IDS:
+    - "COOKED_BEEF:2:80:1.50:1:1"    
+    - "COOKED_CHICKEN:1:80:1.50:1:1"    
+
+CookingMaster:
+ 
+  Price: 15000
+  
+  Permission: "ultimatejobs.CookingMaster"
+  
+  Icon: "COAL"
+  
+  Color: "&8"
+  
+  Display: "Cooking Master"
+  
+  Worlds:
+    - "world"
+  
+  Slot: 23
+
+  Description:
+    - "&8&m------------"
+    - "&6What you do&8:"
+    - "&7"
+    - "&7Cook some &aSteaks&8, &aFishes"  
+    - "&7"
+    - "&7<state>"
+  
+  MAP_MINER:
+    - "give <player> diamond"
+    - "say hello" 
+    
+  Levels:  
+      #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
+    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "2:&aLevel II:100:1.05:EXP:1:1"
+    - "3:&9Level III:200:1.15:COMMAND:SAY <name> is now level 3!:1"
+    - "4:&cLevel IV:300:1.19:COMMAND_MAP:MAP_MINER:1"
+    - "MAX:&4&lMax Level:0:2"
+ 
+  #
+  #FORMAT: MODE:MATERIAL:MONEY:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS
+  # 
+ 
+  IDS:
+    - "COOKED_BEEF:5:80:1.50:1:1"    
+    - "COOKED_CHICKEN:5:80:1.50:1:1"   
+    - "COOKED_COD:5:80:1.50:1:1"   
+    - "COOKED_PORKCHOP:5:80:1.50:1:1"    
+
+Shepherd:
+ 
+  Price: 15000
+  
+  Permission: "ultimatejobs.Shepherd"
+  
+  Icon: "SHEARS"
+  
+  Color: "&f"
+  
+  Display: "Shepherd"
+  
+  Worlds:
+    - "world"
+  
+  Slot: 22
+
+  Description:
+    - "&8&m------------"
+    - "&6What you do&8:"
+    - "&7"
+    - "&7Shear some &fSheeps"  
+    - "&7"
+    - "&7<state>"
+  
+  MAP_MINER:
+    - "give <player> diamond"
+    - "say hello" 
+    
+  Levels:  
+      #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
+    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "2:&aLevel II:100:1.05:EXP:1:1"
+    - "3:&9Level III:200:1.15:COMMAND:SAY <name> is now level 3!:1"
+    - "4:&cLevel IV:300:1.19:COMMAND_MAP:MAP_MINER:1"
+    - "MAX:&4&lMax Level:0:2"
+ 
+  #
+  #FORMAT: MODE:MATERIAL:MONEY:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS
+  #
+  # Note: its going of the color WHITE Sheep = Color WHITE
+  #
+ 
+  IDS:
+    - "BLACK:5:80:1.50:1:1"     
+    - "RED:3:80:1.50:1:1"    
+    - "WHITE:1:80:1.50:1:1"   
+
+Fisherman:
+ 
+  Price: 15000
+  
+  Permission: "ultimatejobs.Fisherman"
+  
+  Icon: "FISHING_ROD"
+  
+  Color: "&b"
+  
+  Display: "Fisherman"
+  
+  Worlds:
+    - "world"
+  
+  Slot: 21
+
+  Description:
+    - "&8&m------------"
+    - "&6What you do&8:"
+    - "&7"
+    - "&7Fish some good fishes!"  
+    - "&7"
+    - "&7<state>"
+  
+  MAP_MINER:
+    - "give <player> diamond"
+    - "say hello" 
+    
+  Levels:  
+      #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
+    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "2:&aLevel II:100:1.05:EXP:1:1"
+    - "3:&9Level III:200:1.15:COMMAND:SAY <name> is now level 3!:1"
+    - "4:&cLevel IV:300:1.19:COMMAND_MAP:MAP_MINER:1"
+    - "MAX:&4&lMax Level:0:2"
+ 
+  #
+  #FORMAT: MODE:MATERIAL:MONEY:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS
+  #
+ 
+  IDS:
+    - "RAW_COD:10:80:1.50:1:1"     
+    - "RAW_SALMON:10:80:1.50:1:1"    
+    - "PUFFERFISH:10:80:1.50:1:1"   
+  
+Crafter:
+ 
+  Price: 15000
+  
+  Permission: "ultimatejobs.Crafter"
+  
+  Icon: "CRAFTING_TABLE"
+  
+  Color: "&a"
+  
+  Display: "Crafter"
+  
+  Worlds:
+    - "world"
+  
+  Slot: 20
+
+  Description:
+    - "&8&m------------"
+    - "&6What you do&8:"
+    - "&7"
+    - "&7Craft some Items:" 
+    - "&bDiamond Blocks&8, &6Sticks"
+    - "&7"
+    - "&7<state>"
+  
+  MAP_MINER:
+    - "give <player> diamond"
+    - "say hello" 
+    
+  Levels:  
+      #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
+    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "2:&aLevel II:100:1.05:EXP:1:1"
+    - "3:&9Level III:200:1.15:COMMAND:SAY <name> is now level 3!:1"
+    - "4:&cLevel IV:300:1.19:COMMAND_MAP:MAP_MINER:1"
+    - "MAX:&4&lMax Level:0:2"
+ 
+  #
+  #FORMAT: MODE:MATERIAL:MONEY:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS
+  #
+ 
+  IDS:
+    - "DIAMOND_BLOCK:19:80:1.50:1:1"    
+    - "STICK:3:80:1.50:1:1"    
+
+Milkman:
+ 
+  Price: 15000
+  
+  Permission: "ultimatejobs.Milkman"
+  
+  Icon: "BUCKET"
+  
+  Color: "&f"
+  
+  Display: "Milkman"
+  
+  Worlds:
+    - "world"
+  
+  Slot: 15
+
+  Description:
+    - "&8&m------------"
+    - "&6What you do&8:"
+    - "&7"
+    - "&7Milk some cute cows!" 
+    - "&7"
+    - "&7<state>"
+  
+  MAP_MINER:
+    - "give <player> diamond"
+    - "say hello" 
+    
+  Levels:  
+      #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
+    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "2:&aLevel II:100:1.05:EXP:1:1"
+    - "3:&9Level III:200:1.15:COMMAND:SAY <name> is now level 3!:1"
+    - "4:&cLevel IV:300:1.19:COMMAND_MAP:MAP_MINER:1"
+    - "MAX:&4&lMax Level:0:2"
+ 
+  #
+  #FORMAT: MODE:MATERIAL:MONEY:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS
+  #
+ 
+  IDS:
+    - "MILK_BUCKET:20:80:1.50:1:1"    
+
+Digger:
+ 
+  Price: 15000
+  
+  Permission: "ultimatejobs.digger"
+  
+  Icon: "IRON_SHOVEL"
+  
+  Color: "&e"
+  
+  Display: "Digger"
+  
+  Worlds:
+    - "world"
+  
+  Slot: 14
+
+  Description:
+    - "&8&m------------"
+    - "&6What you do&8:"
+    - "&7"
+    - "&7Break some Blocks:"
+    - "&fGravel&8, &eSand"
+    - "&7"
+    - "&7<state>"
+  
+  MAP_MINER:
+    - "give <player> diamond"
+    - "say hello" 
+    
+  Levels:  
+      #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
+    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "2:&aLevel II:100:1.05:EXP:1:1"
+    - "3:&9Level III:200:1.15:COMMAND:SAY <name> is now level 3!:1"
+    - "4:&cLevel IV:300:1.19:COMMAND_MAP:MAP_MINER:1"
+    - "MAX:&4&lMax Level:0:2"
+ 
+  #
+  #FORMAT: MODE:MATERIAL:MONEY:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS
+  #
+ 
+  IDS:
+    - "SAND:1:50:1.20:1:1"  
+    - "GRAVEL:1:50:1.20:1:1"  
+
+Builder:
+ 
+  Price: 15000
+  
+  Permission: "ultimatejobs.builder"
+  
+  Icon: "GRASS_BLOCK"
+  
+  Color: "&3"
+  
+  Display: "Builder"
+  
+  Worlds:
+    - "world"
+  
+  Slot: 13
+
+  Description:
+    - "&8&m------------"
+    - "&6What you do&8:"
+    - "&7"
+    - "&7Place some Blocks:"
+    - "&fQuartz Blocks"
+    - "&7"
+    - "&7<state>"
+  
+  MAP_MINER:
+    - "give <player> diamond"
+    - "say hello" 
+    
+  Levels:  
+      #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
+    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "2:&aLevel II:100:1.05:EXP:1:1"
+    - "3:&9Level III:200:1.15:COMMAND:SAY <name> is now level 3!:1"
+    - "4:&cLevel IV:300:1.19:COMMAND_MAP:MAP_MINER:1"
+    - "MAX:&4&lMax Level:0:2"
+ 
+  #
+  #FORMAT: MODE:MATERIAL:MONEY:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS
+  #
+ 
+  IDS:
+    - "QUARTZ_BLOCK:1:50:1.20:1:1"  
+
+Lumberjack:
+ 
+  Price: 15000
+  
+  Permission: "ultimatejobs.lumberjack"
+  
+  Icon: "WOODEN_AXE"
+  
+  Color: "&6"
+  
+  Display: "Lumberjack"
+  
+  Worlds:
+    - "world"
+  
+  Slot: 12
+
+  Description:
+    - "&8&m------------"
+    - "&6What you do&8:"
+    - "&7"
+    - "&7Break Blocks for example:"
+    - "&6Oak Logs"
+    - "&7"
+    - "&7<state>"
+  
+  MAP_MINER:
+    - "give <player> diamond"
+    - "say hello" 
+    
+  Levels:  
+      #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
+    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "2:&aLevel II:100:1.05:EXP:1:1"
+    - "3:&9Level III:200:1.15:COMMAND:SAY <name> is now level 3!:1"
+    - "4:&cLevel IV:300:1.19:COMMAND_MAP:MAP_MINER:1"
+    - "MAX:&4&lMax Level:0:2"
+ 
+  #
+  #FORMAT: MODE:MATERIAL:MONEY:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS
+  #
+ 
+  IDS:
+    - "STRIPPED_BIRCH_LOG:1:50:1.20:1:1" 
+    - "OAK_LOG:1:70:1.10:1:2"
+
+Miner:
+ 
+  Price: 15000
+  
+  Permission: "ultimatejobs.miner"
+  
+  Icon: "IRON_PICKAXE"
+  
+  Color: "&b"
+  
+  Display: "Miner"
+  
+  Worlds:
+    - "world"
+  
+  Slot: 11
+
+  Description:
+    - "&8&m------------"
+    - "&6What you do&8:"
+    - "&7"
+    - "&7Break Blocks for example:"
+    - "&bDiamonds&8, &cObsidian"
+    - "&7"
+    - "&7<state>"
+  
+  MAP_MINER:
+    - "give <player> diamond"
+    - "say hello" 
+    
+  Levels:  
+      #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
+    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "2:&aLevel II:100:1.05:EXP:1:1"
+    - "3:&9Level III:200:1.15:COMMAND:SAY <name> is now level 3!:1"
+    - "4:&cLevel IV:300:1.19:COMMAND_MAP:MAP_MINER:1"
+    - "MAX:&4&lMax Level:0:2"
+ 
+  #
+  #FORMAT: MODE:MATERIAL:MONEY:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS
+  #
+ 
+  IDS:
+    - "STONE:1:50:1.20:1:1" 
+ 

@@ -1,0 +1,37 @@
+# ___  ___  ___   _________  ___  _____ ______   ________  _________  _______         ___  ________  ________  ________      
+#|\  \|\  \|\  \ |\___   ___\\  \|\   _ \  _   \|\   __  \|\___   ___\\  ___ \       |\  \|\   __  \|\   __  \|\   ____\     
+#\ \  \\\  \ \  \\|___ \  \_\ \  \ \  \\\__\ \  \ \  \|\  \|___ \  \_\ \   __/|      \ \  \ \  \|\  \ \  \|\ /\ \  \___|_    
+# \ \  \\\  \ \  \    \ \  \ \ \  \ \  \\|__| \  \ \   __  \   \ \  \ \ \  \_|/__  __ \ \  \ \  \\\  \ \   __  \ \_____  \   
+#  \ \  \\\  \ \  \____\ \  \ \ \  \ \  \    \ \  \ \  \ \  \   \ \  \ \ \  \_|\ \|\  \\_\  \ \  \\\  \ \  \|\  \|____|\  \  
+#   \ \_______\ \_______\ \__\ \ \__\ \__\    \ \__\ \__\ \__\   \ \__\ \ \_______\ \________\ \_______\ \_______\____\_\  \ 
+#    \|_______|\|_______|\|__|  \|__|\|__|     \|__|\|__|\|__|    \|__|  \|_______|\|________|\|_______|\|_______|\_________\
+               
+#
+# PLEASE READ!!!!! IMPORTANT!!!!!!
+#
+# Befor you report bugs -> plase check our docs website for error codes or installation videos!
+# https://docs.ultimate-plugins.de
+#
+# Our discord: https://discord.ultimate-plugins.de
+#
+               
+Advanced:
+ 
+  Console_Logs: false
+  
+  #for example: json, yml
+  SavingFile: "yml"
+  
+  EventCancelByWorldGuard: false
+                        
+Plugin:
+
+  Format_Money: "0.00"
+  
+  Format_Exp: "0.00"
+  
+  #Do not change if you not sure!
+  Save_In: "plugins/UltimateJobs/data"
+  
+  Use_GUI: true
+   
