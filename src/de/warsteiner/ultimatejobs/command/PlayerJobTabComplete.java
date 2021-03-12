@@ -217,8 +217,9 @@ public class PlayerJobTabComplete  implements TabCompleter{
 			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
 				if(args[1].equalsIgnoreCase(tab.getString("Options.Reload.Usage"))) {
 					if(tab.getBoolean("Options.Reload.Enabled")) { 
+						l.add("chat.yml");
 						l.add("Command.yml");
-						l.add("config.yml");
+						 
 						l.add("Jobs.yml");
 						l.add("Levels.yml");
 						l.add("MainGUI.yml");
@@ -227,6 +228,9 @@ public class PlayerJobTabComplete  implements TabCompleter{
 						l.add("RewardHandler.yml");
 						l.add("Skills.yml");
 						l.add("LevelGUI.yml");
+						l.add("quests.yml");
+						l.add("top.yml");
+						l.add("sounds.yml");
 					}
 				}
 			}
