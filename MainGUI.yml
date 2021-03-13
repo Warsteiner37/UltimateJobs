@@ -17,10 +17,10 @@ Options:
   Size: 6
   
   #
-  # Choose by: "REOPEN", "CLOSE"
+  # Choose by: "UPDATE", "CLOSE"
   # 
   
-  On_Click_Mode: "REOPEN"
+  On_Click_Mode: "UPDATE"
   
   #
   # Does the player gets instant moved in the job, if he buys it?

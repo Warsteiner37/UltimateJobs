@@ -95,8 +95,7 @@ public class PlayerJobCommand implements CommandExecutor {
 				
 				
 				if(UltimateJobs.getPlugin().getConfig().getBoolean("Plugin.Use_GUI")) {
-			      Inventory inv = JobsGUIManager.load(p);
-			       p.openInventory(inv);
+					JobsGUIManager.open(p);
 				}
 			       return true;
 			       

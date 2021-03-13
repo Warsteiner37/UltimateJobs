@@ -61,8 +61,7 @@ public class TopClickEvent_JobRanking implements Listener {
 							 									
 							 								return;
 							 							}  else  if(w.equalsIgnoreCase("MAINPAGE")) {
-							 								 Inventory inv = JobsGUIManager.load(p);
-							 							       p.openInventory(inv);
+							 								JobsGUIManager.open(p);
 							 								return;
 							 							} else if(w.equalsIgnoreCase("COMMAND")) {
 							 								

@@ -82,8 +82,8 @@ FileConfiguration m = UltimateJobs.MessageHandler().getCustomConfig();
 							 
 							 new PlayerBuyJob(p);
 							 
-							 if (cfg.getString("Options.On_Click_Mode").equalsIgnoreCase("REOPEN")) {
-								 /*  69 */           p.openInventory(JobsGUIManager.load(p));
+							 if (cfg.getString("Options.On_Click_Mode").equalsIgnoreCase("UPDATE")) {
+								 /*  69 */            JobsGUIManager.updateJobs(p, p.getOpenInventory());
 								 /*     */         } else {
 								 /*  71 */           p.closeInventory();
 								 /*     */   }
@@ -109,8 +109,8 @@ FileConfiguration m = UltimateJobs.MessageHandler().getCustomConfig();
 							JobAPI.setJobActive(org_id, p, uuid);
 							new PlayerJobChange(p);
 							 p.sendMessage(prefix+m.getString("Joined").replaceAll("&", "§").replaceAll("<job>", displaynameofitem));
-							 if (cfg.getString("Options.On_Click_Mode").equalsIgnoreCase("REOPEN")) {
-								 /*  69 */           p.openInventory(JobsGUIManager.load(p));
+							 if (cfg.getString("Options.On_Click_Mode").equalsIgnoreCase("UPDATE")) {
+								 /*  69 */            JobsGUIManager.updateJobs(p, p.getOpenInventory());
 								 /*     */         } else {
 								 /*  71 */           p.closeInventory();
 								 /*     */   }
@@ -139,8 +139,9 @@ FileConfiguration m = UltimateJobs.MessageHandler().getCustomConfig();
  							} else if(w.equalsIgnoreCase("LEAVE")) {
  									JobAPI.setallJobsNotActive(p, uuid);
  								 p.sendMessage(prefix+m.getString("Job_Leave").replaceAll("&", "§").replaceAll("<job>", displaynameofitem));
- 								 if (cfg.getString("Options.On_Click_Mode").equalsIgnoreCase("REOPEN")) {
- 									 /*  69 */           p.openInventory(JobsGUIManager.load(p));
+ 								 if (cfg.getString("Options.On_Click_Mode").equalsIgnoreCase("UPDATE")) {
+ 									 /*  69 */                JobsGUIManager.updateJobs(p, p.getOpenInventory());
+ 									 JobsGUIManager.updateCustomItems(p,p.getOpenInventory());
  									 /*     */         } else {
  									 /*  71 */           p.closeInventory();
  									 /*     */   }

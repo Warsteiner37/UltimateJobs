@@ -295,10 +295,8 @@ if(UltimateJobs.getChatConfig().getCustomConfig().getBoolean("Enable_Chat")) {
  if(UltimateJobs.getQuestAPI().getCustomConfig().getBoolean("Enable_Quests") ) {
 	 Bukkit.getPluginManager().registerEvents((Listener)new QuestEvent(), this);
 	 Bukkit.getPluginManager().registerEvents((Listener)new QuestClickEvent(), this);
-		Bukkit.getScheduler().runTaskAsynchronously(getPlugin(), new Runnable() {
+ 
 			 
-			@Override
-			public void run() {
 			new BukkitRunnable(){
 		 
 
@@ -322,9 +320,8 @@ if(UltimateJobs.getChatConfig().getCustomConfig().getBoolean("Enable_Chat")) {
 			 
 	 }  .runTaskTimer(getPlugin(), 0, 20);
 		}
-		});
- 
- }
+	 
+  
  
 /*     */                         Bukkit.getConsoleSender().sendMessage("§8+------------------------------------+");
 /*     */                         Bukkit.getConsoleSender().sendMessage("            §3UltimateJobs");
