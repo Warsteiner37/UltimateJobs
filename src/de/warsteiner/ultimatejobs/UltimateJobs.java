@@ -22,6 +22,7 @@ import de.warsteiner.ultimatejobs.events.PlayerClickEventAtMainGUI;
 import de.warsteiner.ultimatejobs.events.PlayerEixstEvent;
 import de.warsteiner.ultimatejobs.events.PlayerLevelCheckEvent;
 import de.warsteiner.ultimatejobs.jobs.Job_Baker;
+import de.warsteiner.ultimatejobs.jobs.Job_BeeKeeper;
 import de.warsteiner.ultimatejobs.jobs.Job_Builder;
 import de.warsteiner.ultimatejobs.jobs.Job_CookingMaster;
 import de.warsteiner.ultimatejobs.jobs.Job_Crafter;
@@ -257,6 +258,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 				} 
 				if(jb.contains("Baker")) {
 					 Bukkit.getPluginManager().registerEvents((Listener)new Job_Baker(), this);
+				} 
+				if(jb.contains("BeeKeeper")) {
+					 Bukkit.getPluginManager().registerEvents((Listener)new Job_BeeKeeper(), this);
 				} 
 				 
 				 Bukkit.getPluginManager().registerEvents((Listener)new PlayerBlockPlaceEvent(), (Plugin)this);

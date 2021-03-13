@@ -29,20 +29,6 @@ import de.warsteiner.ultimatejobs.utils.RandomNumberHandler;
 import net.milkbowl.vault.economy.Economy;
 
 public class PlayerLevelCheckEvent implements Listener {
-	
-	/*     */   @EventHandler
-	/*     */   public void onRightClick(PlayerInteractEvent event) {
-	/*  89 */     Player player = event.getPlayer();
-	/*  90 */     Action action = event.getAction();
-	/*  91 */     Block clickedBlock = event.getClickedBlock();
- 
-	/*  97 */     if (action == Action.RIGHT_CLICK_BLOCK && clickedBlock != null && (
-	/*  98 */       clickedBlock.getType().equals(Material.BEEHIVE) || clickedBlock.getType().equals(Material.BEE_NEST)) && player.hasPermission("beesplus.beehive.view")) {
-	/*  99 */    BlockData bdata = clickedBlock.getBlockData();
-		  Beehive beehive = (Beehive)bdata; 
-		Bukkit.broadcastMessage("§c"+  beehive.getHoneyLevel());
-	/*     */     } 
-	/*     */   }
  
 	@EventHandler
 	public void onExpChange(PlayerLevelExpChangeEvent e) {
