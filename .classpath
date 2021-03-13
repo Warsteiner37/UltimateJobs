@@ -6,10 +6,10 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/hypas/Desktop/spigot-1.16.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/hypas/Desktop/worldedit-bukkit-7.2.0-dist.jar"/>
 	<classpathentry kind="lib" path="C:/Users/hypas/Desktop/worldguard-bukkit-7.0.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/hypas/Desktop/Vault.jar"/>
 	<classpathentry kind="lib" path="C:/Users/hypas/Desktop/PlaceholderAPI-2.10.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/hypas/Desktop/local/cache/patched_1.16.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

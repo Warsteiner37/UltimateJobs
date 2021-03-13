@@ -1,9 +1,9 @@
 main: de.warsteiner.ultimatejobs.UltimateJobs
-version: v1.4
+version: v1.5
 name: UltimateJobs
 author: Warsteiner37 
 website: ultimate-plugins.de
-api-version: 1.13
+api-version: 1.15
  
 commands:  
   Jobs:

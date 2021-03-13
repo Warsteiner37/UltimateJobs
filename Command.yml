@@ -259,6 +259,12 @@ Messages:
       Name: "Items"
       
       Message: "Created Items"
+      
+    BeeKeeper: 
+     
+      Name: "Bottles"
+      
+      Message: "Bottles Honey"
   
   Stats_Self: 
     - "&8----&8 [ &7<job> &8] &8---"
