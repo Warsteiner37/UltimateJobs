@@ -23,6 +23,7 @@ import de.warsteiner.ultimatejobs.events.PlayerEixstEvent;
 import de.warsteiner.ultimatejobs.events.PlayerLevelCheckEvent;
 import de.warsteiner.ultimatejobs.jobs.Job_Baker;
 import de.warsteiner.ultimatejobs.jobs.Job_BeeKeeper;
+ 
 import de.warsteiner.ultimatejobs.jobs.Job_Builder;
 import de.warsteiner.ultimatejobs.jobs.Job_CookingMaster;
 import de.warsteiner.ultimatejobs.jobs.Job_Crafter;
@@ -143,7 +144,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 			  flags.add("can-work-FoodEater"); 
 			  flags.add("can-work-CookingMaster");  
 			  flags.add("can-work-Artist"); 
-	 
+		 
 /*  81 */     File file = new File("plugins//WorldGuard.jar");
 /*  82 */     if (file.exists()) {
 /*  83 */       WG.load();
@@ -262,6 +263,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 				if(jb.contains("BeeKeeper")) {
 					 Bukkit.getPluginManager().registerEvents((Listener)new Job_BeeKeeper(), this);
 				} 
+ 
 				 
 				 Bukkit.getPluginManager().registerEvents((Listener)new PlayerBlockPlaceEvent(), (Plugin)this);
 				

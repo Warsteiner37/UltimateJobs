@@ -265,7 +265,8 @@ Messages:
       Name: "Bottles"
       
       Message: "Bottles Honey"
-  
+      
+ 
   Stats_Self: 
     - "&8----&8 [ &7<job> &8] &8---"
     - "&7Reached Level&8: &b#<level>"

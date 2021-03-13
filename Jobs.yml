@@ -56,7 +56,7 @@ Options:
    - "Farmer"  
    - "Baker"  
    - "BeeKeeper"
-  
+ 
   Item_Flags:
     - "HIDE_ENCHANTS"
     - "HIDE_ATTRIBUTES"
@@ -84,6 +84,7 @@ Options:
 # Do you want random rewards? https://docs.ultimate-plugins.de/support/faq
 # For example: use %50rd100% to get an int of an number between 50 and 100!
 #
+ 
 BeeKeeper:
  
   Price: 25000
