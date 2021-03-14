@@ -19,6 +19,7 @@ import org.bukkit.inventory.Inventory;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.config.CommandConfig;
+import de.warsteiner.ultimatejobs.editor.EditorMainGUI;
 import de.warsteiner.ultimatejobs.gui.JobsGUIManager;
 import de.warsteiner.ultimatejobs.levels.levelgui.LevelCreatingGUI;
 import de.warsteiner.ultimatejobs.quests.QuestGUI;
@@ -106,6 +107,12 @@ public class PlayerJobCommand implements CommandExecutor {
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
+				
+				if(!p.hasPermission(tab.getString("Options.Help.Permission"))) {
+					String a = m.getString("Prefix")+m.getString("No_Perm");
+					p.sendMessage(a.replaceAll("&", "§"));
+					return true;
+				}
 				 
 				List<String> a = tab.getStringList("Messages.Help");
 				
@@ -118,6 +125,12 @@ public class PlayerJobCommand implements CommandExecutor {
 				
 				if(!tab.getBoolean("Options.Leave.Enabled")) {
 					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
+					p.sendMessage(a.replaceAll("&", "§"));
+					return true;
+				}
+				
+				if(!p.hasPermission(tab.getString("Options.Leave.Permission"))) {
+					String a = m.getString("Prefix")+m.getString("No_Perm");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
@@ -141,6 +154,7 @@ public class PlayerJobCommand implements CommandExecutor {
 					return true;
 				} 
 				
+				
 				if(!UltimateJobs.getSkillsConfig().getCustomConfig().getBoolean("Enable_Skills")) {
 					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
 					p.sendMessage(a.replaceAll("&", "§"));
@@ -152,7 +166,13 @@ public class PlayerJobCommand implements CommandExecutor {
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
-				 
+				
+				if(!p.hasPermission(tab.getString("Options.Skills.Permission"))) {
+					String a = m.getString("Prefix")+m.getString("No_Perm");
+					p.sendMessage(a.replaceAll("&", "§"));
+					return true;
+				}
+				
 				p.openInventory(SkillsGUI.load(p));
 				 return true;
 			}  else if(args.length == 1 && args[0].equalsIgnoreCase(tab.getString("Options.Levels.Usage"))) {
@@ -168,6 +188,12 @@ public class PlayerJobCommand implements CommandExecutor {
 						p.sendMessage(a.replaceAll("&", "§"));
 						return true;
 				 }
+				 
+				 if(!p.hasPermission(tab.getString("Options.Levels.Permission"))) {
+						String a = m.getString("Prefix")+m.getString("No_Perm");
+						p.sendMessage(a.replaceAll("&", "§"));
+						return true;
+					}
 				
 				if(job.equalsIgnoreCase("None")) {
 					String a = m.getString("Prefix")+tab.getString("Messages.No_Job");
@@ -203,7 +229,11 @@ public class PlayerJobCommand implements CommandExecutor {
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
-				
+				if(!p.hasPermission(tab.getString("Options.Quests.Permission"))) {
+					String a = m.getString("Prefix")+m.getString("No_Perm");
+					p.sendMessage(a.replaceAll("&", "§"));
+					return true;
+				}
  
 
  openQuest(p);
@@ -224,6 +254,12 @@ public class PlayerJobCommand implements CommandExecutor {
 				
 				if(job.equalsIgnoreCase("None")) {
 					String a = m.getString("Prefix")+tab.getString("Messages.No_Job");
+					p.sendMessage(a.replaceAll("&", "§"));
+					return true;
+				}
+				
+				if(!p.hasPermission(tab.getString("Options.Exp.Permission"))) {
+					String a = m.getString("Prefix")+m.getString("No_Perm");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
@@ -260,6 +296,12 @@ public class PlayerJobCommand implements CommandExecutor {
 					return true;
 				}
 				
+				if(!p.hasPermission(tab.getString("Options.Level.Permission"))) {
+					String a = m.getString("Prefix")+m.getString("No_Perm");
+					p.sendMessage(a.replaceAll("&", "§"));
+					return true;
+				}
+				
 				int level = UltimateJobs.getData().getLevel(uuid, job);
 				String exp = UltimateJobs.getLevelAPI().getFormatedExp(job, uuid);
 				double need = UltimateJobs.getLevelAPI().getNeed(job, p.getUniqueId());
@@ -283,6 +325,12 @@ public class PlayerJobCommand implements CommandExecutor {
 				
 				if(job.equalsIgnoreCase("None")) {
 					String a = m.getString("Prefix")+tab.getString("Messages.No_Job");
+					p.sendMessage(a.replaceAll("&", "§"));
+					return true;
+				}
+				
+				if(!p.hasPermission(tab.getString("Options.Stats.Permission"))) {
+					String a = m.getString("Prefix")+m.getString("No_Perm");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
@@ -321,6 +369,12 @@ public class PlayerJobCommand implements CommandExecutor {
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
+				
+				if(!p.hasPermission(tab.getString("Options.Top.Permission"))) {
+					String a = m.getString("Prefix")+m.getString("No_Perm");
+					p.sendMessage(a.replaceAll("&", "§"));
+					return true;
+				}
 			 
 				 
 				p.openInventory(GlobalRankingGUI.load(p));
@@ -346,6 +400,12 @@ public class PlayerJobCommand implements CommandExecutor {
 					return true;
 				}
  
+				
+				if(!p.hasPermission(tab.getString("Options.Top.Permission"))) {
+					String a = m.getString("Prefix")+m.getString("No_Perm");
+					p.sendMessage(a.replaceAll("&", "§"));
+					return true;
+				}
 				String ar = args[1];
 				
 				if(JobAPI.fromDisplayWithOutColorToOrginalOD(ar).equalsIgnoreCase("NONE_FOUND")) {
@@ -371,6 +431,12 @@ public class PlayerJobCommand implements CommandExecutor {
 				
 				if(!UltimateJobs.getLevelConfig().getCustomConfig().getBoolean("Use_Levels")) {
 					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
+					p.sendMessage(a.replaceAll("&", "§"));
+					return true;
+				}
+				
+				if(!p.hasPermission(tab.getString("Options.Exp.Permission"))) {
+					String a = m.getString("Prefix")+m.getString("No_Perm");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
@@ -425,6 +491,12 @@ public class PlayerJobCommand implements CommandExecutor {
 					return true;
 				}
 				
+				if(!p.hasPermission(tab.getString("Options.Level.Permission"))) {
+					String a = m.getString("Prefix")+m.getString("No_Perm");
+					p.sendMessage(a.replaceAll("&", "§"));
+					return true;
+				}
+				
 					String name = args[1];
 				
 				if(UltimateJobs.getData().getUUIDByName(name) == null) {
@@ -468,6 +540,12 @@ public class PlayerJobCommand implements CommandExecutor {
 					return true;
 				}
 				
+				if(!p.hasPermission(tab.getString("Options.Stats.Permission"))) {
+					String a = m.getString("Prefix")+m.getString("No_Perm");
+					p.sendMessage(a.replaceAll("&", "§"));
+					return true;
+				}
+				
 				String name = args[1];
 				
 				if(UltimateJobs.getData().getUUIDByName(name) == null) {
@@ -475,6 +553,7 @@ public class PlayerJobCommand implements CommandExecutor {
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
+				
 				
 				UUID u = UUID.fromString(UltimateJobs.getData().getUUIDByName(name).toString());
 				
@@ -519,7 +598,7 @@ public class PlayerJobCommand implements CommandExecutor {
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
-				if(!p.hasPermission("Options.Version.Permission")) {
+				if(!p.hasPermission(tab.getString("Options.Version.Permission"))) {
 					String a = m.getString("Prefix")+m.getString("No_Perm");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
@@ -527,7 +606,25 @@ public class PlayerJobCommand implements CommandExecutor {
 				String c = m.getString("Prefix")+"§7This Server is running Version§8: §a§l"+UltimateJobs.getPlugin().getDescription().getVersion()+" §7with API§8: §b§l"+UltimateJobs.getPlugin().getDescription().getAPIVersion();
 				p.sendMessage(c.replaceAll("&", "§"));
 				
-			} else if(args.length == 2 && args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage")) 
+			}else if(args.length == 2 && args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage")) 
+					&& args[1].equalsIgnoreCase("gui")) {
+				
+				if(!tab.getBoolean("Options.Admin.Enabled")) {
+					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
+					p.sendMessage(a.replaceAll("&", "§"));
+					return true;
+				}
+				
+				if(!p.hasPermission("ultimatejobs.admin.permission")) {
+					String a = m.getString("Prefix")+m.getString("No_Perm");
+					p.sendMessage(a.replaceAll("&", "§"));
+					return true;
+				}
+				
+				p.openInventory(EditorMainGUI.load(p));
+				
+			}	else if(args.length == 2 && args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage")) 
+			 
 					&& args[1].equalsIgnoreCase(tab.getString("Options.Discord.Usage"))) {
 				
 				if(!tab.getBoolean("Options.Admin.Enabled")) {
@@ -540,7 +637,7 @@ public class PlayerJobCommand implements CommandExecutor {
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
-				if(!p.hasPermission("Options.Discord.Permission")) {
+				if(!p.hasPermission(tab.getString("Options.Discord.Permission"))) {
 					String a = m.getString("Prefix")+m.getString("No_Perm");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
@@ -562,7 +659,7 @@ public class PlayerJobCommand implements CommandExecutor {
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
-				if(!p.hasPermission("Options.Reload.Permission")) {
+				if(!p.hasPermission(tab.getString("Options.Reload.Permission"))) {
 					String a = m.getString("Prefix")+m.getString("No_Perm");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
@@ -597,7 +694,7 @@ public class PlayerJobCommand implements CommandExecutor {
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
-				if(!p.hasPermission("Options.SetExp.Permission")) {
+				if(!p.hasPermission(tab.getString("Options.SetExp.Permission"))) {
 					String a = m.getString("Prefix")+m.getString("No_Perm");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
@@ -655,7 +752,7 @@ public class PlayerJobCommand implements CommandExecutor {
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
-				if(!p.hasPermission("Options.SetLevel.Permission")) {
+				if(!p.hasPermission(tab.getString("Options.SetLevel.Permission"))) {
 					String a = m.getString("Prefix")+m.getString("No_Perm");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
@@ -715,7 +812,7 @@ public class PlayerJobCommand implements CommandExecutor {
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
-				if(!p.hasPermission("Options.AddJob.Permission")) {
+				if(!p.hasPermission(tab.getString("Options.AddJob.Permission"))) {
 					String a = m.getString("Prefix")+m.getString("No_Perm");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
@@ -768,7 +865,7 @@ public class PlayerJobCommand implements CommandExecutor {
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
-				if(!p.hasPermission("Options.RemoveJob.Permission")) {
+				if(!p.hasPermission(tab.getString("Options.RemoveJob.Permission"))) {
 					String a = m.getString("Prefix")+m.getString("No_Perm");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;

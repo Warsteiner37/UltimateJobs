@@ -29,11 +29,15 @@ Options:
     
     Usage: "exp"
     
+    Permission: "utj.exp"
+    
     Enabled: true
     
   Level:   
     
     Usage: "level"
+    
+    Permission: "utj.level"
     
     Enabled: true
  
@@ -41,17 +45,23 @@ Options:
     
     Usage: "stats"
     
+    Permission: "utj.stats"
+    
     Enabled: true
     
   Leave:  
     
     Usage: "leave"
     
+    Permission: "utj.leave"
+    
     Enabled: true
     
   Help:  
     
     Usage: "help"
+    
+    Permission: "utj.help"
     
     Enabled: true
     
@@ -117,6 +127,8 @@ Options:
     
     Usage: "skills"
     
+    Permission: "utj.skills"
+    
     Enabled: false
   
   Levels:  
@@ -124,6 +136,8 @@ Options:
     #this is only useable if you enable the addon
     
     Usage: "levels"
+    
+    Permission: "utj.levels.gui"
     
     Enabled: true
     
@@ -133,6 +147,8 @@ Options:
     
     Usage: "quests"
     
+    Permission: "utj.quests"
+    
     Enabled: true
     
   Top:  
@@ -140,6 +156,8 @@ Options:
     #this is only useable if you enable the addon
     
     Usage: "top"
+    
+    Permission: "utj.top"
     
     Enabled: true
     
