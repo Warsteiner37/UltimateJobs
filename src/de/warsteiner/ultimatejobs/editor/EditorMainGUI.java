@@ -12,6 +12,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.plugin.Plugin;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
@@ -26,23 +27,92 @@ public class EditorMainGUI {
  
 Bukkit.getScheduler().runTaskAsynchronously((Plugin) UltimateJobs.getPlugin(), new Runnable() {
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void run() {
  
  
  
  
-			/* 41 */ ItemStack item = new ItemStack(Material.ACACIA_BOAT, 1);
+			/* 41 */ ItemStack item = new ItemStack(Material.BLACK_STAINED_GLASS_PANE, 1);
 			/* 42 */ ItemMeta meta = item.getItemMeta();
-			/* 43 */ meta.setDisplayName("§ctest");
+			/* 43 */ meta.setDisplayName("§c ");
 			/* 44 */ item.setItemMeta(meta);
 			/*     */
+					inv.setItem(0, item);
 					inv.setItem(1, item);
+					inv.setItem(2, item);
+					inv.setItem(3, item);
+					inv.setItem(4, item);
+					inv.setItem(5, item);
+					inv.setItem(6, item);
+					inv.setItem(7, item);
+					inv.setItem(8, item);
+					inv.setItem(9, item);
+					inv.setItem(17, item);
+					inv.setItem(18, item);
+					inv.setItem(26, item);
+					inv.setItem(27, item);
+					inv.setItem(35, item);
+					inv.setItem(36, item);
+					inv.setItem(37, item);
+					inv.setItem(38, item);
+					inv.setItem(39, item);
+					inv.setItem(40, item);
+					inv.setItem(41, item);
+					inv.setItem(42, item);
+					inv.setItem(43, item);
+					inv.setItem(44, item);
+			 
+					/* 41 */ ItemStack dc = generateSkull("Mhf_Discord");
+					/* 42 */ ItemMeta mdc = dc.getItemMeta();
+					/* 43 */ mdc.setDisplayName("§8< §7Join our Discord §8>");
+					
+							ArrayList<String> dclore = new ArrayList<String>();
+							dclore.add("§8-> §9https://discord.ultimate-plugins.de");
+							mdc.setLore(dclore);
+					
+					/* 44 */ dc.setItemMeta(mdc);
+					/*     */
+							inv.setItem(39, dc);
   
+							ItemStack dw = generateSkull("Earth");
+							/* 42 */ ItemMeta mdw = dw.getItemMeta();
+							/* 43 */ mdw.setDisplayName("§8< §7Visit the Download Page §8>");
+							ArrayList<String> dwlore = new ArrayList<String>();
+							dwlore.add("§8-> §6https://github.com/Warsteiner37/UltimateJobs");
+							mdw.setLore(dwlore);
+							
+							/* 44 */ dw.setItemMeta(mdw);
+							/*     */
+									inv.setItem(41, dw);
+							
 		
 	}
 });
 return inv;
 	}
 
+	public static ItemStack generateSkull(String owner) {
+		/* 156 */     ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD);
+		/* 157 */     SkullMeta skullMeta = (SkullMeta)itemStack.getItemMeta();
+		/* 158 */     skullMeta.setOwner(owner);
+		/* 159 */     itemStack.setItemMeta((ItemMeta)skullMeta);
+		/* 160 */     return itemStack;
+		/*     */   }
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
