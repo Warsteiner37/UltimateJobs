@@ -35,42 +35,60 @@ public class PlayerJobTabComplete  implements TabCompleter{
 			}
 			
 			if(tab.getBoolean("Options.Help.Enabled")) {
+				if(p.hasPermission(tab.getString("Options.Help.Permission"))) {
 				l.add(tab.getString("Options.Help.Usage"));
+				}
 			}
 			if(tab.getBoolean("Options.Quests.Enabled")) {
 				if(UltimateJobs.getQuestAPI().getCustomConfig().getBoolean("Enable_Quests")) {
+					if(p.hasPermission(tab.getString("Options.Quests.Permission"))) {
 				l.add(tab.getString("Options.Quests.Usage"));
+					}
 				}
 			}
 			if(UltimateJobs.getSkillsConfig().getCustomConfig().getBoolean("Enable_Skills")) {
 				if(tab.getBoolean("Options.Skills.Enabled")) {
+					if(p.hasPermission(tab.getString("Options.Skills.Permission"))) {
 					l.add(tab.getString("Options.Skills.Usage"));
+					}
 				}
 			}
 			if(UltimateJobs.getTopConfig().getCustomConfig().getBoolean("Enable_Top")) {
 				if(tab.getBoolean("Options.Top.Enabled")) {
+					if(p.hasPermission(tab.getString("Options.Top.Permission"))) {
 					l.add(tab.getString("Options.Top.Usage"));
+					}
 				}
 			}
  
 			if(!UltimateJobs.getData().currentjob(p.getUniqueId()).equalsIgnoreCase("None")) {
 				if(UltimateJobs.getLevelConfig().getCustomConfig().getBoolean("Use_Levels")) {
 				if(tab.getBoolean("Options.Exp.Enabled")) {
+					if(p.hasPermission(tab.getString("Options.Exp.Permission"))) {
 					l.add(tab.getString("Options.Exp.Usage"));
+					}
 				}
 				if(tab.getBoolean("Options.Levels.Enabled")) {
+					if(p.hasPermission(tab.getString("Options.Levels.Permission"))) {
 					l.add(tab.getString("Options.Levels.Usage"));
+					}
 				}
 				if(tab.getBoolean("Options.Level.Enabled")) {
+					if(p.hasPermission(tab.getString("Options.Level.Permission"))) {
 					l.add(tab.getString("Options.Level.Usage"));
+					}
 				}
 				}
 				if(tab.getBoolean("Options.Stats.Enabled")) {
+					if(p.hasPermission(tab.getString("Options.Stats.Permission"))) {
 					l.add(tab.getString("Options.Stats.Usage"));
+					}
 				}
 			 
 				if(tab.getBoolean("Options.Leave.Enabled")) {
+					if(p.hasPermission(tab.getString("Options.Leave.Permission"))) {
 					l.add(tab.getString("Options.Leave.Usage"));
+					}
 				}
 			}
 			
@@ -80,29 +98,29 @@ public class PlayerJobTabComplete  implements TabCompleter{
 			 
 			if(tab.getBoolean("Options.Exp.Enabled")) { 
 				if(args[0].equalsIgnoreCase(tab.getString("Options.Exp.Usage"))) {
-					
+					if(p.hasPermission(tab.getString("Options.Exp.Permission"))) {
 					for(Player oo : b) {
 						l.add(oo.getName());
 					}
-					 
+					}
 				}
 			}
 			if(tab.getBoolean("Options.Level.Enabled")) { 
 				if(args[0].equalsIgnoreCase(tab.getString("Options.Level.Usage"))) {
-					
+					if(p.hasPermission(tab.getString("Options.Level.Permission"))) {
 					for(Player oo : b) {
 						l.add(oo.getName());
 					}
-					 
+					}
 				}
 			}
 			if(tab.getBoolean("Options.Stats.Enabled")) { 
 				if(args[0].equalsIgnoreCase(tab.getString("Options.Stats.Usage"))) {
-					
+					if(p.hasPermission(tab.getString("Options.Stats.Permission"))) {
 					for(Player oo : b) {
 						l.add(oo.getName());
 					}
-					 
+					}
 				}
 			}
 			
@@ -110,12 +128,13 @@ public class PlayerJobTabComplete  implements TabCompleter{
 				if(UltimateJobs.getTopConfig().getCustomConfig().getBoolean("Enable_Top")) {
 				if(UltimateJobs.getTopConfig().getCustomConfig().getBoolean("Top_per_Job")) {
 						if(args[0].equalsIgnoreCase(tab.getString("Options.Top.Usage"))) {
-						
+							if(p.hasPermission(tab.getString("Options.Top.Permission"))) {
 							List<String> a = JobAPI.getJobsAsCustomDisplay();
 							for(String d : a) {
 								l.add(d);
 							}
 					}
+						}
 				}
 				}
 			}
@@ -224,6 +243,7 @@ public class PlayerJobTabComplete  implements TabCompleter{
 			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
 				if(args[1].equalsIgnoreCase(tab.getString("Options.Reload.Usage"))) {
 					if(tab.getBoolean("Options.Reload.Enabled")) { 
+						if(p.hasPermission(tab.getString("Options.Reload.Permission"))) {
 						l.add("chat.yml");
 						l.add("Command.yml");
 						 
@@ -239,7 +259,7 @@ public class PlayerJobTabComplete  implements TabCompleter{
 						l.add("top.yml");
 						l.add("sounds.yml");
 					}
-				}
+				}}
 			}
 			
 			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
@@ -247,8 +267,10 @@ public class PlayerJobTabComplete  implements TabCompleter{
 						|| args[1].equalsIgnoreCase(tab.getString("Options.SetLevel.Usage"))
 						|| args[1].equalsIgnoreCase(tab.getString("Options.AddJob.Usage"))
 						|| args[1].equalsIgnoreCase(tab.getString("Options.RemoveJob.Usage"))) {
+					if(p.hasPermission(tab.getString("Options.Admin.Permission"))) {
 					for(Player oo : b) {
 						l.add(oo.getName());
+					}
 					}
 				}
 				 
@@ -258,11 +280,12 @@ public class PlayerJobTabComplete  implements TabCompleter{
 			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
 				if(args[1].equalsIgnoreCase(tab.getString("Options.AddJob.Usage"))
 						|| args[1].equalsIgnoreCase(tab.getString("Options.RemoveJob.Usage"))) {
+					if(p.hasPermission(tab.getString("Options.Admin.Permission"))) {
 					List<String> a = JobAPI.getJobsAsConfigID();
 					for(String d : a) {
 						l.add(d);
 					}
-				}
+					}				}
 			}		
 		}
 		
