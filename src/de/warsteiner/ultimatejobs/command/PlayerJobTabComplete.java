@@ -122,7 +122,7 @@ public class PlayerJobTabComplete  implements TabCompleter{
 		  
 			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
 		 
-				if(p.hasPermission("Options.SetExp.Permission")) {
+				if(p.hasPermission(tab.getString("Options.SetExp.Permission"))) {
 				 
 					if(tab.getBoolean("Options.SetExp.Enabled")) { 
 				    
@@ -136,7 +136,7 @@ public class PlayerJobTabComplete  implements TabCompleter{
 			  
 			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
 		 
-				if(p.hasPermission("Options.Reload.Permission")) {
+				if(p.hasPermission(tab.getString("Options.Reload.Permission"))) {
 				 
 					if(tab.getBoolean("Options.Reload.Enabled")) { 
 				    
@@ -149,7 +149,7 @@ public class PlayerJobTabComplete  implements TabCompleter{
 			
 			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
 				 
-				if(p.hasPermission("Options.SetLevel.Permission")) {
+				if(p.hasPermission(tab.getString("Options.SetLevel.Permission"))) {
 				 
 					if(tab.getBoolean("Options.SetLevel.Enabled")) { 
 				    
@@ -162,7 +162,7 @@ public class PlayerJobTabComplete  implements TabCompleter{
 			
 			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
 				 
-				if(p.hasPermission("Options.Discord.Permission")) {
+				if(p.hasPermission(tab.getString("Options.Discord.Permission"))) {
 				 
 					if(tab.getBoolean("Options.Discord.Enabled")) { 
 				    
@@ -175,7 +175,7 @@ public class PlayerJobTabComplete  implements TabCompleter{
 			
 			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
 				 
-				if(p.hasPermission("Options.Version.Permission")) {
+				if(p.hasPermission(tab.getString("Options.Version.Permission"))) {
 				 
 					if(tab.getBoolean("Options.Version.Enabled")) { 
 				    
@@ -188,7 +188,7 @@ public class PlayerJobTabComplete  implements TabCompleter{
 			
 			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
 				 
-				if(p.hasPermission("Options.AddJob.Permission")) {
+				if(p.hasPermission(tab.getString("Options.AddJob.Permission"))) {
 				 
 					if(tab.getBoolean("Options.AddJob.Enabled")) { 
 				    
@@ -201,7 +201,14 @@ public class PlayerJobTabComplete  implements TabCompleter{
 			
 			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
 				 
-				if(p.hasPermission("Options.RemoveJob.Permission")) {
+				if(p.hasPermission("ultimatejobs.admin.permission")) {
+					l.add("gui");
+				}
+			}
+			
+			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
+				 
+				if(p.hasPermission(tab.getString("Options.RemoveJob.Permission"))) {
 				 
 					if(tab.getBoolean("Options.RemoveJob.Enabled")) { 
 				    
