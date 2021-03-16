@@ -39,11 +39,11 @@ public class RewardHandler {
 					rechnrung = money*multi_for_money;
 				}
 				double money2 =0;
-				
+				p.setExp(points);
 				if( UltimateJobs.getLevelConfig().getCustomConfig().getBoolean("Use_Levels") == true) {
 					money2 =  money*multi_for_money_2;
 				}
-				
+		 
 	
 				double final_money = rechnrung+money+money2;
 

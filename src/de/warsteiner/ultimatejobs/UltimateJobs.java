@@ -18,6 +18,7 @@ import de.warsteiner.ultimatejobs.config.RewardConfig;
 import de.warsteiner.ultimatejobs.config.SkillsConfug;
 import de.warsteiner.ultimatejobs.config.SoundConfig;
 import de.warsteiner.ultimatejobs.config.TopGUI;
+import de.warsteiner.ultimatejobs.editor.events.EditorMainPageEvent;
 import de.warsteiner.ultimatejobs.events.PlayerClickEventAtMainGUI;
 import de.warsteiner.ultimatejobs.events.PlayerEixstEvent;
 import de.warsteiner.ultimatejobs.events.PlayerLevelCheckEvent;
@@ -218,7 +219,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 /*     */     
 /* 138 */     Bukkit.getPluginManager().registerEvents((Listener)new PlayerEixstEvent(), (Plugin)this);
 				Bukkit.getPluginManager().registerEvents((Listener)new PlayerClickEventAtMainGUI(), (Plugin)this);
-			 
+				Bukkit.getPluginManager().registerEvents((Listener)new EditorMainPageEvent(), (Plugin)this);
 				List<String> jb = jobs.getCustomConfig().getStringList("Options.GUI");
 /*     */     
 				if(jb.contains("Miner")) {

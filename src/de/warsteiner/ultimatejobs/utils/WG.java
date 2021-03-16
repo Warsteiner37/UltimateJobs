@@ -64,10 +64,11 @@ import de.warsteiner.ultimatejobs.UltimateJobs;
 /*    */           break;
 /*    */         } 
 /*    */       }  
-/* 65 */     if (state.equals("DENY"))
-/* 66 */       return false; 
-/* 67 */     if (state.equals("ALLOW"))
-/* 68 */       return true; 
+/* 65 */   
+/* 67 */     if (state.equals("ALLOW"))  {
+	  return true; 
+}
+/* 68 */      
 /* 69 */     return false;
 /*    */   }
 /*    */ }

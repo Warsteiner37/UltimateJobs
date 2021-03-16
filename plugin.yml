@@ -3,7 +3,7 @@ version: v1.5.1
 name: UltimateJobs
 author: Warsteiner37 
 website: ultimate-plugins.de
-api-version: 1.15
+api-version: 1.13
  
 commands:  
   Jobs:

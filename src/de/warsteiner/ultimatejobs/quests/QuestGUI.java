@@ -25,7 +25,7 @@ import de.warsteiner.ultimatejobs.utils.JobAPI;
 public class QuestGUI {
 	
 	public static void UpdateItemsWithActionDisplayTIme(Player p) {
-		new PlayerOpenQuestsGUI(p);
+		 
 		FileConfiguration cfg = UltimateJobs.getQuestAPI().getCustomConfig();
 		Bukkit.getScheduler().runTaskAsynchronously(UltimateJobs.getPlugin(), new Runnable() {
 
@@ -194,6 +194,7 @@ public class QuestGUI {
 	}
 	
 	public static Inventory load(final Player p) {
+		new PlayerOpenQuestsGUI(p);
 		FileConfiguration cfg = UltimateJobs.getQuestAPI().getCustomConfig();
 /* 24 */ final Inventory inv = Bukkit.createInventory(null, 9 * cfg.getInt("Design.Size"),
 		cfg.getString("Design.Name").replaceAll("&", "§"));
