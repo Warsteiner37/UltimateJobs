@@ -585,28 +585,7 @@ public class PlayerJobCommand implements CommandExecutor {
 				 p.sendMessage(b.replaceAll("<s>", s2).replaceAll("<p>", ""+UltimateJobs.getData().getPointsByJob(""+u, pjob)).replaceAll("<id>", s3).replaceAll("<name>", name).replaceAll("<d>", ""+b2).replaceAll("<m>", ""+UltimateJobs.getLevelAPI().getFormatedMoney(my)).replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(pjob)).replaceAll("<need>", ""+need).replaceAll("<exp>", ""+exp).replaceAll("<level>", ""+level).replaceAll("&", "§"));
 			 }
 			 return true;
-			} else if(args.length == 2 && args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage")) 
-					&& args[1].equalsIgnoreCase(tab.getString("Options.Version.Usage"))) {
-				
-				if(!tab.getBoolean("Options.Admin.Enabled")) {
-					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
-					p.sendMessage(a.replaceAll("&", "§"));
-					return true;
-				}
-				if(!tab.getBoolean("Options.Version.Enabled")) {
-					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
-					p.sendMessage(a.replaceAll("&", "§"));
-					return true;
-				}
-				if(!p.hasPermission(tab.getString("Options.Version.Permission"))) {
-					String a = m.getString("Prefix")+m.getString("No_Perm");
-					p.sendMessage(a.replaceAll("&", "§"));
-					return true;
-				}
-				String c = m.getString("Prefix")+"§7This Server is running Version§8: §a§l"+UltimateJobs.getPlugin().getDescription().getVersion()+" §7with API§8: §b§l"+UltimateJobs.getPlugin().getDescription().getAPIVersion();
-				p.sendMessage(c.replaceAll("&", "§"));
-				
-			}else if(args.length == 2 && args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage")) 
+			}  else if(args.length == 2 && args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage")) 
 					&& args[1].equalsIgnoreCase("gui")) {
 				
 				if(!tab.getBoolean("Options.Admin.Enabled")) {
@@ -623,62 +602,7 @@ public class PlayerJobCommand implements CommandExecutor {
 				
 				p.openInventory(EditorMainGUI.load(p));
 				
-			}	else if(args.length == 2 && args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage")) 
-			 
-					&& args[1].equalsIgnoreCase(tab.getString("Options.Discord.Usage"))) {
-				
-				if(!tab.getBoolean("Options.Admin.Enabled")) {
-					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
-					p.sendMessage(a.replaceAll("&", "§"));
-					return true;
-				}
-				if(!tab.getBoolean("Options.Discord.Enabled")) {
-					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
-					p.sendMessage(a.replaceAll("&", "§"));
-					return true;
-				}
-				if(!p.hasPermission(tab.getString("Options.Discord.Permission"))) {
-					String a = m.getString("Prefix")+m.getString("No_Perm");
-					p.sendMessage(a.replaceAll("&", "§"));
-					return true;
-				}
-				String c = m.getString("Prefix")+"§7Join Our Discord§8: §a§lhttps://discord.ultimate-plugins.de";
-				p.sendMessage(c.replaceAll("&", "§"));
-				
-			} else if(args.length == 3 && args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage")) 
-					&& args[1].equalsIgnoreCase(tab.getString("Options.Reload.Usage"))
-							&& args[2] != null) {
-				
-				if(!tab.getBoolean("Options.Admin.Enabled")) {
-					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
-					p.sendMessage(a.replaceAll("&", "§"));
-					return true;
-				}
-				if(!tab.getBoolean("Options.Reload.Enabled")) {
-					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
-					p.sendMessage(a.replaceAll("&", "§"));
-					return true;
-				}
-				if(!p.hasPermission(tab.getString("Options.Reload.Permission"))) {
-					String a = m.getString("Prefix")+m.getString("No_Perm");
-					p.sendMessage(a.replaceAll("&", "§"));
-					return true;
-				}
-				
-				String file = args[2];
-				File f = new File("plugins/UltimateJobs",  file);
-				
-				if(f.exists()) {
-					
-					ReloadHandler.reload(p, file);
-					
-				} else {
-					String a = m.getString("Prefix")+"§cThat file doesnt exist. Plesae try again!";
-					p.sendMessage(a.replaceAll("&", "§"));
-					return true;
-				}
-			 
-			} 	else if(args.length == 5 && args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage")) 
+			}	 else if(args.length == 5 && args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage")) 
 					&& args[1].equalsIgnoreCase(tab.getString("Options.SetExp.Usage"))
 					&& args[2] != null
 					&& args[3] != null

@@ -152,19 +152,7 @@ public class PlayerJobTabComplete  implements TabCompleter{
 				}
 			}
 			
-			  
-			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
-		 
-				if(p.hasPermission(tab.getString("Options.Reload.Permission"))) {
-				 
-					if(tab.getBoolean("Options.Reload.Enabled")) { 
-				    
-								l.add(tab.getString("Options.Reload.Usage"));
-						 
-						 
-					}
-				}
-			}
+
 			
 			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
 				 
@@ -178,32 +166,8 @@ public class PlayerJobTabComplete  implements TabCompleter{
 					}
 				}
 			}
-			
-			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
-				 
-				if(p.hasPermission(tab.getString("Options.Discord.Permission"))) {
-				 
-					if(tab.getBoolean("Options.Discord.Enabled")) { 
-				    
-								l.add(tab.getString("Options.Discord.Usage"));
-						 
-						 
-					}
-				}
-			}
-			
-			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
-				 
-				if(p.hasPermission(tab.getString("Options.Version.Permission"))) {
-				 
-					if(tab.getBoolean("Options.Version.Enabled")) { 
-				    
-								l.add(tab.getString("Options.Version.Usage"));
-						 
-						 
-					}
-				}
-			}
+ 
+ 
 			
 			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
 				 
@@ -240,27 +204,7 @@ public class PlayerJobTabComplete  implements TabCompleter{
 			
 		}      else if(args.length == 3) {
 			
-			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
-				if(args[1].equalsIgnoreCase(tab.getString("Options.Reload.Usage"))) {
-					if(tab.getBoolean("Options.Reload.Enabled")) { 
-						if(p.hasPermission(tab.getString("Options.Reload.Permission"))) {
-						l.add("chat.yml");
-						l.add("Command.yml");
-						 
-						l.add("Jobs.yml");
-						l.add("Levels.yml");
-						l.add("MainGUI.yml");
-						l.add("Messages.yml");
-						l.add("PlaceHolders.yml");
-						l.add("RewardHandler.yml");
-						l.add("Skills.yml");
-						l.add("LevelGUI.yml");
-						l.add("quests.yml");
-						l.add("top.yml");
-						l.add("sounds.yml");
-					}
-				}}
-			}
+ 
 			
 			if(args[0].equalsIgnoreCase(tab.getString("Options.Admin.Usage"))) {
 				if(args[1].equalsIgnoreCase(tab.getString("Options.SetExp.Usage"))

@@ -80,15 +80,7 @@ Options:
     Permission: "utj.setlevel"
     
     Enabled: true
-    
-  Version:  
-    
-    Usage: "version"
-    
-    Permission: "utj.version"
-    
-    Enabled: true
-    
+ 
   RemoveJob:  
     
     Usage: "removejob"
@@ -96,15 +88,7 @@ Options:
     Permission: "utj.remove"
     
     Enabled: true
-    
-  Discord:  
-    
-    Usage: "discord"
-    
-    Permission: "utj.discord"
-    
-    Enabled: true
-    
+ 
   AddJob:  
     
     Usage: "addjob"
@@ -112,15 +96,7 @@ Options:
     Permission: "utj.add"
     
     Enabled: true
-    
-  Reload:  
-    
-    Usage: "reload"
-    
-    Permission: "utj.reload"
-    
-    Enabled: true
-    
+ 
   Skills: 
     
     #this is only useable if you enable the addon
