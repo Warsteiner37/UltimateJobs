@@ -64,11 +64,11 @@ Bukkit.getScheduler().runTaskAsynchronously((Plugin) UltimateJobs.getPlugin(), n
 					inv.setItem(43, item);
 					inv.setItem(44, item);
 					
-					ItemStack d1 = new ItemStack(Material.BARRIER,1);
+					ItemStack d1 = new ItemStack(Material.FIRE_CHARGE,1);
 					/* 42 */ ItemMeta dm1 = d1.getItemMeta();
-					/* 43 */ dm1.setDisplayName("§8< §7Soon §8>");
+					/* 43 */ dm1.setDisplayName("§8< §7Manage Players §8>");
 					ArrayList<String> d1ore = new ArrayList<String>();
-					d1ore.add("§8-> §bThis is a empty slot");
+					d1ore.add("§8-> §bManage online players");
 					dm1.setLore(d1ore);
 					
 					/* 44 */ d1.setItemMeta(dm1);
