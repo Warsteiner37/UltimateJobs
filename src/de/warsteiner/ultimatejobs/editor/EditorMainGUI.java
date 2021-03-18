@@ -89,16 +89,29 @@ Bukkit.getScheduler().runTaskAsynchronously((Plugin) UltimateJobs.getPlugin(), n
 					/*     */
 							inv.setItem(4, d);
 					
-					ItemStack rl = new ItemStack(Material.REDSTONE_TORCH,1);
-					/* 42 */ ItemMeta rlm = rl.getItemMeta();
-					/* 43 */ rlm.setDisplayName("§8< §7Plugin Reload §8>");
-					ArrayList<String> rllore = new ArrayList<String>();
-					rllore.add("§8-> §bReload the plugin");
-					rlm.setLore(rllore);
-					
-					/* 44 */ rl.setItemMeta(rlm);
-					/*     */
-							inv.setItem(24, rl);
+								if(Bukkit.getPluginManager().getPlugin("PlugMan") != null) {
+									ItemStack rl = new ItemStack(Material.REDSTONE_TORCH,1);
+									/* 42 */ ItemMeta rlm = rl.getItemMeta();
+									/* 43 */ rlm.setDisplayName("§8< §7Plugin Reload §8>");
+									ArrayList<String> rllore = new ArrayList<String>();
+									rllore.add("§8-> §bReload the plugin");
+									rlm.setLore(rllore);
+									
+									/* 44 */ rl.setItemMeta(rlm);
+									/*     */
+											inv.setItem(24, rl);
+								} else {
+									ItemStack rl = new ItemStack(Material.BARRIER,1);
+									/* 42 */ ItemMeta rlm = rl.getItemMeta();
+									/* 43 */ rlm.setDisplayName("§8< §cPlugin Reload §8>");
+									ArrayList<String> rllore = new ArrayList<String>();
+									rllore.add("§8-> §7You cant reload the plugin! Please install 'PlugMan - Improved'");
+									rlm.setLore(rllore);
+									
+									/* 44 */ rl.setItemMeta(rlm);
+									/*     */
+											inv.setItem(24, rl);
+								}
 			 
 					/* 41 */ ItemStack dc = generateSkull("Mhf_Discord");
 					/* 42 */ ItemMeta mdc = dc.getItemMeta();
