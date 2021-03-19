@@ -161,10 +161,9 @@ Messages:
   
   Help: 
     - "&8----&8 [ &3UltimateJobs &8- &aHelp &8] &8---"
-    - "&8-> &b/Jobs admin <version,discord>"
+    - "&8-> &b/Jobs admin <gui>"
     - "&8-> &b/Jobs admin <setexp,setlevel> <player> <int> <job>"
-    - "&8-> &b/Jobs admin <addjob,removejob> <player> <job>"
-    - "&8-> &b/Jobs admin <reload> <config>"
+    - "&8-> &b/Jobs admin <addjob,removejob> <player> <job>" 
     - "&8-> &b/Jobs exp <name>"
     - "&8-> &b/Jobs level <name>"
     - "&8-> &b/Jobs stats <name>"

@@ -31,7 +31,14 @@ public class LevelClickEvent implements Listener {
 	/*  49 */     if (e.getView().getTitle() == null) {
 	/*     */       return;
 	/*     */     }
-	/*     */     
+	/*     */     	 
+	 if(e.getCurrentItem().getItemMeta() == null) {
+			return;
+		}
+
+		if(e.getCurrentItem().getItemMeta().getDisplayName() == null) {
+			return;
+		}
 	/*  53 */     Player p = (Player)e.getWhoClicked();
 
 				 if(!UltimateJobs.getData().existPlayerPageData(""+p.getUniqueId()))  {
