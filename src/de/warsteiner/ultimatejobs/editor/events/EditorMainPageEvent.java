@@ -12,6 +12,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.editor.EditorGUI;
 import de.warsteiner.ultimatejobs.editor.EditorMainGUI;
+import de.warsteiner.ultimatejobs.editor.PlayerGUI;
 import de.warsteiner.ultimatejobs.editor.ReloadGUI;
 
 public class EditorMainPageEvent implements Listener {
@@ -63,7 +64,7 @@ public class EditorMainPageEvent implements Listener {
 		 				e.setCancelled(true);
 		 			 
 		 				if(dis.equalsIgnoreCase("§8< §7Manage Players §8>")) {
-		 					p.sendMessage("§cThis feature is already in work!");
+		 					p.openInventory(PlayerGUI.load(p, 0, 45, 1));
 		 				} else if(dis.equalsIgnoreCase("§8< §7Plugin Reload §8>")) {
 		 					p.openInventory(ReloadGUI.load(p));
 		 				} else if(dis.equalsIgnoreCase("§8< §7Open Settings §8>")) {
