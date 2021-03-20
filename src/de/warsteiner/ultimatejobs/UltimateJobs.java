@@ -121,6 +121,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 			private static SoundConfig sounds;
 			private static ChatConfig chat;
 			private static QuestsConfig quests;
+			
+			
  
 /*     */   public void onLoad() {
 	 

@@ -46,6 +46,32 @@ public class EditorMainPageEvent implements Listener {
 	 				String reload = "§bUltimateJobs §8: §cPlugin Reload";
 	 				String dis = e.getCurrentItem().getItemMeta().getDisplayName();
 	 				
+	 				if (e.getView().getTitle().startsWith("§bUltimateJobs §8: §cEdit")) {
+	 					e.setCancelled(true);
+	 					
+	 					if(dis.equalsIgnoreCase("§8< §cGo Back §8>")) {
+	 						p.openInventory(EditorMainGUI.load(p));
+	 					}
+	 					
+	 					if(dis.contains("§8< §8(")
+	 							&& dis.contains("§8) §8>")) {
+		 		 
+		 				}
+	 					
+	 				}
+	 				
+	 				
+	 				
+	 			 
+	 				
+	 				
+	 				
+	 				
+	 				
+	 				
+	 				
+	 				
+	 				
 	 				if (e.getView().getTitle().startsWith("§bUltimateJobs §8: §cPlayers §8: §a#")) {
 	 					e.setCancelled(true);
 	 					
@@ -122,7 +148,8 @@ public class EditorMainPageEvent implements Listener {
 		 				} else if(dis.equalsIgnoreCase("§8< §7Plugin Reload §8>")) {
 		 					p.openInventory(ReloadGUI.load(p));
 		 				} else if(dis.equalsIgnoreCase("§8< §7Open Settings §8>")) {
-		 					p.openInventory(EditorGUI.load(p));
+		 					//p.openInventory(EditorGUI.load(p));
+		 					p.sendMessage("§cThis feature is in work!");
 		 				}
 	 }
 	 }
