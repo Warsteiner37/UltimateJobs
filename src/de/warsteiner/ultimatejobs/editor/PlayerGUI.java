@@ -2,6 +2,7 @@ package de.warsteiner.ultimatejobs.editor;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -24,37 +25,52 @@ public class PlayerGUI {
 		/* 160 */     return itemStack;
 		/*     */   }
 	
+ 
+	
 	public static Inventory load(final Player p, int from, int max, int page) {
 		 
 		/* 24 */ final Inventory inv = Bukkit.createInventory(null, 9 * 6,
 				"§bUltimateJobs §8: §cPlayers §8: §a#"+page);
-		 
+ 
 		Bukkit.getScheduler().runTaskAsynchronously((Plugin) UltimateJobs.getPlugin(), new Runnable() {
 
 			@SuppressWarnings("deprecation")
 			@Override
 			public void run() {
-				  Collection<String> players = UltimateJobs.getData().getPlayerList();
+				List<String> players = UltimateJobs.getData().getPlayerList();
 				  
 				  ArrayList<Integer> list = new ArrayList<Integer>();
+				  ArrayList<String> list2 = new ArrayList<String>();
 				  
-				  for (int i = from; i < max; i++) {
+				  for (int i = 0; i < 36; i++) {
+				 
 					  list.add(i);
+					 
+					  
+				  }
+				 
+				  for (int i = from; i < max; i++) {
+					 
+					  int i2 = i+1;
+			 
+					  if(players.size() >= i2) {
+					 
+						  list2.add(players.get(i));
+						  continue;
+					  }
 				  }
 				  
-					 for (int i = 0; i < players.size(); i++) {
+				//  
+					 for (int i = 0; i < list2.size(); i++) {
 					  
-						 String pl = UltimateJobs.getData().getPlayerList().get(i);
-						 
-						if(UltimateJobs.getData().getUUIDByName(pl) != null) {
-							String uuid = UltimateJobs.getData().getUUIDByName(pl);
+						 String pl = list2.get(i);
+						  
 							ItemStack d = generateSkull(pl);
 							/* 42 */ ItemMeta dm = d.getItemMeta();
 							/* 43 */ dm.setDisplayName("§8< §8(§7"+pl+"§8) §8>");
 							ArrayList<String> dore = new ArrayList<String>();
 							 
-								dore.add("§7Name§8: §a"+pl);
-								dore.add("§7UUID§8: §a"+uuid);
+								dore.add("§7Name§8: §a"+pl);  
 								dore.add("§7");
 								dore.add("§8-> §7Click to manage this player");
 					 
@@ -63,7 +79,7 @@ public class PlayerGUI {
 							/* 44 */ d.setItemMeta(dm);
 							/*     */
 									inv.setItem(list.get(i), d);
-						}
+					 
 					  
 				  }
 		 
@@ -72,7 +88,9 @@ public class PlayerGUI {
 				/* 43 */ dm.setDisplayName("§8< §7Next Page §8>");
 				ArrayList<String> dore = new ArrayList<String>();
 					int n = page+1;
-				if(players.size() >= 35) {
+					int next_page = 36*n;
+					int from = next_page-36;
+				if(players.size() >= from+1) {
 					dore.add("§bGo to next Page: #"+n);
 				} else {
 					dore.add("§cYou cant go to a other page!");
@@ -83,6 +101,18 @@ public class PlayerGUI {
 				/*     */
 						inv.setItem(50, d);
  
+							if(page == 1) {
+								ItemStack d1 = new ItemStack(Material.BARRIER,1);
+								/* 42 */ ItemMeta dm1 = d1.getItemMeta();
+								/* 43 */ dm1.setDisplayName("§8< §cGo Back §8>");
+								ArrayList<String> d1ore = new ArrayList<String>();
+								d1ore.add("§8-> §bGo back to main page");
+								dm1.setLore(d1ore);
+								
+								/* 44 */ d1.setItemMeta(dm1);
+								/*     */
+										inv.setItem(49, d1);
+							}
  
 						ItemStack rl = new ItemStack(Material.RED_DYE,1);
 						/* 42 */ ItemMeta rlm = rl.getItemMeta();

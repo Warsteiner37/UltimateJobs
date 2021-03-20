@@ -45,6 +45,55 @@ public class EditorMainPageEvent implements Listener {
 	 				 
 	 				String reload = "§bUltimateJobs §8: §cPlugin Reload";
 	 				String dis = e.getCurrentItem().getItemMeta().getDisplayName();
+	 				
+	 				if (e.getView().getTitle().startsWith("§bUltimateJobs §8: §cPlayers §8: §a#")) {
+	 					e.setCancelled(true);
+	 					
+	 					String[] page = e.getView().getTitle().split(":");
+	 					
+	 					String t = page[2].replaceAll("#", " ")
+	 							.replaceAll("§a", "  ")
+	 							.replaceAll(" ", "");
+	 				 
+	 					int g = Integer.valueOf(t);
+	 					
+	 					if(dis.equalsIgnoreCase("§8< §7Next Page §8>")) {
+	 						 int n = g+1;
+	 							int next_page = 36*n;
+	 							int from = next_page-36;
+	 						if(UltimateJobs.getData().getPlayerList().size() >= from+1) {
+	 						 
+	 							
+	 							p.openInventory(PlayerGUI.load(p, from, next_page, n));
+	 							
+	 						} else {
+	 							p.sendMessage("§cThere is no next page!");
+	 						}
+	 					}
+	 					
+	 					if(dis.equalsIgnoreCase("§8< §cGo Back §8>")) {
+	 						p.openInventory(EditorMainGUI.load(p));
+	 					}
+	 					
+	 					if(dis.equalsIgnoreCase("§8< §7Go Back §8>")) {
+	 						 int n = g-1;
+	 						 int current = g*36;
+	 						if(g != 1) {
+	 						 
+	 							int back_page = current-36;
+	 					 
+	 							int from = back_page-36;
+	 						 
+	 							
+	 							p.openInventory(PlayerGUI.load(p, from, back_page, n));
+	 							
+	 						} else {
+	 							p.sendMessage("§cThere is no other page!");
+	 						}
+	 					}
+	 					
+	 				}
+	 				
 	 				if (e.getView().getTitle().equalsIgnoreCase(reload)) {
 		 				e.setCancelled(true);
 		 				if(dis.equalsIgnoreCase("§8< §aYes §8>")) {
@@ -64,7 +113,7 @@ public class EditorMainPageEvent implements Listener {
 		 				e.setCancelled(true);
 		 			 
 		 				if(dis.equalsIgnoreCase("§8< §7Manage Players §8>")) {
-		 					p.openInventory(PlayerGUI.load(p, 0, 45, 1));
+		 					p.openInventory(PlayerGUI.load(p, 0, 36, 1));
 		 				} else if(dis.equalsIgnoreCase("§8< §7Plugin Reload §8>")) {
 		 					p.openInventory(ReloadGUI.load(p));
 		 				} else if(dis.equalsIgnoreCase("§8< §7Open Settings §8>")) {
