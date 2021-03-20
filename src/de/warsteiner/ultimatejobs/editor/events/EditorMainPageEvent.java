@@ -56,6 +56,11 @@ public class EditorMainPageEvent implements Listener {
 	 							.replaceAll(" ", "");
 	 				 
 	 					int g = Integer.valueOf(t);
+	 				
+	 					if(dis.contains("§8< §8(")
+	 							&& dis.contains("§8) §8>")) {
+	 						p.sendMessage("§cThe feature to manage players is currently in work!");
+	 					}
 	 					
 	 					if(dis.equalsIgnoreCase("§8< §7Next Page §8>")) {
 	 						 int n = g+1;
