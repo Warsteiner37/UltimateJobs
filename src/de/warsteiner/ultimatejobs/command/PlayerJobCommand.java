@@ -27,8 +27,7 @@ import de.warsteiner.ultimatejobs.ranking.GlobalRankingGUI;
 import de.warsteiner.ultimatejobs.ranking.JobRankingGUI;
 import de.warsteiner.ultimatejobs.skills.SkillsGUI;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
-import de.warsteiner.ultimatejobs.utils.ReloadHandler;
-
+ 
 public class PlayerJobCommand implements CommandExecutor {
 
 	public static String calculateTime(long seconds) {

@@ -2,6 +2,8 @@
 /*    */ 
 /*    */ import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 /*    */ import org.bukkit.entity.Player;
+
+import de.warsteiner.ultimatejobs.UltimateJobs;
 /*    */ 
 /*    */ 
 /*    */ 
@@ -41,6 +43,10 @@ if (identifier.equalsIgnoreCase("level"))
 if (identifier.equalsIgnoreCase("exp"))
 /*    */     {
 /* 39 */       return PlaceUtils.getPlayerExpinCurrentJob(player.getUniqueId());
+/*    */     }
+if (identifier.equalsIgnoreCase("quest"))
+/*    */     {
+/* 39 */       return UltimateJobs.getData().getRandomQuest(""+player.getUniqueId());
 /*    */     }
 			if (identifier.equalsIgnoreCase("skills"))
 /*    */     {

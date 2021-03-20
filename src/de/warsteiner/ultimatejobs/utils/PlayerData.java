@@ -215,6 +215,28 @@ public int getPointsByJob(String uuid, String job) {
 				 }
 			}
 	 
+			public String getRandomQuest(String uuid) {
+				FileConfiguration pd = get();
+				FileConfiguration cfg = UltimateJobs.getQuestAPI().getCustomConfig();
+				ArrayList<String> quests = new ArrayList<String>();
+				int slots = cfg.getStringList("Quests.Slots").size();
+				
+				 for (int i = 0; i < slots; i++) {
+					 quests.add(getQuestByID(uuid, i));
+				 }
+				
+				 
+				
+				 for (int i = 0; i < slots; i++) {
+					 if(getQuestsBoolean(uuid, i)) {
+						 quests.remove(i);
+					 }  
+				 }
+				
+				 String d = UltimateJobs.getQuestAPI().getCustomConfig().getString("Quests."+quests.get(0)+".ID");
+		 
+				return d;
+			}
 		
 			public void UpdateQuests(String uuid, Player p) {
 				FileConfiguration pd = get();
@@ -255,7 +277,7 @@ public int getPointsByJob(String uuid, String job) {
  
 /*     */   
  
-/*     */   public String currentjob(UUID uuid) {
+/*     */   public String getCurrentJob(UUID uuid) {
 /* 100 */     return get().getString("Job." + uuid + ".Current");
 /*     */   }
 /*     */ 

@@ -252,12 +252,12 @@ import org.bukkit.configuration.file.FileConfiguration;
 /*     */ 
 /*     */   
 /*     */   public static String getCurrentJob(UUID id) {
-/* 113 */     return UltimateJobs.getData().currentjob(id);
+/* 113 */     return UltimateJobs.getData().getCurrentJob(id);
 /*     */   }
  
 /*     */   public static String getJobActive(UUID id, String job) {
-/* 126 */     if (!UltimateJobs.getData().currentjob(id).equalsIgnoreCase("None") && 
-/* 127 */       UltimateJobs.getData().currentjob(id).equalsIgnoreCase(job)) {
+/* 126 */     if (!UltimateJobs.getData().getCurrentJob(id).equalsIgnoreCase("None") && 
+/* 127 */       UltimateJobs.getData().getCurrentJob(id).equalsIgnoreCase(job)) {
 /* 128 */       return "YES";
 /*     */     }
  

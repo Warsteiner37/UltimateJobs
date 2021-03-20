@@ -202,7 +202,7 @@ import de.warsteiner.ultimatejobs.utils.JobAPI;
 				 
 				 boolean ech = false;
 				 
-				 if(UltimateJobs.getData().currentjob(p.getUniqueId()).equalsIgnoreCase(b)) {
+				 if(UltimateJobs.getData().getCurrentJob(p.getUniqueId()).equalsIgnoreCase(b)) {
 					 state = jobs.getString("Options.States.In_Job");
 					 ech = true;
 				 } else if(UltimateJobs.getData().hasJob(p.getUniqueId(), b)) {
@@ -247,7 +247,7 @@ import de.warsteiner.ultimatejobs.utils.JobAPI;
 				 
 				 boolean ech = false;
 				 
-				 if(UltimateJobs.getData().currentjob(p.getUniqueId()).equalsIgnoreCase(b)) {
+				 if(UltimateJobs.getData().getCurrentJob(p.getUniqueId()).equalsIgnoreCase(b)) {
 					 state = jobs.getString("Options.States.In_Job");
 					 ech = true;
 				 } else if(UltimateJobs.getData().hasJob(p.getUniqueId(), b)) {

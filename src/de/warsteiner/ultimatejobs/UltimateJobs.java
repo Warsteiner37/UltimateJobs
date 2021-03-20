@@ -12,7 +12,7 @@ import de.warsteiner.ultimatejobs.config.LevelGUIConfig;
 import de.warsteiner.ultimatejobs.config.LevelsConfig;
 import de.warsteiner.ultimatejobs.config.MainGUIConfig;
 import de.warsteiner.ultimatejobs.config.MessageConfig;
-import de.warsteiner.ultimatejobs.config.PlaceHolderConfig;
+ 
 import de.warsteiner.ultimatejobs.config.QuestsConfig;
 import de.warsteiner.ultimatejobs.config.RewardConfig;
 import de.warsteiner.ultimatejobs.config.SkillsConfug;
@@ -107,7 +107,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 /*     */  private static JobConfig jobs;
 			private static MainGUIConfig maingui;
 			private static MessageConfig m;
-			private static PlaceHolderConfig placeholders;
+	 
 			private static CommandConfig cmd;
 			private static LevelsConfig levels;
 			private static RewardHandler rewards;
@@ -164,7 +164,7 @@ import org.bukkit.scheduler.BukkitRunnable;
              jobs = new JobConfig();
              maingui = new MainGUIConfig();
              m = new MessageConfig();
-             placeholders = new PlaceHolderConfig();
+       
              cmd = new CommandConfig();
              levels = new LevelsConfig();
 /*     */ 	rewards = new RewardHandler();
@@ -206,7 +206,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 /*     */ 
 				jobs.createCustomConfig();
 				maingui.createCustomConfig();
-				placeholders.createCustomConfig();
+			 
 				m.createCustomConfig();
 				cmd.createCustomConfig();
 				levels.createCustomConfig();
@@ -410,10 +410,7 @@ public static ChatConfig getChatConfig() {
 			public static LevelGUIConfig getLevelGUI() {
 				return lgui;
 			}
-			
-			public static PlaceHolderConfig getPlaceHolderConfig() {
-				return placeholders;
-			}
+	 
 			
 			public static MessageConfig MessageHandler() {
 				return m;

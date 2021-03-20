@@ -61,7 +61,7 @@ public class PlayerJobTabComplete  implements TabCompleter{
 				}
 			}
  
-			if(!UltimateJobs.getData().currentjob(p.getUniqueId()).equalsIgnoreCase("None")) {
+			if(!UltimateJobs.getData().getCurrentJob(p.getUniqueId()).equalsIgnoreCase("None")) {
 				if(UltimateJobs.getLevelConfig().getCustomConfig().getBoolean("Use_Levels")) {
 				if(tab.getBoolean("Options.Exp.Enabled")) {
 					if(p.hasPermission(tab.getString("Options.Exp.Permission"))) {
