@@ -35,12 +35,12 @@ public class RewardHandler {
 			 
 				double rechnrung = 0;
 		 
-				if( UltimateJobs.getSkillsConfig().getCustomConfig().getBoolean("Enable_Skills") == true) {
+				if( UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skills") == true) {
 					rechnrung = money*multi_for_money;
 				}
 				double money2 =0;
 				p.setExp(points);
-				if( UltimateJobs.getLevelConfig().getCustomConfig().getBoolean("Use_Levels") == true) {
+				if( UltimateJobs.getPlugin().getConfig().getBoolean("Use_Levels") == true) {
 					money2 =  money*multi_for_money_2;
 				}
 		 
@@ -80,36 +80,36 @@ public class RewardHandler {
 				
 				String prefix = UltimateJobs.MessageHandler().getCustomConfig().getString("Prefix");
 				
-				if(UltimateJobs.getRewardConfig().getCustomConfig().getString("Options.Reward_Type").equalsIgnoreCase("MESSAGE")) {
-					p.sendMessage(UltimateJobs.getRewardConfig().getCustomConfig().getString("Config.Message")
+				if(UltimateJobs.getPlugin().getConfig().getString("Options.Reward_Type").equalsIgnoreCase("MESSAGE")) {
+					p.sendMessage(UltimateJobs.getPlugin().getConfig().getString("Config.Message")
 						.replaceAll("<money>", formated_money)	.replaceAll("<exp>", formated_exo).replaceAll("<prefix>", prefix).replaceAll("&", "§"));
 					return;
-				} else if(UltimateJobs.getRewardConfig().getCustomConfig().getString("Options.Reward_Type").equalsIgnoreCase("BOSSBAR")) {
+				} else if(UltimateJobs.getPlugin().getConfig().getString("Options.Reward_Type").equalsIgnoreCase("BOSSBAR")) {
 					
-					String a1 = UltimateJobs.getRewardConfig().getCustomConfig().getString("Config.Bossbar.Message")
+					String a1 = UltimateJobs.getPlugin().getConfig().getString("Config.Bossbar.Message")
 							.replaceAll("<money>", formated_money)	.replaceAll("<exp>", formated_exo).replaceAll("<prefix>", prefix).replaceAll("&", "§");
 					
-					String color = UltimateJobs.getRewardConfig().getCustomConfig().getString("Config.Bossbar.Color");
+					String color = UltimateJobs.getPlugin().getConfig().getString("Config.Bossbar.Color");
 					
-					Integer time = Integer.valueOf(UltimateJobs.getRewardConfig().getCustomConfig().getInt("Config.Bossbar.Time"));
+					Integer time = Integer.valueOf(UltimateJobs.getPlugin().getConfig().getInt("Config.Bossbar.Time"));
 					
-					String style = UltimateJobs.getRewardConfig().getCustomConfig().getString("Config.Bossbar.Style");
+					String style = UltimateJobs.getPlugin().getConfig().getString("Config.Bossbar.Style");
 				 
 					  UltimateJobs.getBossBarHandler().sendBar(p, BarColor.valueOf(color), BarStyle.valueOf(style), time , a1);
 					
-				} else if(UltimateJobs.getRewardConfig().getCustomConfig().getString("Options.Reward_Type").equalsIgnoreCase("ACTIONBAR")) {
+				} else if(UltimateJobs.getPlugin().getConfig().getString("Options.Reward_Type").equalsIgnoreCase("ACTIONBAR")) {
 					
-					String a1 = UltimateJobs.getRewardConfig().getCustomConfig().getString("Config.Actionbar")
+					String a1 = UltimateJobs.getPlugin().getConfig().getString("Config.Actionbar")
 							.replaceAll("<money>", formated_money)	.replaceAll("<exp>", formated_exo).replaceAll("<prefix>", prefix).replaceAll("&", "§");
 					
 					ActionBar.sendActionbar(p, a1);
 					
-				} else if(UltimateJobs.getRewardConfig().getCustomConfig().getString("Options.Reward_Type").equalsIgnoreCase("TITLE")) {
+				} else if(UltimateJobs.getPlugin().getConfig().getString("Options.Reward_Type").equalsIgnoreCase("TITLE")) {
 					
-					String a1 = UltimateJobs.getRewardConfig().getCustomConfig().getString("Config.Title.First")
+					String a1 = UltimateJobs.getPlugin().getConfig().getString("Config.Title.First")
 							.replaceAll("<money>", formated_money)	.replaceAll("<exp>", formated_exo).replaceAll("<prefix>", prefix).replaceAll("&", "§");
 					
-					String a2 = UltimateJobs.getRewardConfig().getCustomConfig().getString("Config.Title.Second")
+					String a2 = UltimateJobs.getPlugin().getConfig().getString("Config.Title.Second")
 							.replaceAll("<money>", formated_money)	.replaceAll("<exp>", formated_exo).replaceAll("<prefix>", prefix).replaceAll("&", "§");
 					
 					p.sendTitle(a1, a2);

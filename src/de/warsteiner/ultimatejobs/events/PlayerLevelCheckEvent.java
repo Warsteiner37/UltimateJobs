@@ -67,7 +67,7 @@ public class PlayerLevelCheckEvent implements Listener {
 										int old = UltimateJobs.getData().getSkillPoints(""+uuid);
 										UltimateJobs.getData().setSkillPoints(""+uuid, old+newp);
 										
-										FileConfiguration cfg = UltimateJobs.getLevelConfig().getCustomConfig();
+										FileConfiguration cfg = UltimateJobs.getPlugin().getConfig();
 										
 										String newlevel = ""+UltimateJobs.getData().getLevel(""+uuid, job);
 										
@@ -147,15 +147,7 @@ public class PlayerLevelCheckEvent implements Listener {
 											
 											//<prefix> &7You reached an new Level! &8[&4<level>&8]
 										}
-										
-										if(cfg.getBoolean("Options.Sound")) {
-											   
-											String sound = cfg.getString("Options.Sound_Config.Type");
-											
-											p.playSound(p.getLocation(), Sound.valueOf(sound), 0, 0);
-											
-										}
-										
+									 
 										if(cfg.getBoolean("Options.Title")) {  
 											
 											String sec = cfg.getString("Options.Title_Config.Second").replaceAll("<level>", newlevel).replaceAll("<prefix>", UltimateJobs.MessageHandler().getCustomConfig().getString("Prefix").replaceAll("&", "§"));

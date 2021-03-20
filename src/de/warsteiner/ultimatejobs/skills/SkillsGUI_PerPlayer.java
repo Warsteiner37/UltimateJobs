@@ -19,10 +19,10 @@ import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.custom.PlayerOpenSkillsGUI;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
 
-public class SkillsGUI {
+public class SkillsGUI_PerPlayer {
 	
 	public static Inventory load(final Player p) {
-		FileConfiguration cfg = UltimateJobs.getSkillsConfig().getCustomConfig();
+		FileConfiguration cfg = UltimateJobs.getPerPlayerSkillsConfig().getCustomConfig();
 /* 24 */ final Inventory inv = Bukkit.createInventory(null, 9 * cfg.getInt("Design.Size"),
 		cfg.getString("Design.Name").replaceAll("&", "§"));
 new PlayerOpenSkillsGUI(p);

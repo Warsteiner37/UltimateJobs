@@ -48,17 +48,6 @@ Rewards:
   Message:
     
     Message: "&eYou have completed the Quest <quest_id>!"
-  
-  Bossbar: 
-  
-    Message: "&cQuests &8- &7Completed Quest &e<quest_id>"
-    
-    Color: "GREEN"
-    
-    Style: "SEGMENTED_20"
-    
-    #20 ticks = 1 second
-    Time: 100
  
   Title:
   

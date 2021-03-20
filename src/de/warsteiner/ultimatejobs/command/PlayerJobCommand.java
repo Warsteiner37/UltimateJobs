@@ -25,7 +25,8 @@ import de.warsteiner.ultimatejobs.levels.levelgui.LevelCreatingGUI;
 import de.warsteiner.ultimatejobs.quests.QuestGUI;
 import de.warsteiner.ultimatejobs.ranking.GlobalRankingGUI;
 import de.warsteiner.ultimatejobs.ranking.JobRankingGUI;
-import de.warsteiner.ultimatejobs.skills.SkillsGUI;
+ 
+import de.warsteiner.ultimatejobs.skills.SkillsGUI_PerPlayer;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
  
 public class PlayerJobCommand implements CommandExecutor {
@@ -154,26 +155,22 @@ public class PlayerJobCommand implements CommandExecutor {
 				} 
 				
 				
-				if(!UltimateJobs.getSkillsConfig().getCustomConfig().getBoolean("Enable_Skills")) {
+				if(!UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skills")) {
 					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 			 }
-				
-				if(!UltimateJobs.getSkillsConfig().getCustomConfig().getBoolean("Enable_Skills")) {
-					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
-					p.sendMessage(a.replaceAll("&", "§"));
-					return true;
-				}
-				
+			 
 				if(!p.hasPermission(tab.getString("Options.Skills.Permission"))) {
 					String a = m.getString("Prefix")+m.getString("No_Perm");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
 				}
 				
-				p.openInventory(SkillsGUI.load(p));
-				 return true;
+				 if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").equalsIgnoreCase("PER_PLAYER")) {
+					p.openInventory(SkillsGUI_PerPlayer.load(p));
+				}
+ 				 return true;
 			}  else if(args.length == 1 && args[0].equalsIgnoreCase(tab.getString("Options.Levels.Usage"))) {
 				
 				if(!tab.getBoolean("Options.Levels.Enabled")) {
@@ -245,7 +242,7 @@ public class PlayerJobCommand implements CommandExecutor {
 					return true;
 				}
 				
-				if(!UltimateJobs.getLevelConfig().getCustomConfig().getBoolean("Use_Levels")) {
+				if(!UltimateJobs.getPlugin().getConfig().getBoolean("Use_Levels")) {
 					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
@@ -289,7 +286,7 @@ public class PlayerJobCommand implements CommandExecutor {
 					return true;
 				}
 				
-				if(!UltimateJobs.getLevelConfig().getCustomConfig().getBoolean("Use_Levels")) {
+				if(!UltimateJobs.getPlugin().getConfig().getBoolean("Use_Levels")) {
 					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
@@ -428,7 +425,7 @@ public class PlayerJobCommand implements CommandExecutor {
 					return true;
 				}
 				
-				if(!UltimateJobs.getLevelConfig().getCustomConfig().getBoolean("Use_Levels")) {
+				if(!UltimateJobs.getPlugin().getConfig().getBoolean("Use_Levels")) {
 					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;
@@ -484,7 +481,7 @@ public class PlayerJobCommand implements CommandExecutor {
 					return true;
 				}
 				
-				if(!UltimateJobs.getLevelConfig().getCustomConfig().getBoolean("Use_Levels")) {
+				if(!UltimateJobs.getPlugin().getConfig().getBoolean("Use_Levels")) {
 					String a = m.getString("Prefix")+tab.getString("Messages.Usage");
 					p.sendMessage(a.replaceAll("&", "§"));
 					return true;

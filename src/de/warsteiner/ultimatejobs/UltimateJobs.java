@@ -9,13 +9,12 @@ import de.warsteiner.ultimatejobs.config.ChatConfig;
 import de.warsteiner.ultimatejobs.config.CommandConfig;
 import de.warsteiner.ultimatejobs.config.JobConfig;
 import de.warsteiner.ultimatejobs.config.LevelGUIConfig;
-import de.warsteiner.ultimatejobs.config.LevelsConfig;
+ 
 import de.warsteiner.ultimatejobs.config.MainGUIConfig;
 import de.warsteiner.ultimatejobs.config.MessageConfig;
- 
+import de.warsteiner.ultimatejobs.config.PerPlayerSkills;
 import de.warsteiner.ultimatejobs.config.QuestsConfig;
-import de.warsteiner.ultimatejobs.config.RewardConfig;
-import de.warsteiner.ultimatejobs.config.SkillsConfug;
+import de.warsteiner.ultimatejobs.config.SkillsMainConfug;
 import de.warsteiner.ultimatejobs.config.SoundConfig;
 import de.warsteiner.ultimatejobs.config.TopGUI;
 import de.warsteiner.ultimatejobs.editor.events.EditorMainPageEvent;
@@ -109,19 +108,20 @@ import org.bukkit.scheduler.BukkitRunnable;
 			private static MessageConfig m;
 	 
 			private static CommandConfig cmd;
-			private static LevelsConfig levels;
+			 
 			private static RewardHandler rewards;
 			private static SkillsAPI skillsapi;
 			private static LevelAPI levelapi;
-			private static RewardConfig rconfig;
+		 
 			private static BossBarHandler boss;
-			private static SkillsConfug skills;
+		 
 			private static LevelGUIConfig lgui;
 			private static TopGUI top;
 			private static SoundConfig sounds;
 			private static ChatConfig chat;
 			private static QuestsConfig quests;
-			
+			private static PerPlayerSkills psk;
+			private static SkillsMainConfug sk;
 			
  
 /*     */   public void onLoad() {
@@ -147,7 +147,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 			  flags.add("can-work-FoodEater"); 
 			  flags.add("can-work-CookingMaster");  
 			  flags.add("can-work-Artist"); 
-		 
+			  flags.add("can-open-skills");
 /*  81 */     File file = new File("plugins//WorldGuard.jar");
 /*  82 */     if (file.exists()) {
 /*  83 */       WG.load();
@@ -166,26 +166,21 @@ import org.bukkit.scheduler.BukkitRunnable;
              m = new MessageConfig();
        
              cmd = new CommandConfig();
-             levels = new LevelsConfig();
+             
 /*     */ 	rewards = new RewardHandler();
 			skillsapi = new SkillsAPI();
 			levelapi = new LevelAPI();
-			rconfig = new RewardConfig();
-			skills = new SkillsConfug();
+			psk = new PerPlayerSkills();
+		 
 			lgui = new LevelGUIConfig();
 			top = new TopGUI();
 			boss = new BossBarHandler(getPlugin());
 			sounds = new SoundConfig();
 			chat = new ChatConfig();
 			quests = new QuestsConfig();
+			sk = new SkillsMainConfug();
  
-/* 103 */ //    (new UpdateChecker(this, 81914)).getVersion(version -> {
-/*     */        //   if (getDescription().getVersion().equalsIgnoreCase(version)) {
-/*     */          //   System.out.println("Â§cNo Update was found!");
-/*     */          // } else {
-/*     */          //   System.out.println("Â§aThere is some new version of UltimateJobs on SpigotMC!");
-/*     */           //} 
-/*     */         //});
+ 
  
 /* 112 */     if (!CheckVault()) {
 /* 113 */  	if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
@@ -209,9 +204,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 			 
 				m.createCustomConfig();
 				cmd.createCustomConfig();
-				levels.createCustomConfig();
-				rconfig.createCustomConfig();
-				skills.createCustomConfig();
+				 sk.createCustomConfig();
+				 psk.createCustomConfig();
 				top.createCustomConfig();
 				lgui.createCustomConfig();
 				sounds.createCustomConfig();
@@ -270,7 +264,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 				 
 				 Bukkit.getPluginManager().registerEvents((Listener)new PlayerBlockPlaceEvent(), (Plugin)this);
 				
-				 if(levels.getCustomConfig().getBoolean("Use_Levels")) {
+				 if(getConfig().getBoolean("Use_Levels")) {
 					 Bukkit.getPluginManager().registerEvents((Listener)new PlayerLevelCheckEvent(), (Plugin)this);
 				 } 
 				  
@@ -284,8 +278,10 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 new Metrics(getPlugin(), 8753);
  
-if(UltimateJobs.getSkillsConfig().getCustomConfig().getBoolean("Enable_Skills")) {
-	 Bukkit.getPluginManager().registerEvents((Listener)new  PlayerClickAtSkills(), (Plugin)this);
+if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skills")) {
+	 if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").equalsIgnoreCase("PER_PLAYER")) {
+		 Bukkit.getPluginManager().registerEvents((Listener)new  PlayerClickAtSkills(), (Plugin)this);
+	 }
 }
 if(UltimateJobs.getLevelGUI().getCustomConfig().getBoolean("Enable_LevelGUI")) {
 	 Bukkit.getPluginManager().registerEvents((Listener)new  LevelClickEvent(), (Plugin)this);
@@ -339,9 +335,9 @@ if(UltimateJobs.getChatConfig().getCustomConfig().getBoolean("Enable_Chat")) {
 /*     */                              Bukkit.getConsoleSender().sendMessage("§f-> Loaded Version §a" + getPlugin().getDescription().getVersion());
 /*     */                              Bukkit.getConsoleSender().sendMessage("§f-> API Version §c" + getPlugin().getDescription().getAPIVersion());  
 								Bukkit.getConsoleSender().sendMessage("§f-> PlaceHolderAPI §9" + setUpPapi()); 
-								Bukkit.getConsoleSender().sendMessage("§f-> Use Levels §6" + UltimateJobs.getLevelConfig().getCustomConfig().getBoolean("Use_Levels")); 
+								Bukkit.getConsoleSender().sendMessage("§f-> Use Levels §6" + getConfig().getBoolean("Use_Levels")); 
 /*     */                         Bukkit.getConsoleSender().sendMessage("§8");
-									Bukkit.getConsoleSender().sendMessage("§f-> Addon: Skills §e" + UltimateJobs.getSkillsConfig().getCustomConfig().getBoolean("Enable_Skills")); 
+									Bukkit.getConsoleSender().sendMessage("§f-> Addon: Skills §e" + UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skills")+" §8(§c"+UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode")+"§8)"); 
 									Bukkit.getConsoleSender().sendMessage("§f-> Addon: LevelGUI §e" + UltimateJobs.getLevelGUI().getCustomConfig().getBoolean("Enable_LevelGUI")); 
 									Bukkit.getConsoleSender().sendMessage("§f-> Addon: TopGUI §e" + UltimateJobs.getTopConfig().getCustomConfig().getBoolean("Enable_Top")); 
 									Bukkit.getConsoleSender().sendMessage("§f-> Addon: JobChat §e" + UltimateJobs.getChatConfig().getCustomConfig().getBoolean("Enable_Chat")); 
@@ -415,11 +411,7 @@ public static ChatConfig getChatConfig() {
 			public static MessageConfig MessageHandler() {
 				return m;
 			}
-			
-			public static LevelsConfig getLevelConfig() {
-				return levels;
-			}
-			
+ 
 			public static RewardHandler getRewardHandler() {
 				return rewards;
 			}
@@ -431,11 +423,7 @@ public static ChatConfig getChatConfig() {
 			public static LevelAPI getLevelAPI() {
 				return levelapi;
 			}
-			
-			public static RewardConfig getRewardConfig() {
-				return rconfig;
-			}
-			
+	 
 			public static BossBarHandler getBossBarHandler() {
 				return boss;
 			}
@@ -444,9 +432,14 @@ public static ChatConfig getChatConfig() {
 				return cmd;
 			}
 			
-			public static SkillsConfug getSkillsConfig() {
-				return skills;
+			public static PerPlayerSkills getPerPlayerSkillsConfig() {
+				return psk;
 			}
+			
+			public static SkillsMainConfug getSkillsMainConfig() {
+				return sk;
+			}
+			
 			
 /*     */   public static boolean checkFlag(Location location, String flag, Player p) {
 /* 193 */     File file = new File("plugins//WorldGuard.jar");

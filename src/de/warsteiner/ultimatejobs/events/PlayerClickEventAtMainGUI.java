@@ -18,7 +18,8 @@ import de.warsteiner.ultimatejobs.custom.PlayerBuyJob;
 import de.warsteiner.ultimatejobs.custom.PlayerJobChange;
 import de.warsteiner.ultimatejobs.gui.JobsGUIManager;
 import de.warsteiner.ultimatejobs.levels.levelgui.LevelCreatingGUI;
-import de.warsteiner.ultimatejobs.skills.SkillsGUI;
+ 
+import de.warsteiner.ultimatejobs.skills.SkillsGUI_PerPlayer;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
 import net.milkbowl.vault.economy.Economy;
 
@@ -187,8 +188,8 @@ FileConfiguration m = UltimateJobs.MessageHandler().getCustomConfig();
  							}  else if(w.equalsIgnoreCase("NOTHING")) {
  								return;
  							} else if(w.equalsIgnoreCase("SKILLS")) {
- 								if(UltimateJobs.getSkillsConfig().getCustomConfig().getBoolean("Enable_Skills")) {
- 									p.openInventory(SkillsGUI.load(p));
+ 								if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skills")) {
+ 									p.openInventory(SkillsGUI_PerPlayer.load(p));
  								} else {
  									p.sendMessage("§cThis Action is not enabled.");
  								}

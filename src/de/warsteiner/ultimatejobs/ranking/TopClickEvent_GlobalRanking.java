@@ -14,7 +14,7 @@ import org.bukkit.inventory.Inventory;
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.gui.JobsGUIManager;
 import de.warsteiner.ultimatejobs.levels.levelgui.LevelCreatingGUI;
-import de.warsteiner.ultimatejobs.skills.SkillsGUI;
+ 
 import de.warsteiner.ultimatejobs.utils.JobAPI;
 import net.milkbowl.vault.economy.Economy;
 

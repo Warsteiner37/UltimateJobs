@@ -233,9 +233,13 @@ public int getPointsByJob(String uuid, String job) {
 					 }  
 				 }
 				
-				 String d = UltimateJobs.getQuestAPI().getCustomConfig().getString("Quests."+quests.get(0)+".ID");
-		 
-				return d;
+				if(quests.size() == 0) {
+					return UltimateJobs.getPlugin().getConfig().getString("PlaceHolders.No_Quest");
+				} else {
+					 String d = UltimateJobs.getQuestAPI().getCustomConfig().getString("Quests."+quests.get(0)+".ID");
+					 
+						return d;
+				}
 			}
 		
 			public void UpdateQuests(String uuid, Player p) {
@@ -326,6 +330,12 @@ public int getPointsByJob(String uuid, String job) {
 /* 122 */     get().set("Job." + uuid + ".Has.Name", list);
 /* 123 */     get().set(job+"." + uuid + ".Level", 1);
 			get().set(job+"." + uuid + ".Exp", 0);
+			get().set(job+"." + uuid + ".SkillPoints", 1);
+			get().set(job+"." + uuid + ".Skills.1", 1);
+			get().set(job+"." + uuid + ".Skills.2", 1);
+			get().set(job+"." + uuid + ".Skills.3", 1);
+			get().set(job+"." + uuid + ".Skills.4", 1);
+			get().set(job+"." + uuid + ".Skills.5", 1);
 			/* 123 */     get().set(job+"." + uuid + ".Stats.Count1", 0);
 			get().set(job+"." + uuid + ".Stats.Count2", 0);
 /* 124 */     save();

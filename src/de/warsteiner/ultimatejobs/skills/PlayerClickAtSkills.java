@@ -45,10 +45,10 @@ if(e.getCurrentItem().getItemMeta().getDisplayName() == null) {
 
 				 
 				
-/*  54 */     if (e.getView().getTitle().equalsIgnoreCase(UltimateJobs.getSkillsConfig().getCustomConfig().getString("Design.Name").replaceAll("&", "§"))) {
+/*  54 */     if (e.getView().getTitle().equalsIgnoreCase(UltimateJobs.getPerPlayerSkillsConfig().getCustomConfig().getString("Design.Name").replaceAll("&", "§"))) {
 /*  55 */       e.setCancelled(true);
 
-FileConfiguration cfg = UltimateJobs.getSkillsConfig().getCustomConfig();
+FileConfiguration cfg = UltimateJobs.getPerPlayerSkillsConfig().getCustomConfig();
  
 FileConfiguration m = UltimateJobs.MessageHandler().getCustomConfig();
 /*     */       
@@ -89,7 +89,7 @@ FileConfiguration m = UltimateJobs.MessageHandler().getCustomConfig();
 			 				 }
 			 				 
 			 				 if(cfg.getBoolean("Design.Reopen_by_buy")) {
-			 					p.openInventory(SkillsGUI.load(p));
+			 					p.openInventory(SkillsGUI_PerPlayer.load(p));
 			 				 } else {
 			 					 p.closeInventory();
 			 				 }

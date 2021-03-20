@@ -81,7 +81,7 @@ public static String getPlayerExpinCurrentJob(UUID uuid) {
 		public static String SkillPointsPerMode(UUID uuid) {
 			FileConfiguration l = UltimateJobs.getPlugin().getConfig();
 			
-			if(UltimateJobs.getSkillsConfig().getCustomConfig().getString("Mode").equalsIgnoreCase("PER_PLAYER")) {
+			if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").equalsIgnoreCase("PER_PLAYER")) {
 				return ""+UltimateJobs.getData().getSkillPoints(""+uuid);
 			}
 			

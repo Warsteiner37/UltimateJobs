@@ -46,7 +46,7 @@ public class PlayerJobTabComplete  implements TabCompleter{
 					}
 				}
 			}
-			if(UltimateJobs.getSkillsConfig().getCustomConfig().getBoolean("Enable_Skills")) {
+			if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skills")) {
 				if(tab.getBoolean("Options.Skills.Enabled")) {
 					if(p.hasPermission(tab.getString("Options.Skills.Permission"))) {
 					l.add(tab.getString("Options.Skills.Usage"));
@@ -62,7 +62,7 @@ public class PlayerJobTabComplete  implements TabCompleter{
 			}
  
 			if(!UltimateJobs.getData().getCurrentJob(p.getUniqueId()).equalsIgnoreCase("None")) {
-				if(UltimateJobs.getLevelConfig().getCustomConfig().getBoolean("Use_Levels")) {
+				if(UltimateJobs.getPlugin().getConfig().getBoolean("Use_Levels")) {
 				if(tab.getBoolean("Options.Exp.Enabled")) {
 					if(p.hasPermission(tab.getString("Options.Exp.Permission"))) {
 					l.add(tab.getString("Options.Exp.Usage"));

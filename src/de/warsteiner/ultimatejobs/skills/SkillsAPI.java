@@ -9,8 +9,8 @@ import de.warsteiner.ultimatejobs.UltimateJobs;
 public class SkillsAPI {
 
 	public double getMoneyMulti(String uuid) {
-		if(UltimateJobs.getSkillsConfig().getCustomConfig().getBoolean("Enable_Skills")) {
-			if(UltimateJobs.getSkillsConfig().getCustomConfig().getStringList("Design.Skills").contains("MONEY")) {
+		if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skills")) {
+			if(UltimateJobs.getPerPlayerSkillsConfig().getCustomConfig().getStringList("Design.Skills").contains("MONEY")) {
 				return Double.valueOf(getNextLevelMulti("MONEY", UltimateJobs.getData().getSkillPointLevel(uuid, "MONEY")));
 			}
 		}
@@ -18,8 +18,8 @@ public class SkillsAPI {
 	}
 	
 	public double getExpMulti(String uuid) {
-		if(UltimateJobs.getSkillsConfig().getCustomConfig().getBoolean("Enable_Skills")) {
-			if(UltimateJobs.getSkillsConfig().getCustomConfig().getStringList("Design.Skills").contains("LEVELEXP")) {
+		if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skills")) {
+			if(UltimateJobs.getPerPlayerSkillsConfig().getCustomConfig().getStringList("Design.Skills").contains("LEVELEXP")) {
 				return Double.valueOf(getNextLevelMulti("LEVELEXP", UltimateJobs.getData().getSkillPointLevel(uuid, "LEVELEXP")));
 			}
 		}
@@ -33,7 +33,7 @@ public class SkillsAPI {
 	}//1:0:0.00
 	
 	public static String getNextLevelMulti(String name, int la) {
-		FileConfiguration cfg = UltimateJobs.getSkillsConfig().getCustomConfig();
+		FileConfiguration cfg = UltimateJobs.getPerPlayerSkillsConfig().getCustomConfig();
 		 List<String> a = cfg.getStringList("Items."+name+".SkillLevels");
 		
 		 for(String l : a) {
@@ -52,7 +52,7 @@ public class SkillsAPI {
 	}
 	
 	public static String getNextLevelPrice(String name, int la) {
-		FileConfiguration cfg = UltimateJobs.getSkillsConfig().getCustomConfig();
+		FileConfiguration cfg = UltimateJobs.getPerPlayerSkillsConfig().getCustomConfig();
 		 List<String> a = cfg.getStringList("Items."+name+".SkillLevels");
 		
 		 for(String l : a) {

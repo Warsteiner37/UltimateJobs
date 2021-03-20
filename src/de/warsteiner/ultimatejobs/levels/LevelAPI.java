@@ -48,7 +48,7 @@ public class LevelAPI {
 			if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
 				System.out.println("§fValue for Money Double§8: §6As List: "+list);
 			}
-			if(UltimateJobs.getLevelConfig().getCustomConfig().getBoolean("Use_Levels") == false) {
+			if(UltimateJobs.getPlugin().getConfig().getBoolean("Use_Levels") == false) {
 				if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
 					System.out.println("§fValue for Money Double§8: §4§lLevels Are Disabled");
 				}

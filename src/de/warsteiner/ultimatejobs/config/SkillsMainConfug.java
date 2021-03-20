@@ -9,10 +9,9 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
 
-public class RewardConfig {
-	
-	
-	 private File customConfigFile;
+public class SkillsMainConfug {
+
+	  private File customConfigFile;
 	    private FileConfiguration customConfig;
 	 
 	    public FileConfiguration getCustomConfig() {
@@ -21,10 +20,10 @@ public class RewardConfig {
 	    }
 
 	    public void createCustomConfig() {
-	        customConfigFile = new File(UltimateJobs.getPlugin().getDataFolder(), "RewardHandler.yml");
+	        customConfigFile = new File(UltimateJobs.getPlugin().getDataFolder(), "Skills.yml");
 	        if (!customConfigFile.exists()) {
 	            customConfigFile.getParentFile().mkdirs();
-	            UltimateJobs.getPlugin(). saveResource("RewardHandler.yml", false);
+	            UltimateJobs.getPlugin(). saveResource("Skills.yml", false);
 	         }
 
 	        customConfig= new YamlConfiguration();
@@ -34,5 +33,5 @@ public class RewardConfig {
 	            e.printStackTrace();
 	        }
 	    }
-
+	
 }
