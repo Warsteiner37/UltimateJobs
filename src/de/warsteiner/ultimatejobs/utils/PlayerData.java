@@ -337,6 +337,19 @@ public int getPointsByJob(String uuid, String job) {
 				return get().getInt(job+"." + uuid + ".SkillPoints");
 			}
 
+		    public void setSkilledLevelOfJob(String uuid, String job, int skill, int f) {
+					/*  68 */     get().set(job+"." + uuid + ".Skills."+skill, f);
+					/*     */     
+					/*  70 */     save();
+					/*     */   }
+			
+			    public void setSkillPointsOfJob(String uuid, String job, int d) {
+				/*  68 */     get().set(job+"." + uuid + ".SkillPoints", d);
+				/*     */     
+				/*  70 */     save();
+				/*     */   }
+				/*     */ 
+			
 /*     */   
 /*     */   public void addJobToBought(UUID uuid, String job) {
 /* 119 */     List<String> list = get().getStringList("Job." + uuid + ".Has.Name"); 

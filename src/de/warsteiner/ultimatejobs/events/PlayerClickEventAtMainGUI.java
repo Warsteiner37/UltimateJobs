@@ -18,7 +18,7 @@ import de.warsteiner.ultimatejobs.custom.PlayerBuyJob;
 import de.warsteiner.ultimatejobs.custom.PlayerJobChange;
 import de.warsteiner.ultimatejobs.gui.JobsGUIManager;
 import de.warsteiner.ultimatejobs.levels.levelgui.LevelCreatingGUI;
- 
+import de.warsteiner.ultimatejobs.skills.SkillsGUI_PerJob;
 import de.warsteiner.ultimatejobs.skills.SkillsGUI_PerPlayer;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
 import net.milkbowl.vault.economy.Economy;
@@ -189,7 +189,15 @@ FileConfiguration m = UltimateJobs.MessageHandler().getCustomConfig();
  								return;
  							} else if(w.equalsIgnoreCase("SKILLS")) {
  								if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skills")) {
+ 									 if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").toUpperCase().equalsIgnoreCase("PER_PLAYER")) {
  									p.openInventory(SkillsGUI_PerPlayer.load(p));
+ 									 } else  if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").toUpperCase().equalsIgnoreCase("PER_JOB")) {
+ 										if(JobAPI.getCurrentJob(p.getUniqueId()).equalsIgnoreCase("None")) {
+ 											p.sendMessage(m.getString("Prefix")+m.getString("No_Job").replaceAll("&", "§"));
+ 										} else {
+ 											 SkillsGUI_PerJob.open(p);
+ 										}
+ 									 }
  								} else {
  									p.sendMessage("§cThis Action is not enabled.");
  								}

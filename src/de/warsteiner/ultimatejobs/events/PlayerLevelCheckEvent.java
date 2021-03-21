@@ -67,6 +67,9 @@ public class PlayerLevelCheckEvent implements Listener {
 										int old = UltimateJobs.getData().getSkillPoints(""+uuid);
 										UltimateJobs.getData().setSkillPoints(""+uuid, old+newp);
 										
+										int old2 = UltimateJobs.getData().getSkillPointsOfJob(""+p.getUniqueId(), job);
+										UltimateJobs.getData().setSkillPointsOfJob(""+uuid,job, old2+newp);
+										
 										FileConfiguration cfg = UltimateJobs.getPlugin().getConfig();
 										
 										String newlevel = ""+UltimateJobs.getData().getLevel(""+uuid, job);

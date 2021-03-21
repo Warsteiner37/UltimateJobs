@@ -19,6 +19,8 @@
 
 WorldMode: "public"
 
+Get_Vanilla_Exp: true
+
 #set the player's default job
 #use "None" for no job
 Default_Job: "None"

@@ -167,7 +167,7 @@ Bukkit.getScheduler().runTaskAsynchronously((Plugin) UltimateJobs.getPlugin(), n
 							 ArrayList<String> l = new ArrayList<String>();
 							 
 							 for (int i2 = 0; i2 < a.size(); i2++) {
-								 l.add(a.get(i2).replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
+								 l.add(a.get(i2).replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)).replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
 							 }
 							 
 							 meta.setLore(l);

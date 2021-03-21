@@ -46,7 +46,7 @@ import de.warsteiner.ultimatejobs.quests.QuestGUI;
 import de.warsteiner.ultimatejobs.ranking.TopClickEvent_GlobalRanking;
 import de.warsteiner.ultimatejobs.ranking.TopClickEvent_JobRanking;
 import de.warsteiner.ultimatejobs.reward.RewardHandler;
- 
+import de.warsteiner.ultimatejobs.skills.PlayerClickAtSkillsPerJob;
 import de.warsteiner.ultimatejobs.skills.PlayerClickAtSkillsPerPlayer;
 import de.warsteiner.ultimatejobs.skills.SkillsAPIForPlayer;
 import de.warsteiner.ultimatejobs.sounds.PlayerBasedSounds;
@@ -284,7 +284,7 @@ if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skill
 	 if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").toUpperCase().equalsIgnoreCase("PER_PLAYER")) {
 		 Bukkit.getPluginManager().registerEvents((Listener)new  PlayerClickAtSkillsPerPlayer(), (Plugin)this);
 	 } else  if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").toUpperCase().equalsIgnoreCase("PER_JOB")) {
-		 
+		 Bukkit.getPluginManager().registerEvents((Listener)new  PlayerClickAtSkillsPerJob(), (Plugin)this);
 	 }
 }
 if(UltimateJobs.getLevelGUI().getCustomConfig().getBoolean("Enable_LevelGUI")) {

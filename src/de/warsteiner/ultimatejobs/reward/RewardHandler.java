@@ -39,7 +39,9 @@ public class RewardHandler {
 					rechnrung = money*multi_for_money;
 				}
 				double money2 =0;
-				p.setExp(points);
+				if(UltimateJobs.getJobsConfig().getCustomConfig().getBoolean("Get_Vanilla_Exp")) {
+					p.giveExp(vanilla);
+				}
 				if( UltimateJobs.getPlugin().getConfig().getBoolean("Use_Levels") == true) {
 					money2 =  money*multi_for_money_2;
 				}
@@ -55,7 +57,7 @@ public class RewardHandler {
 				
 				double current_exp = UltimateJobs.getData().getExp(""+uuid, job);
 				 
-				p.giveExp(vanilla);
+			 
 				UltimateJobs.getData().setExp(""+uuid, job, current_exp+final_exp);
 				
 				int global = UltimateJobs.getData().getGlobalPoints(""+uuid);
