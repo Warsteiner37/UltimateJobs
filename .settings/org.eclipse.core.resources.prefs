@@ -5,6 +5,7 @@ encoding/Jobs.yml=UTF-8
 encoding/LevelGUI.yml=UTF-8
 encoding/MainGUI.yml=UTF-8
 encoding/Messages.yml=UTF-8
+encoding/PerJobSkills.yml=UTF-8
 encoding/PerPlayerSkills.yml=UTF-8
 encoding/Quests.yml=UTF-8
 encoding/Skills.yml=UTF-8

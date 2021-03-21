@@ -12,6 +12,7 @@ import de.warsteiner.ultimatejobs.config.LevelGUIConfig;
  
 import de.warsteiner.ultimatejobs.config.MainGUIConfig;
 import de.warsteiner.ultimatejobs.config.MessageConfig;
+import de.warsteiner.ultimatejobs.config.PerJobSkills;
 import de.warsteiner.ultimatejobs.config.PerPlayerSkills;
 import de.warsteiner.ultimatejobs.config.QuestsConfig;
 import de.warsteiner.ultimatejobs.config.SkillsMainConfug;
@@ -122,7 +123,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 			private static QuestsConfig quests;
 			private static PerPlayerSkills psk;
 			private static SkillsMainConfug sk;
-			
+			private static PerJobSkills sjob;
  
 /*     */   public void onLoad() {
 	 
@@ -166,7 +167,7 @@ import org.bukkit.scheduler.BukkitRunnable;
              m = new MessageConfig();
        
              cmd = new CommandConfig();
-             
+             sjob = new PerJobSkills();
 /*     */ 	rewards = new RewardHandler();
 			skillsapi = new SkillsAPI();
 			levelapi = new LevelAPI();
@@ -201,7 +202,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 /*     */ 
 				jobs.createCustomConfig();
 				maingui.createCustomConfig();
-			 
+				sjob.createCustomConfig();
 				m.createCustomConfig();
 				cmd.createCustomConfig();
 				 sk.createCustomConfig();
@@ -279,8 +280,10 @@ import org.bukkit.scheduler.BukkitRunnable;
 new Metrics(getPlugin(), 8753);
  
 if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skills")) {
-	 if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").equalsIgnoreCase("PER_PLAYER")) {
+	 if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").toUpperCase().equalsIgnoreCase("PER_PLAYER")) {
 		 Bukkit.getPluginManager().registerEvents((Listener)new  PlayerClickAtSkills(), (Plugin)this);
+	 } else  if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").toUpperCase().equalsIgnoreCase("PER_JOB")) {
+		 
 	 }
 }
 if(UltimateJobs.getLevelGUI().getCustomConfig().getBoolean("Enable_LevelGUI")) {
@@ -381,6 +384,10 @@ public static ChatConfig getChatConfig() {
 			
 			public static PlayerData getData() {
 				return data;
+			}
+			
+			public static PerJobSkills getSkillsPerJob() {
+				return sjob;
 			}
 			
 			public static QuestsConfig getQuestAPI() {

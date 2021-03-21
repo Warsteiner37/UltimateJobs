@@ -75,9 +75,10 @@ public class PlayerJobTabComplete  implements TabCompleter{
 					}
 				}
 				if(tab.getBoolean("Options.Levels.Enabled")) {
+					if(UltimateJobs.getLevelGUI().getCustomConfig().getBoolean("Enable_LevelGUI")) {
 					if(p.hasPermission(tab.getString("Options.Levels.Permission"))) {
 					l.add(tab.getString("Options.Levels.Usage"));
-					}
+					}}
 				}
 				if(tab.getBoolean("Options.Level.Enabled")) {
 					if(p.hasPermission(tab.getString("Options.Level.Permission"))) {

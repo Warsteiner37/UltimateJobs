@@ -73,7 +73,7 @@ public static String getPlayerExpinCurrentJob(UUID uuid) {
 			if(j.equalsIgnoreCase("None")) {
 				return l.getString("PlaceHolders.No_Exp");
 			} else {
-				return ""+UltimateJobs.getData().getExp(""+uuid, j);
+				return ""+UltimateJobs.getLevelAPI().getFormatedExp(j, ""+uuid);
 			}
 			}
 		}
