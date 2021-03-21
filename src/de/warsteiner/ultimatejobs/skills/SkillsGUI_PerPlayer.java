@@ -167,21 +167,21 @@ Bukkit.getScheduler().runTaskAsynchronously((Plugin) UltimateJobs.getPlugin(), n
 	 
 					 String mat = cfg.getString("Items."+b+".Material");
 					 
-					 String new_mat = null;
+					 ItemStack new_mat = null;
 					 
 					 if(Material.getMaterial(mat) == null) {
-						 new_mat = mat.replaceAll("<player>", p.getName());
+						 new_mat = generateSkull( mat.replaceAll("<player>", p.getName()));
 					 } else {
-						 new_mat = mat;
+						 new_mat = new ItemStack(Material.valueOf(mat),1);
 					 }
 					 
 					 int slot = cfg.getInt("Items."+b+".Slot");
 					 boolean lore = cfg.getBoolean("Items."+b+".Lore_Option");
 					 boolean enchanted = cfg.getBoolean("Items."+b+".Enchanted");
 					 
-					 if(Material.getMaterial(mat) == null) {
+				 
 						 
-						 ItemStack item = generateSkull(new_mat);
+						 ItemStack item = new_mat;
 						 
 						 ItemMeta meta = item.getItemMeta();
 						 
@@ -192,7 +192,7 @@ Bukkit.getScheduler().runTaskAsynchronously((Plugin) UltimateJobs.getPlugin(), n
 							 ArrayList<String> l = new ArrayList<String>();
 							 
 							 for (int i2 = 0; i2 < a.size(); i2++) {
-								 l.add(a.get(i2).replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
+								 l.add(a.get(i2).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
 							 }
 							 
 							 meta.setLore(l);
@@ -213,50 +213,13 @@ Bukkit.getScheduler().runTaskAsynchronously((Plugin) UltimateJobs.getPlugin(), n
 					 
 						  continue;
 						 
-					 } else {
-						 
-						 ItemStack item = new ItemStack(Material.valueOf(new_mat),1);
-						 
-						 ItemMeta meta = item.getItemMeta();
-						 
-						 if(lore ) {
-							 
-							 List<String> a = cfg.getStringList("Items."+b+".Lore");
-							 
-							 ArrayList<String> l = new ArrayList<String>();
-							 
-							 for (int i2 = 0; i2 < a.size(); i2++) {
-								 l.add(a.get(i2).replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
-							 }
-							 
-							 meta.setLore(l);
-							 
-						 } 
-						 
-						 if(enchanted) {
-							 meta.addEnchant(Enchantment.SILK_TOUCH, 1, false);
-							 meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-						 }
-						 
-						 meta.setDisplayName(cfg.getString("Items."+b+".Display").replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
-						 
-						 item.setItemMeta(meta);
-						 
 					 
-							 inv.setItem(slot, item);
-						 
-						  continue;
-						 
-					 }
+					 
+				 }
 					 
 					 
 				 }  
 				 
-		 
-			
-
-			
-		}
 		
 	}
 });

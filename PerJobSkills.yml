@@ -16,11 +16,126 @@ SillJobs:
    
      Use:
        - "Money"
-       #- "Exp"
-       #- "Dupe"
-       #- "Speed"
-       #- "Vanilla"
-       #- "PlayerSpeed"
+       - "Exp"
+       - "Dupe"
+       - "Speed" 
+       - "Vanilla"
+       
+     Vanilla:
+     
+       Material: "EXPERIENCE_BOTTLE"
+       
+       Enchanted: false
+       
+       Slot: 24
+       
+       Display: "&8< &3Vanilla Exp &8>"
+       
+       #
+       # FORMAT: LEVEL:PRICE:MULTI
+       #
+       Levels:
+         - "1:2:0.30"
+         - "2:4:0.50"
+         - "3:5:0.80"
+         - "4:8:0.90"
+         
+       Lore:
+         - "&8&m-----------------------------"
+         - "&/"
+         - "&8< &7This skill brings you more vanilla exp. &8>"
+         - "&7" 
+         - "&8> &7Skill-Level&8: &b#<level>"
+         - "&8> &7Current Multiplier&8: &6<m>% "
+         - "&7"
+         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+       
+     Speed:
+     
+       Material: "WOODEN_PICKAXE"
+       
+       Enchanted: true
+       
+       Slot: 23
+       
+       Display: "&8< &bBreak Speed &8>"
+       
+       #
+       # FORMAT: LEVEL:PRICE:MULTI
+       #
+       Levels:
+         - "1:2:0.30"
+         - "2:4:0.35"
+         - "3:5:0.30"
+         - "4:8:0.45"
+         
+       Lore:
+         - "&8&m-----------------------------"
+         - "&/"
+         - "&8< &7This skill brings you the change to break blocks faster. &8>"
+         - "&7" 
+         - "&8> &7Skill-Level&8: &b#<level>"
+         - "&8> &7Current&8: &6<m>% Faster"
+         - "&7"
+         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+       
+     Dupe:
+     
+       Material: "IRON_INGOT"
+       
+       Enchanted: false
+       
+       Slot: 22
+       
+       Display: "&8< &6Duplication &8>"
+       
+       #
+       # FORMAT: LEVEL:PRICE:MULTI
+       #
+       Levels:
+         - "1:2:0.05"
+         - "2:4:0.09"
+         - "3:5:0.10"
+         - "4:8:0.15"
+         
+       Lore:
+         - "&8&m-----------------------------"
+         - "&/"
+         - "&8< &7This skill brings you the change to get dupes. &8>"
+         - "&7" 
+         - "&8> &7Skill-Level&8: &b#<level>"
+         - "&8> &7Current Chance&8: &6<m>%"
+         - "&7"
+         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+       
+     Exp:
+     
+       Material: "FLINT"
+       
+       Enchanted: false
+       
+       Slot: 21
+       
+       Display: "&8< &eExp &8>"
+       
+       #
+       # FORMAT: LEVEL:PRICE:MULTI
+       #
+       Levels:
+         - "1:2:0.2"
+         - "2:4:0.25"
+         - "3:5:0.30"
+         - "4:8:0.40"
+         
+       Lore:
+         - "&8&m-----------------------------"
+         - "&/"
+         - "&8< &7This skill brings you more Exp for you'r levels. &8>"
+         - "&7" 
+         - "&8> &7Skill-Level&8: &b#<level>"
+         - "&8> &7Current Multiplier&8: &6<m>%"
+         - "&7"
+         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
        
      Money:
      
@@ -28,7 +143,7 @@ SillJobs:
        
        Enchanted: false
        
-       Slot: 10
+       Slot: 20
        
        Display: "&8< &aMoney &8>"
        
@@ -47,9 +162,9 @@ SillJobs:
          - "&8< &7This skill brings you more Money. &8>"
          - "&7" 
          - "&8> &7Skill-Level&8: &b#<level>"
-         - "&8> &7Current Multiplier&8: &6#<m>"
+         - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
 
 Items:
  
