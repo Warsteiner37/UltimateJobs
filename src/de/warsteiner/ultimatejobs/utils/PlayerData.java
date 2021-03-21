@@ -187,6 +187,12 @@ public int getPointsByJob(String uuid, String job) {
 			  /*  70 */     save();
 			  /*     */   }
 			  /*     */   
+		  public boolean existPlayerQUestData(String uuid) {
+				if(get().contains("Quests."+uuid+".Update")) {
+					return true;
+				}
+				return false;
+			}
 		
 			public void QuestActionCount(Player p,  String idofitem) {
 				FileConfiguration cfg = UltimateJobs.getQuestAPI().getCustomConfig();

@@ -24,7 +24,7 @@ public class PlayerEixstEvent /*    */   implements Listener {
 	UltimateJobs.getData().UpdateQuests(""+event.getPlayer().getUniqueId(),  event.getPlayer());
 	
 	/*    */             }
-	/*    */             /*    */             if(!UltimateJobs.getData().PlayerIsInPlayerList(event.getPlayer().getName())) {
+	/*    */             /*    */             if(!UltimateJobs.getData().existPlayerQUestData(""+event.getPlayer().getUniqueId())) {
 		UltimateJobs.getData().addPlayerToPlayerList(event.getPlayer().getName());
 	}
 	/* 22 */             UltimateJobs.getData().setUUID(event.getPlayer().getName(), ""+event.getPlayer().getUniqueId());
