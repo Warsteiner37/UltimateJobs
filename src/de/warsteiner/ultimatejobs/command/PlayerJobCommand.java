@@ -167,8 +167,15 @@ public class PlayerJobCommand implements CommandExecutor {
 					return true;
 				}
 				
-				 if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").equalsIgnoreCase("PER_PLAYER")) {
+				 if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").toUpperCase().equalsIgnoreCase("PER_PLAYER")) {
 					p.openInventory(SkillsGUI_PerPlayer.load(p));
+				} else 	 if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").toUpperCase().equalsIgnoreCase("PER_JOB")) {
+					if(job.equalsIgnoreCase("None")) {
+						String a = m.getString("Prefix")+tab.getString("Messages.No_Job");
+						p.sendMessage(a.replaceAll("&", "§"));
+						return true;
+					}
+					p.sendMessage("open skills per job");
 				}
  				 return true;
 			}  else if(args.length == 1 && args[0].equalsIgnoreCase(tab.getString("Options.Levels.Usage"))) {

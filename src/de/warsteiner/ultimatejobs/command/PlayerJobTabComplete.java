@@ -49,7 +49,13 @@ public class PlayerJobTabComplete  implements TabCompleter{
 			if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skills")) {
 				if(tab.getBoolean("Options.Skills.Enabled")) {
 					if(p.hasPermission(tab.getString("Options.Skills.Permission"))) {
-					l.add(tab.getString("Options.Skills.Usage"));
+						 if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").toUpperCase().equalsIgnoreCase("PER_PLAYER")) {
+							 	l.add(tab.getString("Options.Skills.Usage"));
+						 } else  if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").toUpperCase().equalsIgnoreCase("PER_JOB")) {
+							 if(!UltimateJobs.getData().getCurrentJob(p.getUniqueId()).equalsIgnoreCase("None")) {
+									l.add(tab.getString("Options.Skills.Usage"));
+							 }
+						 }
 					}
 				}
 			}

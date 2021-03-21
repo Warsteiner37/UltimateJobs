@@ -18,5 +18,5 @@ Enable_Skills: false
 # "PER_JOB"
 #
   
-Mode: "PER_PLAYER"
+Mode: "PER_JOB"
       
