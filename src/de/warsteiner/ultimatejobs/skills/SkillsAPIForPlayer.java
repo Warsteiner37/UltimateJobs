@@ -6,7 +6,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
 
-public class SkillsAPI {
+public class SkillsAPIForPlayer {
 
 	public double getMoneyMulti(String uuid) {
 		if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skills")) {

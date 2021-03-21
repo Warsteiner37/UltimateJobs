@@ -46,8 +46,9 @@ import de.warsteiner.ultimatejobs.quests.QuestGUI;
 import de.warsteiner.ultimatejobs.ranking.TopClickEvent_GlobalRanking;
 import de.warsteiner.ultimatejobs.ranking.TopClickEvent_JobRanking;
 import de.warsteiner.ultimatejobs.reward.RewardHandler;
-import de.warsteiner.ultimatejobs.skills.PlayerClickAtSkills;
-import de.warsteiner.ultimatejobs.skills.SkillsAPI;
+ 
+import de.warsteiner.ultimatejobs.skills.PlayerClickAtSkillsPerPlayer;
+import de.warsteiner.ultimatejobs.skills.SkillsAPIForPlayer;
 import de.warsteiner.ultimatejobs.sounds.PlayerBasedSounds;
 import de.warsteiner.ultimatejobs.utils.BossBarHandler;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
@@ -111,7 +112,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 			private static CommandConfig cmd;
 			 
 			private static RewardHandler rewards;
-			private static SkillsAPI skillsapi;
+			private static SkillsAPIForPlayer skillsapi;
 			private static LevelAPI levelapi;
 		 
 			private static BossBarHandler boss;
@@ -169,7 +170,7 @@ import org.bukkit.scheduler.BukkitRunnable;
              cmd = new CommandConfig();
              sjob = new PerJobSkills();
 /*     */ 	rewards = new RewardHandler();
-			skillsapi = new SkillsAPI();
+			skillsapi = new SkillsAPIForPlayer();
 			levelapi = new LevelAPI();
 			psk = new PerPlayerSkills();
 		 
@@ -281,7 +282,7 @@ new Metrics(getPlugin(), 8753);
  
 if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skills")) {
 	 if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").toUpperCase().equalsIgnoreCase("PER_PLAYER")) {
-		 Bukkit.getPluginManager().registerEvents((Listener)new  PlayerClickAtSkills(), (Plugin)this);
+		 Bukkit.getPluginManager().registerEvents((Listener)new  PlayerClickAtSkillsPerPlayer(), (Plugin)this);
 	 } else  if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").toUpperCase().equalsIgnoreCase("PER_JOB")) {
 		 
 	 }
@@ -423,7 +424,7 @@ public static ChatConfig getChatConfig() {
 				return rewards;
 			}
 			
-			public static SkillsAPI getSkillAPI() {
+			public static SkillsAPIForPlayer getSkillAPI() {
 				return skillsapi;
 			}
 			

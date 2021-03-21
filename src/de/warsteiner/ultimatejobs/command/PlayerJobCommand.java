@@ -25,7 +25,7 @@ import de.warsteiner.ultimatejobs.levels.levelgui.LevelCreatingGUI;
 import de.warsteiner.ultimatejobs.quests.QuestGUI;
 import de.warsteiner.ultimatejobs.ranking.GlobalRankingGUI;
 import de.warsteiner.ultimatejobs.ranking.JobRankingGUI;
- 
+import de.warsteiner.ultimatejobs.skills.SkillsGUI_PerJob;
 import de.warsteiner.ultimatejobs.skills.SkillsGUI_PerPlayer;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
  
@@ -175,7 +175,7 @@ public class PlayerJobCommand implements CommandExecutor {
 						p.sendMessage(a.replaceAll("&", "§"));
 						return true;
 					}
-					p.sendMessage("open skills per job");
+					SkillsGUI_PerJob.open(p);
 				}
  				 return true;
 			}  else if(args.length == 1 && args[0].equalsIgnoreCase(tab.getString("Options.Levels.Usage"))) {

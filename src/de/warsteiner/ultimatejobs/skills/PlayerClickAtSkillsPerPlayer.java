@@ -17,7 +17,7 @@ import de.warsteiner.ultimatejobs.gui.JobsGUIManager;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
 import net.milkbowl.vault.economy.Economy;
 
-public class PlayerClickAtSkills  implements Listener
+public class PlayerClickAtSkillsPerPlayer  implements Listener
 /*     */ {
 /*     */ 
 /*     */   
