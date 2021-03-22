@@ -1,0 +1,25 @@
+# .----------------.  .----------------.  .----------------.  .----------------. 
+#| .--------------. || .--------------. || .--------------. || .--------------. |
+#| | _____  _____ | || |  _________   | || |     _____    | || |   _____      | |
+#| ||_   _||_   _|| || | |  _   _  |  | || |    |_   _|   | || |  |_   _|     | |
+#| |  | |    | |  | || | |_/ | | \_|  | || |      | |     | || |    | |       | |
+#| |  | '    ' |  | || |     | |      | || |      | |     | || |    | |   _   | |
+#| |   \ `--' /   | || |    _| |_     | || |     _| |_    | || |   _| |__/ |  | |
+#| |    `.__.'    | || |   |_____|    | || |    |_____|   | || |  |________|  | |
+#| |              | || |              | || |              | || |              | |
+#| '--------------' || '--------------' || '--------------' || '--------------' |
+# '----------------'  '----------------'  '----------------'  '----------------' 
+
+#
+# Please read: this is the util class for some features of UltimateJobs. 
+# If you dont understand, what you can do here, go and ask the support!!
+#
+
+#this list is used by the skills addon & also the instant smelt addon
+ItemListForDoubler:
+  - "STONE:COBBLESTONE"
+  - "IRON_ORE:IRON_INGOT"
+  - "GOLD_ORE:GOLD_INGOT"
+  - "COAL_ORE:COAL"
+  - "DIAMOND_ORE:DIAMOND"
+  - "LAPIS_ORE:LAPIS_LAZULI"

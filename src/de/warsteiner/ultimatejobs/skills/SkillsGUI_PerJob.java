@@ -43,11 +43,11 @@ public class SkillsGUI_PerJob {
 					 int i3 = i+1;
 					 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, i3);
 						
-					 String price = SkillsAPIForJobs.getNextLevelPrice(job, b, level);
+					 String price = SkillsAPIForJobs.getNextLevelPrice(job, b, level+1);
 					 String multi = SkillsAPIForJobs.getNextLevelMulti(job, b, level);
 				 
 					 if(cfg.getString("SillJobs."+job+"."+b+".Material") != null) {
-						 
+					 
 						 String raw = cfg.getString("SillJobs."+job+"."+b+".Material");
 						 boolean Enchanted = cfg.getBoolean("SillJobs."+job+"."+b+".Enchanted");
 						 int Slot = cfg.getInt("SillJobs."+job+"."+b+".Slot");
@@ -87,7 +87,67 @@ public class SkillsGUI_PerJob {
 					 }
 					 
 				 }
+					List<String> list_of_custom_Items = cfg.getStringList("Design.Items");
+					 
+				 for (int i = 0; i < list_of_custom_Items.size(); i++) {
+					 
+					 String b = list_of_custom_Items.get(i);
 				 
+					 boolean use = cfg.getBoolean("Items."+b+".Enabled");
+					 
+					 if(use == true) {
+						 
+			 
+							 String mat = cfg.getString("Items."+b+".Material");
+							 
+							 ItemStack new_mat = null;
+							 
+							 if(Material.getMaterial(mat) == null) {
+								 new_mat = generateSkull( mat.replaceAll("<player>", p.getName()));
+							 } else {
+								 new_mat = new ItemStack(Material.valueOf(mat),1);
+							 }
+							 
+							 int slot = cfg.getInt("Items."+b+".Slot");
+							 boolean lore = cfg.getBoolean("Items."+b+".Lore_Option");
+							 boolean enchanted = cfg.getBoolean("Items."+b+".Enchanted");
+							 
+						 
+								 
+								 ItemStack item = new_mat;
+								 
+								 ItemMeta meta = item.getItemMeta();
+								 
+								 if(lore ) {
+									 
+									 List<String> a = cfg.getStringList("Items."+b+".Lore");
+									 
+									 ArrayList<String> l = new ArrayList<String>();
+									 
+									 for (int i2 = 0; i2 < a.size(); i2++) {
+										 l.add(a.get(i2).replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)).replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
+									 }
+									 
+									 meta.setLore(l);
+									 
+								 }
+								 
+								 meta.setDisplayName(cfg.getString("Items."+b+".Display").replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)).replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
+								 
+								 if(enchanted) {
+									 meta.addEnchant(Enchantment.SILK_TOUCH, 1, false);
+									 meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+								 }
+								 
+								 item.setItemMeta(meta);
+								 
+							 
+									 inv.setItem(slot, item);
+							 
+								  continue;
+								 
+					 }	 
+					 }
 			}
 		});
 		 
@@ -95,7 +155,7 @@ public class SkillsGUI_PerJob {
 	
 	public static void open(Player p) {
 		p.openInventory(get(p));
-		setSkillItems(p);
+		setSkillItems(p); 
 	}
 	
 	public static Inventory get(final Player p) {
@@ -112,7 +172,6 @@ Bukkit.getScheduler().runTaskAsynchronously((Plugin) UltimateJobs.getPlugin(), n
 		 List<String> list = cfg.getStringList("SillJobs."+job+".Use");
 	 
 		List<String> list_of_placeholders = cfg.getStringList("Design.PlaceHolders");
-		List<String> list_of_custom_Items = cfg.getStringList("Design.Items");
  
 		/* 34 */ for (String pl : list_of_placeholders) {
 			/* 35 */ String[] t = pl.split(":");
@@ -131,74 +190,8 @@ Bukkit.getScheduler().runTaskAsynchronously((Plugin) UltimateJobs.getPlugin(), n
 		
 		 int points = UltimateJobs.getData().getSkillPointsOfJob(""+p.getUniqueId(), job);
 		
-		 for (int i = 0; i < list_of_custom_Items.size(); i++) {
-			 
-			 String b = list_of_custom_Items.get(i);
-		 
-			 boolean use = cfg.getBoolean("Items."+b+".Enabled");
-			 
-			 if(use == true) {
-				 
-	 
-					 String mat = cfg.getString("Items."+b+".Material");
-					 
-					 ItemStack new_mat = null;
-					 
-					 if(Material.getMaterial(mat) == null) {
-						 new_mat = generateSkull( mat.replaceAll("<player>", p.getName()));
-					 } else {
-						 new_mat = new ItemStack(Material.valueOf(mat),1);
-					 }
-					 
-					 int slot = cfg.getInt("Items."+b+".Slot");
-					 boolean lore = cfg.getBoolean("Items."+b+".Lore_Option");
-					 boolean enchanted = cfg.getBoolean("Items."+b+".Enchanted");
-					 
-				 
-						 
-						 ItemStack item = new_mat;
-						 
-						 ItemMeta meta = item.getItemMeta();
-						 
-						 if(lore ) {
-							 
-							 List<String> a = cfg.getStringList("Items."+b+".Lore");
-							 
-							 ArrayList<String> l = new ArrayList<String>();
-							 
-							 for (int i2 = 0; i2 < a.size(); i2++) {
-								 l.add(a.get(i2).replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)).replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
-							 }
-							 
-							 meta.setLore(l);
-							 
-						 }
-						 
-						 meta.setDisplayName(cfg.getString("Items."+b+".Display").replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)).replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
-						 
-						 if(enchanted) {
-							 meta.addEnchant(Enchantment.SILK_TOUCH, 1, false);
-							 meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-						 }
-						 
-						 item.setItemMeta(meta);
-						 
-					 
-							 inv.setItem(slot, item);
-					 
-						  continue;
-						 
-					 
-					 
-				 }  
-				 
-		 
-			
-
-			
-		}
-		
 	}
+			 
 });
 return inv;
 		}

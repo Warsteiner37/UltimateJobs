@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.block.Block;
@@ -11,11 +12,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.inventory.ItemStack;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
+import de.warsteiner.ultimatejobs.skills.SkillsAPIForJobs;
+import de.warsteiner.ultimatejobs.skills.SkillsAPIForPlayer;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
 import de.warsteiner.ultimatejobs.utils.WorldManager;
-
+ 
 public class Job_Miner implements Listener {
 
 	  @EventHandler
@@ -37,9 +41,7 @@ public class Job_Miner implements Listener {
 	    	if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.EventCancelByWorldGuard")) {
 	    		e.setCancelled(true);
 	    	}
-			/* 113 */      if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
-                Bukkit.getConsoleSender().sendMessage("§4§lWarning§8: §7There is an Error. #7");
-}
+ 
 	    	 return;
 	  }
 	   if (!WorldManager.canWork(p)) {
@@ -53,13 +55,32 @@ public class Job_Miner implements Listener {
 	   if(UltimateJobs.getQuestAPI().getCustomConfig().getBoolean("Enable_Quests") ) {
 		   UltimateJobs.getData().QuestActionCount(p, ""+e.getBlock().getType());
 	   }
+	   
+	 
  
 	   if(!JobAPI.IsSupported(job, ""+block.getType(), true)) {
-			/* 113 */      if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
-                Bukkit.getConsoleSender().sendMessage("§4§lWarning§8: §7There is an Error. #6");
-}
+ 
 		   return;
 	   }
+	   
+	   if(SkillsAPIForJobs.isEnabled()) {
+		   if(SkillsAPIForJobs.isSkillEnabled("Dupe", job)) {
+			   double randDouble = Math.random();
+				 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Dupe"));
+				 
+			   if(randDouble <= Double.valueOf(SkillsAPIForJobs.getChance(job, "Dupe", level))) {
+			       Location loc = e.getBlock().getLocation();
+			       String m = null;
+			       if(SkillsAPIForJobs.getItemStackForDupe(""+e.getBlock().getType()).equalsIgnoreCase("NONE")) {
+			    	   m = ""+e.getBlock().getType();
+			       } else {
+			    	   m = SkillsAPIForJobs.getItemStackForDupe(""+e.getBlock().getType());
+			       }
+			       ItemStack s = new ItemStack(Material.valueOf(m),1);
+			       loc.getWorld().dropItemNaturally(loc, s);
+			   }
+		   }
+	   }  
 	  
 	   List<String> list = JobAPI.getSupportedList(job);
 	  

@@ -11,5 +11,6 @@ encoding/Quests.yml=UTF-8
 encoding/Skills.yml=UTF-8
 encoding/Sounds.yml=UTF-8
 encoding/TopGUI.yml=UTF-8
+encoding/Util.yml=UTF-8
 encoding/config.yml=UTF-8
 encoding/plugin.yml=UTF-8

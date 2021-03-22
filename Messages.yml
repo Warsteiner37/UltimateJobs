@@ -25,3 +25,9 @@ Joined: "&7You joined the <job> &7Job!"
 No_Perm: "&cYou dont have permissions!"
 
 No_Job: "&cYou are not in a job!"
+
+Need_Points: "&cYou dont have enough skill points!"
+
+Upgrade_Skill: "&7You have bought an skill upgrade for the Job <job>&7!"
+
+Skill_Max: "&cThis skill has reached his maxed level!"

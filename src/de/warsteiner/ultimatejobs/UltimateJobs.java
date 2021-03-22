@@ -18,6 +18,7 @@ import de.warsteiner.ultimatejobs.config.QuestsConfig;
 import de.warsteiner.ultimatejobs.config.SkillsMainConfug;
 import de.warsteiner.ultimatejobs.config.SoundConfig;
 import de.warsteiner.ultimatejobs.config.TopGUI;
+import de.warsteiner.ultimatejobs.config.UtilConfig;
 import de.warsteiner.ultimatejobs.editor.events.EditorMainPageEvent;
 import de.warsteiner.ultimatejobs.events.PlayerClickEventAtMainGUI;
 import de.warsteiner.ultimatejobs.events.PlayerEixstEvent;
@@ -125,6 +126,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 			private static PerPlayerSkills psk;
 			private static SkillsMainConfug sk;
 			private static PerJobSkills sjob;
+			private static UtilConfig util;
  
 /*     */   public void onLoad() {
 	 
@@ -173,7 +175,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 			skillsapi = new SkillsAPIForPlayer();
 			levelapi = new LevelAPI();
 			psk = new PerPlayerSkills();
-		 
+			util = new UtilConfig();
 			lgui = new LevelGUIConfig();
 			top = new TopGUI();
 			boss = new BossBarHandler(getPlugin());
@@ -213,7 +215,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 				sounds.createCustomConfig();
 				chat.createCustomConfig();
 				quests.createCustomConfig();
-/*     */ 
+/*     */ 		util.createCustomConfig();
 /*     */     
 /* 138 */     Bukkit.getPluginManager().registerEvents((Listener)new PlayerEixstEvent(), (Plugin)this);
 				Bukkit.getPluginManager().registerEvents((Listener)new PlayerClickEventAtMainGUI(), (Plugin)this);
@@ -385,6 +387,10 @@ public static ChatConfig getChatConfig() {
 			
 			public static PlayerData getData() {
 				return data;
+			}
+			
+			public static UtilConfig getUtil() {
+				return util;
 			}
 			
 			public static PerJobSkills getSkillsPerJob() {

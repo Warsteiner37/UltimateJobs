@@ -2,11 +2,14 @@ package de.warsteiner.ultimatejobs.skills;
 
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.gui.JobsGUIManager;
@@ -53,7 +56,48 @@ FileConfiguration m = UltimateJobs.MessageHandler().getCustomConfig();
  
 			 	String prefix = m.getString("Prefix").replaceAll("&", "§");
  
+  
+						 List<String> list = cfg.getStringList("SillJobs."+job+".Use");
+						 
+						 for (int i = 0; i < list.size(); i++) {
+							 
+							 String b = list.get(i);
  
+								 String dis = cfg.getString("SillJobs."+job+"."+b+".Display").replaceAll("&", "§");
+							 
+								 if(displaynameofitem.equalsIgnoreCase(dis)) {
+									 int i3 = i+1;
+									 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, i3);
+									 int points = UltimateJobs.getData().getSkillPointsOfJob(""+p.getUniqueId(), job);
+									 List<String> l = cfg.getStringList("SillJobs."+job+"."+b+".Levels");
+									 Integer price = Integer.valueOf(SkillsAPIForJobs.getNextLevelPrice(job, b, level+1));
+								 //Skill_Max
+									 if(level <= l.size()-1) {
+										 if(points >= price) {
+											 int newd = level+1;
+											 UltimateJobs.getData().setSkilledLevelOfJob(""+p.getUniqueId(), job, i3, newd);
+											 int newp = points-1;
+											 UltimateJobs.getData().setSkillPointsOfJob(""+p.getUniqueId(), job, newp);
+											 p.sendMessage(prefix+m.getString("Upgrade_Skill").replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)).replaceAll("&", "§"));
+											 if(cfg.getString("Design.Mode").toUpperCase().equalsIgnoreCase("UPDATE")) {
+												 SkillsGUI_PerJob.setSkillItems(p);
+											 } else {
+												 p.closeInventory();
+											 }
+											 return;
+										 } else {
+											 p.sendMessage(prefix+m.getString("Need_Points").replaceAll("&", "§"));
+											 return;
+										 }
+									 } else {
+										 p.sendMessage(prefix+m.getString("Skill_Max").replaceAll("&", "§"));
+										 return;
+									 }
+									 
+								 }
+								 
+						 }
+			 	
 			 
  					List<String> custom_items = cfg.getStringList("Design.Items");
  					
