@@ -606,38 +606,8 @@ SillJobs:
    
      Use:
        - "Money"
-       - "Exp"
-       - "CSpeed" 
+       - "Exp" 
        - "Vanilla" 
-       
-     CSpeed:
-     
-       Material: "REDSTONE"
-       
-       Enchanted: false
-       
-       Slot: 32
-       
-       Display: "&8< &cCooking Speed &8>"
-       
-       #
-       # FORMAT: LEVEL:PRICE:MULTI :BLOCKS
-       #
-       Levels:
-         - "1:0:0.30:5"
-         - "2:1:0.50:10"
-         - "3:5:0.80:12"
-         - "4:8:0.90:15"
-         
-       Lore:
-         - "&8&m-----------------------------"
-         - "&/"
-         - "&8< &7Every Furnance in <b> blocks radius gets faster! &8>"
-         - "&7" 
-         - "&8> &7Skill-Level&8: &b#<level>"
-         - "&8> &7Current Multiplier&8: &6<m>% "
-         - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
  
      Vanilla:
      
@@ -674,7 +644,7 @@ SillJobs:
        
        Enchanted: false
        
-       Slot: 30
+       Slot: 31
        
        Display: "&8< &eExp &8>"
        

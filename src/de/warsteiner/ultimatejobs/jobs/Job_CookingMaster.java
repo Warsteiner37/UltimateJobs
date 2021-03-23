@@ -9,6 +9,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.FurnaceBurnEvent;
 import org.bukkit.event.inventory.FurnaceExtractEvent;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
@@ -17,6 +18,11 @@ import de.warsteiner.ultimatejobs.utils.WorldManager;
 
 public class Job_CookingMaster  implements Listener {
 
+    @EventHandler
+    public void onFurnaceBurn(FurnaceBurnEvent e) {
+    	 
+    }
+	
 	 
 	/*    */   @EventHandler
 	/*    */   public void OnBurn(FurnaceExtractEvent  e) {
