@@ -58,7 +58,7 @@ public class SkillsGUI_PerJob {
 						   String st = SkillsAPIForJobs.getStr(level, job);
 						   
 						   ItemStack m = null;
-						   
+					 
 							 if(Material.getMaterial(raw) == null) {
 								 m = generateSkull(raw);
 							 } else {
