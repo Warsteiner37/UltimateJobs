@@ -16,6 +16,7 @@
 #
 
 #this list is used by the skills addon & also the instant smelt addon
+#FORMAT: MATERIAL:MATERIAL_WHICH_GETS_DROPPED 
 ItemListForDoubler:
   - "STONE:COBBLESTONE"
   - "IRON_ORE:IRON_INGOT"
@@ -24,7 +25,10 @@ ItemListForDoubler:
   - "DIAMOND_ORE:DIAMOND"
   - "LAPIS_ORE:LAPIS_LAZULI"
   
-ItemListForAutoReplant:
-  - "WHEAT:WHEAT_SEEDS"
-  - "BEETROOT:BEETROOT_SEEDS"
-  - "MELON:MELON_SLICE"
+#this list is used for the skills & for the hunter skilltree
+#FORMAT: MOB:HE>D
+Skulls:
+  - "ZOMBIE:Zombie"
+  - "SKELETON:Skeleton"
+  - "CREEPER:Creeper"
+  - "COW:Cow" 

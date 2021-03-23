@@ -5,15 +5,20 @@ import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.DyeColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Sheep;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerShearEntityEvent;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
+import de.warsteiner.ultimatejobs.skills.SkillsAPIForJobs;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
 import de.warsteiner.ultimatejobs.utils.WorldManager;
  
@@ -75,6 +80,38 @@ public class Job_Shepherd implements Listener {
 			   
 			   if(ty != color) { 
 				   continue;
+			   }
+			   
+			   if(SkillsAPIForJobs.isEnabled()) {
+				   if(SkillsAPIForJobs.isSkillEnabled("Dupe", job)) {
+					   double randDouble = Math.random();
+						 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Dupe"));
+						   if(randDouble <= Double.valueOf(SkillsAPIForJobs.getChance(job, "Dupe", level))) {
+							   Location d = sheep.getLocation();
+								 World world = d.getWorld();
+								 
+								 Material redWoolMaterial = Material.getMaterial(ty + "_WOOL");
+								 ItemStack item = new ItemStack(redWoolMaterial,1);
+								 world.dropItemNaturally(d, item);
+							 
+								  e.setCancelled(true);
+						   }
+				   }
+				   if(SkillsAPIForJobs.isSkillEnabled("Refill", job)) {
+					   double randDouble = Math.random();
+						 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Refill"));
+					 
+					   if(randDouble <= Double.valueOf(SkillsAPIForJobs.getChance(job, "Refill", level))) {
+						   Location d = sheep.getLocation();
+							 World world = d.getWorld();
+							 
+							 Material redWoolMaterial = Material.getMaterial(ty + "_WOOL");
+							 ItemStack item = new ItemStack(redWoolMaterial,1);
+							 world.dropItemNaturally(d, item);
+						 
+							  e.setCancelled(true);
+					   }
+				   }
 			   }
 			   
 			   Double money = Double.valueOf(b[1]);

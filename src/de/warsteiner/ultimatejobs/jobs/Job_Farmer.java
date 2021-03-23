@@ -49,9 +49,7 @@ public class Job_Farmer implements Listener {
     	if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.EventCancelByWorldGuard")) {
     		e.setCancelled(true);
     	}
-		/* 113 */      if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
-            Bukkit.getConsoleSender().sendMessage("§4§lWarning§8: §7There is an Error. #7");
-}
+ 
     	 return;
   }
    if (!WorldManager.canWork(p)) {
@@ -61,6 +59,7 @@ public class Job_Farmer implements Listener {
    if(!job.equalsIgnoreCase("Farmer")) {
 	   return;
    }
+   
    if(UltimateJobs.getQuestAPI().getCustomConfig().getBoolean("Enable_Quests") ) {
 	   UltimateJobs.getData().QuestActionCount(p, ""+e.getBlock().getType());
    }
@@ -83,27 +82,7 @@ Material ty = Material.valueOf(b[0]);
 	   if(ty != block.getType()) { 
 		   continue;
 	   }
-	   
-	   
-	   if(SkillsAPIForJobs.isEnabled()) {
-		   if(SkillsAPIForJobs.isSkillEnabled("Replant", job)) {
-			   double randDouble = Math.random();
-				 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Replant"));
-				 Bukkit.broadcastMessage("idk");
-				 	e.setCancelled(true);
-							  BlockData data = block.getBlockData();
-					    	//   if (data instanceof Ageable) {
-					    	       Ageable ag = (Ageable) data;
-					    	       ag.setAge(0);
-					    	      block.setBlockData(ag);
  
-			 
-		 
-			   if(randDouble <= Double.valueOf(SkillsAPIForJobs.getChance(job, "Replant", level))) {
-			        
-			   }
-		   }
-	   }
 	   
 	   Double money = Double.valueOf(b[1]);
 	   
