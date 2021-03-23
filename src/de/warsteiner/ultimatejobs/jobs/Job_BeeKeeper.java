@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.BlockData;
@@ -14,10 +15,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
+import de.warsteiner.ultimatejobs.skills.SkillsAPIForJobs;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
 import de.warsteiner.ultimatejobs.utils.WorldManager;
 
@@ -72,6 +75,17 @@ public class Job_BeeKeeper  implements Listener {
 					  if( beehive.getHoneyLevel() >= 1) {
 					
 					
+						  if(SkillsAPIForJobs.isEnabled()) {
+							   if(SkillsAPIForJobs.isSkillEnabled("Refill", job)) {
+								   double randDouble = Math.random();
+									 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Refill"));
+									 
+								   if(randDouble <= Double.valueOf(SkillsAPIForJobs.getChance(job, "Refill", level))) {
+									   beehive.setHoneyLevel(beehive.getHoneyLevel()+1);
+								   }
+							   }
+						  }
+						  
 					// "15:80:0.25:3:1"
 					
 					 String[] b = list.split(":");

@@ -4,14 +4,17 @@ import java.util.List;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
+import org.bukkit.inventory.ItemStack;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
+import de.warsteiner.ultimatejobs.skills.SkillsAPIForJobs;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
 import de.warsteiner.ultimatejobs.utils.WorldManager;
 
@@ -19,7 +22,7 @@ public class Job_FoodEater implements Listener {
 
 	@EventHandler
 	     public void onFoodChange(FoodLevelChangeEvent e){
-		
+		 
 		if (e.isCancelled()) {
 			 return;
 			 }
@@ -73,6 +76,27 @@ public class Job_FoodEater implements Listener {
 	    				   continue;
 	    			   }
 	    			   
+	    			   int set = 0;
+	    			   
+	    			  
+	    			   if(SkillsAPIForJobs.isEnabled()) {
+	    				   if(SkillsAPIForJobs.isSkillEnabled("Food", job)) {
+	    					   double randDouble = Math.random();
+	    						 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Food"));
+	    						 
+	    				   if(randDouble <= Double.valueOf(SkillsAPIForJobs.getChance(job, "Food", level))) {
+	    						  
+	    					       set = Integer.valueOf(SkillsAPIForJobs.getFoodLevel(level, job));
+	    					       if(p.getFoodLevel()+set >= 20) {
+	    	    		    		   int n = set+p.getFoodLevel()-20;
+	    	    		    		   set = n;
+	    	    		    		   
+	    	    		    	   }   
+	    	    		    	   p.setFoodLevel(p.getFoodLevel()+set);
+	    					   }
+	    				   }
+	    			   }
+	    			   
 	    			   Double money = Double.valueOf(b[1]);
 	    			   
 	    			   Integer chance = Integer.valueOf(b[2]);
@@ -87,6 +111,8 @@ public class Job_FoodEater implements Listener {
 	    			    int chance2 = r.nextInt(100);
 	    		                    
 	    		       if (chance2 < chance) {
+	    		    	   
+	    		    	  
 	    		    	   UltimateJobs.getRewardHandler().sendRewardMessage(p, money, exp,vanilla,p2);
 	    		    	   continue;
 	    		       }

@@ -4,14 +4,19 @@ import java.util.List;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
+import de.warsteiner.ultimatejobs.skills.SkillsAPIForJobs;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
 import de.warsteiner.ultimatejobs.utils.WorldManager;
 
@@ -69,6 +74,48 @@ public class Job_Digger implements Listener {
 		   
 		   if(ty != block.getType()) { 
 			   continue;
+		   }
+		   
+		   if(SkillsAPIForJobs.isEnabled()) {
+			   if(SkillsAPIForJobs.isSkillEnabled("Dupe", job)) {
+				   double randDouble = Math.random();
+					 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Dupe"));
+					 
+				   if(randDouble <= Double.valueOf(SkillsAPIForJobs.getChance(job, "Dupe", level))) {
+				       Location loc = e.getBlock().getLocation();
+				       String m = null;
+				       if(SkillsAPIForJobs.getItemStackForDupe(""+e.getBlock().getType()).equalsIgnoreCase("NONE")) {
+				    	   m = ""+e.getBlock().getType();
+				       } else {
+				    	   m = SkillsAPIForJobs.getItemStackForDupe(""+e.getBlock().getType());
+				       }
+				       ItemStack s = new ItemStack(Material.valueOf(m),1);
+				       loc.getWorld().dropItemNaturally(loc, s);
+				   }
+			   }
+			   if(SkillsAPIForJobs.isSkillEnabled("Speed", job)) {
+				   double randDouble = Math.random();
+					 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Speed"));
+					 
+					   if(randDouble <= Double.valueOf(SkillsAPIForJobs.getChance(job, "Speed", level))) {
+						   
+						    List<String> b2 = UltimateJobs.getSkillsPerJob().getCustomConfig().getStringList("SillJobs."+job+"."+"Speed"+".Levels");
+						   
+						   for(String c : b2) {
+							   String[] d = c.split(":");
+							   
+							   if(Integer.valueOf(d[0]) == level) {
+								   int time = Integer.valueOf(d[5]);
+								   int st = Integer.valueOf(d[4]);
+								   p.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, time*20, st));
+								   continue;
+							   }
+							   
+						   }
+						   
+						 
+					   }
+			   }
 		   }
 		   
 		   Double money = Double.valueOf(b[1]);

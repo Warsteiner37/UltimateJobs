@@ -15,6 +15,7 @@ import de.warsteiner.ultimatejobs.UltimateJobs;
 public class PlayerEixstEvent /*    */   implements Listener {
 	/*    */   @EventHandler
 	/*    */   public void onPlayerJoin(final PlayerJoinEvent event) {
+	 
 	/* 14 */     Bukkit.getScheduler().runTaskAsynchronously((Plugin)UltimateJobs.getPlugin(), new Runnable()
 	/*    */         {
 	/*    */           public void run()

@@ -23,3 +23,8 @@ ItemListForDoubler:
   - "COAL_ORE:COAL"
   - "DIAMOND_ORE:DIAMOND"
   - "LAPIS_ORE:LAPIS_LAZULI"
+  
+ItemListForAutoReplant:
+  - "WHEAT:WHEAT_SEEDS"
+  - "BEETROOT:BEETROOT_SEEDS"
+  - "MELON:MELON_SLICE"

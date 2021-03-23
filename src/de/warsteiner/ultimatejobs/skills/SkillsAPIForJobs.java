@@ -51,6 +51,59 @@ public class SkillsAPIForJobs {
 		return "NONE";
 	}
 	
+public static String getItemStackForReplant(String mat) {
+		
+		FileConfiguration cfg = UltimateJobs.getUtil().getCustomConfig();
+		 List<String> a = cfg.getStringList("ItemListForAutoReplant");
+		
+		 for(String g : a) {
+			 String[] b = g.split(":");
+			 
+			 String org = b[0].toUpperCase();
+			 
+			 if(org.equalsIgnoreCase(mat.toUpperCase())) {
+				 return b[1];
+			 }
+			 
+		 }
+		return "NONE";
+	}
+	
+	
+	public static String getFoodLevel(int level, String job) {
+	    List<String> b2 = UltimateJobs.getSkillsPerJob().getCustomConfig().getStringList("SillJobs."+job+"."+"Food"+".Levels");
+		   
+		   for(String c : b2) {
+			   String[] d = c.split(":");
+			   
+			   if(Integer.valueOf(d[0]) == level) {
+				   int time = Integer.valueOf(d[3]);
+				   
+				   return ""+time;
+				 
+			   }
+			   
+		   }
+		return "0";
+	}
+	
+	public static String getRadius(int level, String job) {
+	    List<String> b2 = UltimateJobs.getSkillsPerJob().getCustomConfig().getStringList("SillJobs."+job+"."+"CSpeed"+".Levels");
+		   
+		   for(String c : b2) {
+			   String[] d = c.split(":");
+			   
+			   if(Integer.valueOf(d[0]) == level) {
+				   int time = Integer.valueOf(d[3]);
+				   
+				   return ""+time;
+				 
+			   }
+			   
+		   }
+		return "0";
+	}
+	
 	public static String getTime(int level, String job) {
 	    List<String> b2 = UltimateJobs.getSkillsPerJob().getCustomConfig().getStringList("SillJobs."+job+"."+"Speed"+".Levels");
 		   

@@ -5,16 +5,24 @@ import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.CropState;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockState;
+import org.bukkit.block.data.Ageable;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockDamageEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.material.Crops;
 import org.bukkit.material.MaterialData;
+import org.jetbrains.annotations.NotNull;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
+import de.warsteiner.ultimatejobs.skills.SkillsAPIForJobs;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
 import de.warsteiner.ultimatejobs.utils.WorldManager;
 
@@ -74,6 +82,27 @@ Material ty = Material.valueOf(b[0]);
 	   
 	   if(ty != block.getType()) { 
 		   continue;
+	   }
+	   
+	   
+	   if(SkillsAPIForJobs.isEnabled()) {
+		   if(SkillsAPIForJobs.isSkillEnabled("Replant", job)) {
+			   double randDouble = Math.random();
+				 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Replant"));
+				 Bukkit.broadcastMessage("idk");
+				 	e.setCancelled(true);
+							  BlockData data = block.getBlockData();
+					    	//   if (data instanceof Ageable) {
+					    	       Ageable ag = (Ageable) data;
+					    	       ag.setAge(0);
+					    	      block.setBlockData(ag);
+ 
+			 
+		 
+			   if(randDouble <= Double.valueOf(SkillsAPIForJobs.getChance(job, "Replant", level))) {
+			        
+			   }
+		   }
 	   }
 	   
 	   Double money = Double.valueOf(b[1]);

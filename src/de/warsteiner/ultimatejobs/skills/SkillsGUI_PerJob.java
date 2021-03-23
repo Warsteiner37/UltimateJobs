@@ -73,7 +73,20 @@ public class SkillsGUI_PerJob {
 								 ArrayList<String> l = new ArrayList<String>();
 								 
 								 for (int i2 = 0; i2 < lore.size(); i2++) {
-									 l.add(lore.get(i2).replaceAll("<potion>", ""+st).replaceAll("<s>", ""+time).replaceAll("<m>", ""+multi).replaceAll("<price>", ""+price).replaceAll("<level>", ""+level).replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)).replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
+									 
+									 String ss1 = "";
+									 String ss2 = "";
+									 String ss3 = "";
+						 
+									 if(b.toUpperCase().equalsIgnoreCase("SPEED") )  {
+										 ss1 = SkillsAPIForJobs.getStr(level, job);
+										 ss2 = SkillsAPIForJobs.getTime(level, job);
+									 } 
+									 if(b.toUpperCase().equalsIgnoreCase("CSPEED") )  {
+										 ss3 = SkillsAPIForJobs.getRadius(level, job);
+									 }
+									 
+									 l.add(lore.get(i2).replaceAll("<b>", ""+ss3).replaceAll("<potion>", ""+ss1).replaceAll("<s>", ""+ss2).replaceAll("<m>", ""+multi).replaceAll("<price>", ""+price).replaceAll("<level>", ""+level).replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)).replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
 								 }
 								 
 								 meta.setLore(l);

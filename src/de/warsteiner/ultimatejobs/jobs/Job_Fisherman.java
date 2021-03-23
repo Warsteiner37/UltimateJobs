@@ -4,14 +4,17 @@ import java.util.List;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerFishEvent;
+import org.bukkit.inventory.ItemStack;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
+import de.warsteiner.ultimatejobs.skills.SkillsAPIForJobs;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
 import de.warsteiner.ultimatejobs.utils.WorldManager;
 
@@ -61,6 +64,25 @@ public class Job_Fisherman implements Listener {
 			 
 				   if(!ty.equalsIgnoreCase(id)) { 
 					   continue;
+				   }
+				   
+				   if(SkillsAPIForJobs.isEnabled()) {
+					   if(SkillsAPIForJobs.isSkillEnabled("Dupe", job)) {
+						   double randDouble = Math.random();
+							 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Dupe"));
+							 
+						   if(randDouble <= Double.valueOf(SkillsAPIForJobs.getChance(job, "Dupe", level))) {
+						       Location loc = p.getLocation();
+						       String m = null;
+						       if(SkillsAPIForJobs.getItemStackForDupe(""+id).equalsIgnoreCase("NONE")) {
+						    	   m = ""+id;
+						       } else {
+						    	   m = SkillsAPIForJobs.getItemStackForDupe(""+id);
+						       }
+						       ItemStack s = new ItemStack(Material.valueOf(m),1);
+						       loc.getWorld().dropItemNaturally(loc, s);
+						   }
+					   }
 				   }
 				   
 				   Double money = Double.valueOf(b[1]);
