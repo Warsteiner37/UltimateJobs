@@ -54,6 +54,9 @@ public class SkillsGUI_PerJob {
 						 String dis = cfg.getString("SillJobs."+job+"."+b+".Display");
 						   List<String> lore = cfg.getStringList("SillJobs."+job+"."+b+".Lore");
 						   
+						   String time = SkillsAPIForJobs.getTime(level, job);
+						   String st = SkillsAPIForJobs.getStr(level, job);
+						   
 						   ItemStack m = null;
 						   
 							 if(Material.getMaterial(raw) == null) {
@@ -70,7 +73,7 @@ public class SkillsGUI_PerJob {
 								 ArrayList<String> l = new ArrayList<String>();
 								 
 								 for (int i2 = 0; i2 < lore.size(); i2++) {
-									 l.add(lore.get(i2).replaceAll("<m>", ""+multi).replaceAll("<price>", ""+price).replaceAll("<level>", ""+level).replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)).replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
+									 l.add(lore.get(i2).replaceAll("<potion>", ""+st).replaceAll("<s>", ""+time).replaceAll("<m>", ""+multi).replaceAll("<price>", ""+price).replaceAll("<level>", ""+level).replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)).replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
 								 }
 								 
 								 meta.setLore(l);

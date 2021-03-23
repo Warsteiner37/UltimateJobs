@@ -6,6 +6,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
@@ -47,6 +49,40 @@ public class SkillsAPIForJobs {
 			 
 		 }
 		return "NONE";
+	}
+	
+	public static String getTime(int level, String job) {
+	    List<String> b2 = UltimateJobs.getSkillsPerJob().getCustomConfig().getStringList("SillJobs."+job+"."+"Speed"+".Levels");
+		   
+		   for(String c : b2) {
+			   String[] d = c.split(":");
+			   
+			   if(Integer.valueOf(d[0]) == level) {
+				   int time = Integer.valueOf(d[5]);
+				   
+				   return ""+time;
+				 
+			   }
+			   
+		   }
+		return "0";
+	}
+	
+	public static String getStr(int level, String job) {
+	    List<String> b2 = UltimateJobs.getSkillsPerJob().getCustomConfig().getStringList("SillJobs."+job+"."+"Speed"+".Levels");
+		   
+		   for(String c : b2) {
+			   String[] d = c.split(":");
+			   
+			   if(Integer.valueOf(d[0]) == level) {
+				 
+				   int st = Integer.valueOf(d[4]);
+				   return ""+st;
+				 
+			   }
+			   
+		   }
+		return "0";
 	}
 	
 	public static int getPosOfSkillInList(String name, String s) {
