@@ -10,6 +10,7 @@ import org.bukkit.plugin.Plugin;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.custom.PlayerLevelExpChangeEvent;
+import de.warsteiner.ultimatejobs.skills.SkillsAPIForJobs;
 import de.warsteiner.ultimatejobs.utils.ActionBar;
 import de.warsteiner.ultimatejobs.utils.BossBarHandler; 
 import de.warsteiner.ultimatejobs.utils.JobAPI;
@@ -39,21 +40,75 @@ public class RewardHandler {
 					rechnrung = money*multi_for_money;
 				}
 				double money2 =0;
+				
+				int rre3 = 0;
+				
+				   if(SkillsAPIForJobs.isEnabled()) {
+					   if(SkillsAPIForJobs.isSkillEnabled("Vanilla", job)) {
+						  
+							 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Vanilla"));
+							 
+							 String multi = SkillsAPIForJobs.getNextLevelMulti(job, "Vanilla", level+1);
+						 
+							 int rrrr = (int) (Integer.valueOf(multi)*money);
+							  
+							 if(rrrr == 0) {
+								 rre3 = 1;
+							 } else {
+								 rre3 = rrrr;
+							 }
+					   }
+				   }
+				
+				 
 				if(UltimateJobs.getJobsConfig().getCustomConfig().getBoolean("Get_Vanilla_Exp")) {
-					p.giveExp(vanilla);
+					p.giveExp(vanilla+rre3);
 				}
 				if( UltimateJobs.getPlugin().getConfig().getBoolean("Use_Levels") == true) {
 					money2 =  money*multi_for_money_2;
 				}
 		 
+				
+				double re2 = 0;
+				
+				   if(SkillsAPIForJobs.isEnabled()) {
+					   if(SkillsAPIForJobs.isSkillEnabled("Money", job)) {
+						  
+							 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Money"));
+							 
+							 String multi = SkillsAPIForJobs.getNextLevelMulti(job, "Money", level+1);
+						 
+							 double rrrr = Double.valueOf(multi)*money;
+							  
+							 re2 = rrrr;
+							 
+					   }
+				   }
 	
-				double final_money = rechnrung+money+money2;
+				double final_money = rechnrung+money+money2+re2;
 
 				double multi_for_exp = UltimateJobs.getSkillAPI().getExpMulti(""+uuid);
 				
 				double rechnung = exp*multi_for_exp;
 		 
-				double final_exp = rechnung+exp;
+				double re3 = 0;
+				
+				   if(SkillsAPIForJobs.isEnabled()) {
+					   if(SkillsAPIForJobs.isSkillEnabled("Exp", job)) {
+						  
+							 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Exp"));
+							 
+							 String multi = SkillsAPIForJobs.getNextLevelMulti(job, "Exp", level);
+						 
+							 double rrrr = Double.valueOf(multi)*exp;
+							  
+							 re3 = rrrr;
+							 
+					   }
+				   }
+				
+				 
+				double final_exp = rechnung+exp+re3;
 				
 				double current_exp = UltimateJobs.getData().getExp(""+uuid, job);
 				 

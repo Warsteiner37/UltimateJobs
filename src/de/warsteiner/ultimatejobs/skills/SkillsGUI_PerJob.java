@@ -53,10 +53,7 @@ public class SkillsGUI_PerJob {
 						 int Slot = cfg.getInt("SillJobs."+job+"."+b+".Slot");
 						 String dis = cfg.getString("SillJobs."+job+"."+b+".Display");
 						   List<String> lore = cfg.getStringList("SillJobs."+job+"."+b+".Lore");
-						   
-						   String time = SkillsAPIForJobs.getTime(level, job);
-						   String st = SkillsAPIForJobs.getStr(level, job);
-						   
+ 
 						   ItemStack m = null;
 					 
 							 if(Material.getMaterial(raw) == null) {
