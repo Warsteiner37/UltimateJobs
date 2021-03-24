@@ -51,6 +51,24 @@ public class SkillsAPIForJobs {
 		return "NONE";
 	}
 	
+	public static String getItemStackForSkulls(String mat) {
+		
+		FileConfiguration cfg = UltimateJobs.getUtil().getCustomConfig();
+		 List<String> a = cfg.getStringList("Skulls");
+		
+		 for(String g : a) {
+			 String[] b = g.split(":");
+			 
+			 String org = b[0].toUpperCase();
+			 
+			 if(org.equalsIgnoreCase(mat.toUpperCase())) {
+				 return b[1];
+			 }
+			 
+		 }
+		return "NONE";
+	}
+	
 public static String getItemStackForReplant(String mat) {
 		
 		FileConfiguration cfg = UltimateJobs.getUtil().getCustomConfig();

@@ -330,38 +330,8 @@ SillJobs:
        - "Money"
        - "Exp"
        - "Skull" 
-       - "Vanilla" 
-       - "Damage"
-       
-     Damage:
-     
-       Material: "IRON_SWORD"
-       
-       Enchanted: false
-       
-       Slot: 22
-       
-       Display: "&8< &cDamage &8>"
-       
-       #
-       # FORMAT: LEVEL:PRICE:MULTI  
-       #
-       Levels:
-         - "1:0:0.10:0.5"
-         - "2:1:0.15:1"
-         - "3:5:0.20:1.5"
-         - "4:8:0.30:2"
-         
-       Lore:
-         - "&8&m-----------------------------"
-         - "&/"
-         - "&8< &7You have the chance, to make more damage!! &8>"
-         - "&7" 
-         - "&8> &7Skill-Level&8: &b#<level>"
-         - "&8> &7Current Chance&8: &6<m>% &7and &c<da> Damage"
-         - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
-       
+       - "Vanilla"  
+ 
      Skull:
      
        Material: "SKELETON_SKULL"

@@ -4,17 +4,33 @@ import java.util.List;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
- 
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
+import org.jetbrains.annotations.NotNull;
+
 import de.warsteiner.ultimatejobs.UltimateJobs;
+import de.warsteiner.ultimatejobs.skills.SkillsAPIForJobs;
 import de.warsteiner.ultimatejobs.utils.JobAPI;
 import de.warsteiner.ultimatejobs.utils.WorldManager;
  
 public class Job_Hunter implements Listener {
+	
+	public static ItemStack generateSkull(String owner) {
+		/* 156 */     ItemStack itemStack = new ItemStack(Material.PLAYER_HEAD);
+		/* 157 */     SkullMeta skullMeta = (SkullMeta)itemStack.getItemMeta();
+		/* 158 */     skullMeta.setOwner(owner);
+		/* 159 */     itemStack.setItemMeta((ItemMeta)skullMeta);
+		/* 160 */     return itemStack;
+		/*     */   }
 	
 	 @EventHandler
 	 public void onKill(EntityDeathEvent e) {
@@ -73,6 +89,28 @@ public class Job_Hunter implements Listener {
 			   	if(ent_type != ty) {
 			   		continue;
 			   	}
+			   	
+				   if(SkillsAPIForJobs.isEnabled()) {
+ 
+					   if(SkillsAPIForJobs.isSkillEnabled("Skull", job)) {
+						   double randDouble = Math.random();
+							 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+killer.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Skull"));
+							  
+						   if(randDouble <= Double.valueOf(SkillsAPIForJobs.getChance(job, "Skull", level))) {
+							   String skull =  SkillsAPIForJobs.getItemStackForSkulls(""+ty);
+								  
+								 if(skull.equalsIgnoreCase("NONE")) {
+									 killer.sendMessage("§cFor this skull and also mob, is no skull setuped. Please go into the Util Config and add.");
+								 } else {
+									 ItemStack item = generateSkull(skull);
+									  Location loc = e.getEntity().getLocation();
+									  World world = loc.getWorld();
+									  world.dropItemNaturally(loc, item);
+								 }
+						   }
+					   }
+				   }
+					  
 				   
 				   Double money = Double.valueOf(b[2]);
 				   
