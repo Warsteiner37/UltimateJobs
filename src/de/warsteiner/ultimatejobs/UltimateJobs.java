@@ -33,6 +33,7 @@ import de.warsteiner.ultimatejobs.jobs.Job_Digger;
 import de.warsteiner.ultimatejobs.jobs.Job_Farmer;
 import de.warsteiner.ultimatejobs.jobs.Job_Fisherman;
 import de.warsteiner.ultimatejobs.jobs.Job_FoodEater;
+import de.warsteiner.ultimatejobs.jobs.Job_HeadHunter;
 import de.warsteiner.ultimatejobs.jobs.Job_Hunter;
 import de.warsteiner.ultimatejobs.jobs.Job_Lumberjack;
 import de.warsteiner.ultimatejobs.jobs.Job_MilkMan;
@@ -264,7 +265,9 @@ import org.bukkit.scheduler.BukkitRunnable;
 				if(jb.contains("BeeKeeper")) {
 					 Bukkit.getPluginManager().registerEvents((Listener)new Job_BeeKeeper(), this);
 				} 
- 
+				if(jb.contains("HeadHunter")) {
+					 Bukkit.getPluginManager().registerEvents((Listener)new Job_HeadHunter(),this);
+				}
 				 
 				 Bukkit.getPluginManager().registerEvents((Listener)new PlayerBlockPlaceEvent(), (Plugin)this);
 				

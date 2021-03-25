@@ -259,6 +259,12 @@ Messages:
       
       Message: "Bottles Honey"
       
+    HeadHunter: 
+     
+      Name: "Kills"
+      
+      Message: "Player Killed"
+      
  
   Stats_Self: 
     - "&8----&8 [ &7<job> &8] &8---"

@@ -50,13 +50,13 @@ public class RewardHandler {
 							 
 							 String multi = SkillsAPIForJobs.getNextLevelMulti(job, "Vanilla", level+1);
 						 
-							 int rrrr = (int) (Integer.valueOf(multi)*money);
+							// int rrrr = (int) (Integer.valueOf(multi)*money);
 							  
-							 if(rrrr == 0) {
+							 // if(rrrr == 0) {
 								 rre3 = 1;
-							 } else {
-								 rre3 = rrrr;
-							 }
+								 //	 } else {
+								 //	 rre3 = rrrr;
+								 // }
 					   }
 				   }
 				
@@ -64,8 +64,10 @@ public class RewardHandler {
 				if(UltimateJobs.getJobsConfig().getCustomConfig().getBoolean("Get_Vanilla_Exp")) {
 					p.giveExp(vanilla+rre3);
 				}
+		 
 				if( UltimateJobs.getPlugin().getConfig().getBoolean("Use_Levels") == true) {
 					money2 =  money*multi_for_money_2;
+					   Bukkit.broadcastMessage("§a2 -"+money2);
 				}
 		 
 				
@@ -84,7 +86,7 @@ public class RewardHandler {
 							 
 					   }
 				   }
-	
+				   
 				double final_money = rechnrung+money+money2+re2;
 
 				double multi_for_exp = UltimateJobs.getSkillAPI().getExpMulti(""+uuid);

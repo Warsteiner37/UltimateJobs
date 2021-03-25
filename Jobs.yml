@@ -108,7 +108,7 @@ HeadHunter:
   DisplayForKilled: "&6<skull>'s Head"
   
   #
-  # this enables the config "AdvancedHunters"
+  # this enables the config "AdHeadHunter"
   # 
   # You can find the advanced options for the headhunter in the "AdHeadHunter" config
   #
@@ -149,7 +149,7 @@ HeadHunter:
     
   Levels:  
       #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
-    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "1:&bLevel I:0:0.30:MONEY:0.20:0"
     - "2:&aLevel II:100:0.05:EXP:1:1"
     - "3:&9Level III:200:0.15:COMMAND:SAY <name> is now level 3!:1"
     - "4:&cLevel IV:300:0.25:COMMAND_MAP:MAP_MINER:1"
@@ -193,7 +193,7 @@ BeeKeeper:
     
   Levels:  
       #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
-    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "1:&bLevel I:0:0.05:MONEY:0.20:0"
     - "2:&aLevel II:100:0.05:EXP:1:1"
     - "3:&9Level III:200:0.15:COMMAND:SAY <name> is now level 3!:1"
     - "4:&cLevel IV:300:0.25:COMMAND_MAP:MAP_MINER:1"
@@ -237,7 +237,7 @@ Baker:
     
   Levels:  
       #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
-    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "1:&bLevel I:0:0.10:MONEY:0.20:0"
     - "2:&aLevel II:100:0.05:EXP:1:1"
     - "3:&9Level III:200:0.15:COMMAND:SAY <name> is now level 3!:1"
     - "4:&cLevel IV:300:0.25:COMMAND_MAP:MAP_MINER:1"
@@ -284,7 +284,7 @@ Farmer:
     
   Levels:  
       #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
-    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "1:&bLevel I:0:0.15:MONEY:0.20:0"
     - "2:&aLevel II:100:0.05:EXP:1:1"
     - "3:&9Level III:200:0.15:COMMAND:SAY <name> is now level 3!:1"
     - "4:&cLevel IV:300:0.25:COMMAND_MAP:MAP_MINER:1"
@@ -331,7 +331,7 @@ Hunter:
     
   Levels:  
       #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
-    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "1:&bLevel I:0:0.15:MONEY:0.20:0"
     - "2:&aLevel II:100:0.05:EXP:1:1"
     - "3:&9Level III:200:0.15:COMMAND:SAY <name> is now level 3!:1"
     - "4:&cLevel IV:300:0.25:COMMAND_MAP:MAP_MINER:1"
@@ -380,7 +380,7 @@ FoodEater:
     
   Levels:  
       #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
-    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "1:&bLevel I:0:0.05:MONEY:0.20:0"
     - "2:&aLevel II:100:0.05:EXP:1:1"
     - "3:&9Level III:200:0.15:COMMAND:SAY <name> is now level 3!:1"
     - "4:&cLevel IV:300:0.25:COMMAND_MAP:MAP_MINER:1"
@@ -425,7 +425,7 @@ CookingMaster:
     
   Levels:  
       #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
-    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "1:&bLevel I:0:0.50:MONEY:0.20:0"
     - "2:&aLevel II:100:0.05:EXP:1:1"
     - "3:&9Level III:200:0.15:COMMAND:SAY <name> is now level 3!:1"
     - "4:&cLevel IV:300:0.25:COMMAND_MAP:MAP_MINER:1"
@@ -472,7 +472,7 @@ Shepherd:
     
   Levels:  
       #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
-    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "1:&bLevel I:0:0.30:MONEY:0.20:0"
     - "2:&aLevel II:100:0.05:EXP:1:1"
     - "3:&9Level III:200:0.15:COMMAND:SAY <name> is now level 3!:1"
     - "4:&cLevel IV:300:0.25:COMMAND_MAP:MAP_MINER:1"
@@ -520,7 +520,7 @@ Fisherman:
     
   Levels:  
       #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
-    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "1:&bLevel I:0:0.20:MONEY:0.20:0"
     - "2:&aLevel II:100:0.05:EXP:1:1"
     - "3:&9Level III:200:0.15:COMMAND:SAY <name> is now level 3!:1"
     - "4:&cLevel IV:300:0.25:COMMAND_MAP:MAP_MINER:1"
@@ -567,7 +567,7 @@ Crafter:
     
   Levels:  
       #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
-    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "1:&bLevel I:0:0.25:MONEY:0.20:0"
     - "2:&aLevel II:100:0.05:EXP:1:1"
     - "3:&9Level III:200:0.15:COMMAND:SAY <name> is now level 3!:1"
     - "4:&cLevel IV:300:0.25:COMMAND_MAP:MAP_MINER:1"
@@ -612,7 +612,7 @@ Milkman:
     
   Levels:  
       #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
-    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "1:&bLevel I:0:0.80:MONEY:0.20:0"
     - "2:&aLevel II:100:0.05:EXP:1:1"
     - "3:&9Level III:200:0.15:COMMAND:SAY <name> is now level 3!:1"
     - "4:&cLevel IV:300:0.25:COMMAND_MAP:MAP_MINER:1"
@@ -657,7 +657,7 @@ Digger:
     
   Levels:  
       #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
-    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "1:&bLevel I:0:0.25:MONEY:0.20:0"
     - "2:&aLevel II:100:0.05:EXP:1:1"
     - "3:&9Level III:200:0.15:COMMAND:SAY <name> is now level 3!:1"
     - "4:&cLevel IV:300:0.25:COMMAND_MAP:MAP_MINER:1"
@@ -703,7 +703,7 @@ Builder:
     
   Levels:  
       #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
-    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "1:&bLevel I:0:0.05:MONEY:0.20:0"
     - "2:&aLevel II:100:0.05:EXP:1:1"
     - "3:&9Level III:200:0.15:COMMAND:SAY <name> is now level 3!:1"
     - "4:&cLevel IV:300:0.25:COMMAND_MAP:MAP_MINER:1"
@@ -748,7 +748,7 @@ Lumberjack:
     
   Levels:  
       #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
-    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "1:&bLevel I:0:0.25:MONEY:0.20:0"
     - "2:&aLevel II:100:0.05:EXP:1:1"
     - "3:&9Level III:200:0.15:COMMAND:SAY <name> is now level 3!:1"
     - "4:&cLevel IV:300:0.25:COMMAND_MAP:MAP_MINER:1"
@@ -793,7 +793,7 @@ Miner:
     
   Levels:  
       #FORMAT: ID:NAME:NEED_EXP:Multiplier_OF_Money:TYPE:HOW_MUCH:SKILLPOINTS
-    - "1:&bLevel I:0:1.0:MONEY:0.20:0"
+    - "1:&bLevel I:0:0.15:MONEY:0.20:0"
     - "2:&aLevel II:100:1.08:EXP:1:1"
     - "3:&9Level III:200:0.15:COMMAND:SAY <name> is now level 3!:1"
     - "4:&cLevel IV:300:0.19:COMMAND_MAP:MAP_MINER:1"
