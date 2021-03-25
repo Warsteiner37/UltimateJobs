@@ -122,8 +122,8 @@ public static String getItemStackForReplant(String mat) {
 		return "0";
 	}
 	
-	public static String getTime(int level, String job) {
-	    List<String> b2 = UltimateJobs.getSkillsPerJob().getCustomConfig().getStringList("SillJobs."+job+"."+"Speed"+".Levels");
+	public static String getTime(int level, String job, String type) {
+	    List<String> b2 = UltimateJobs.getSkillsPerJob().getCustomConfig().getStringList("SillJobs."+job+"."+type+".Levels");
 		   
 		   for(String c : b2) {
 			   String[] d = c.split(":");
@@ -139,15 +139,15 @@ public static String getItemStackForReplant(String mat) {
 		return "0";
 	}
 	
-	public static String getStr(int level, String job) {
-	    List<String> b2 = UltimateJobs.getSkillsPerJob().getCustomConfig().getStringList("SillJobs."+job+"."+"Speed"+".Levels");
+	public static String getStr(int level, String job, String type) {
+	    List<String> b2 = UltimateJobs.getSkillsPerJob().getCustomConfig().getStringList("SillJobs."+job+"."+type+".Levels");
 		   
 		   for(String c : b2) {
 			   String[] d = c.split(":");
 			   
 			   if(Integer.valueOf(d[0]) == level) {
 				 
-				   int st = Integer.valueOf(d[4]);
+				   int st = Integer.valueOf(d[4])+1;
 				   return ""+st;
 				 
 			   }

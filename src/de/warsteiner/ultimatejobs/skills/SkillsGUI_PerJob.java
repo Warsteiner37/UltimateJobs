@@ -76,12 +76,16 @@ public class SkillsGUI_PerJob {
 									 String ss3 = "";
 						 
 									 if(b.toUpperCase().equalsIgnoreCase("SPEED") )  {
-										 ss1 = SkillsAPIForJobs.getStr(level, job);
-										 ss2 = SkillsAPIForJobs.getTime(level, job);
+										 ss1 = SkillsAPIForJobs.getStr(level, job, "Speed");
+										 ss2 = SkillsAPIForJobs.getTime(level, job, "Speed");
 									 } 
 									 if(b.toUpperCase().equalsIgnoreCase("CSPEED") )  {
 										 ss3 = SkillsAPIForJobs.getRadius(level, job);
 									 }
+									 if(b.toUpperCase().equalsIgnoreCase("BLOOD") )  {
+										 ss1 = SkillsAPIForJobs.getStr(level, job, "Blood");
+										 ss2 = SkillsAPIForJobs.getTime(level, job,"Blood");
+									 } 
 									 
 									 l.add(lore.get(i2).replaceAll("<b>", ""+ss3).replaceAll("<potion>", ""+ss1).replaceAll("<s>", ""+ss2).replaceAll("<m>", ""+multi).replaceAll("<price>", ""+price).replaceAll("<level>", ""+level).replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)).replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
 								 }
