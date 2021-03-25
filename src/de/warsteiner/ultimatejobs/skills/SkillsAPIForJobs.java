@@ -88,8 +88,8 @@ public static String getItemStackForReplant(String mat) {
 	}
 	
 	
-	public static String getFoodLevel(int level, String job) {
-	    List<String> b2 = UltimateJobs.getSkillsPerJob().getCustomConfig().getStringList("SillJobs."+job+"."+"Food"+".Levels");
+	public static String getFoodLevel(int level, String job, String t) {
+	    List<String> b2 = UltimateJobs.getSkillsPerJob().getCustomConfig().getStringList("SillJobs."+job+"."+t+".Levels");
 		   
 		   for(String c : b2) {
 			   String[] d = c.split(":");

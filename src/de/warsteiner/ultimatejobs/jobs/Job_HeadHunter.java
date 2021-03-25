@@ -69,6 +69,19 @@ public class Job_HeadHunter implements Listener {
 		   String[] b = UltimateJobs.getJobsConfig().getCustomConfig().getString(job+".Get_Money").split(":");
   
 				   	FileConfiguration cfg = UltimateJobs.getJobsConfig().getCustomConfig();
+				   	
+					   if(SkillsAPIForJobs.isEnabled()) {
+						   if(SkillsAPIForJobs.isSkillEnabled("Dupe", job)) {
+							   double randDouble = Math.random();
+								 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+killer.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Dupe"));
+								 
+							   if(randDouble <= Double.valueOf(SkillsAPIForJobs.getChance(job, "Dupe", level))) {
+							    
+							   }
+						   }
+					   }
+				   	
+				   	
 					if(cfg.getBoolean("HeadHunter.Can_Get_Skulls")) {
 	 
 						 

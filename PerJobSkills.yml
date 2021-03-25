@@ -76,7 +76,7 @@ SillJobs:
          - "&8< &7You have the chance, to get you'r health back! &8>"
          - "&7" 
          - "&8> &7Skill-Level&8: &b#<level>"
-         - "&8> &7Current Chance&8: &6<m>% "
+         - "&8> &7Current Chance&8: &6<m>% &8/ &a<b> Health"
          - "&7"
          - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
  

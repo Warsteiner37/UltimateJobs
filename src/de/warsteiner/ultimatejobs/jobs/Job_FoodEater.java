@@ -86,7 +86,7 @@ public class Job_FoodEater implements Listener {
 	    						 
 	    				   if(randDouble <= Double.valueOf(SkillsAPIForJobs.getChance(job, "Food", level))) {
 	    						  
-	    					       set = Integer.valueOf(SkillsAPIForJobs.getFoodLevel(level, job));
+	    					       set = Integer.valueOf(SkillsAPIForJobs.getFoodLevel(level, job, "Food"));
 	    					       if(p.getFoodLevel()+set >= 20) {
 	    	    		    		   int n = set+p.getFoodLevel()-20;
 	    	    		    		   set = n;

@@ -86,6 +86,10 @@ public class SkillsGUI_PerJob {
 										 ss1 = SkillsAPIForJobs.getStr(level, job, "Blood");
 										 ss2 = SkillsAPIForJobs.getTime(level, job,"Blood");
 									 } 
+									 if(b.toUpperCase().equalsIgnoreCase("HEAL") )  {
+										 double a = Double.valueOf(SkillsAPIForJobs.getFoodLevel(level, job, "Heal")) / 2;
+										 ss3 = ""+a;
+									 }
 									 
 									 l.add(lore.get(i2).replaceAll("<b>", ""+ss3).replaceAll("<potion>", ""+ss1).replaceAll("<s>", ""+ss2).replaceAll("<m>", ""+multi).replaceAll("<price>", ""+price).replaceAll("<level>", ""+level).replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)).replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
 								 }
