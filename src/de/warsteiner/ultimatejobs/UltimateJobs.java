@@ -5,6 +5,7 @@
 import de.warsteiner.ultimatejobs.chat.PlayerJobChatEvent;
 import de.warsteiner.ultimatejobs.command.PlayerJobCommand;
 import de.warsteiner.ultimatejobs.command.PlayerJobTabComplete;
+import de.warsteiner.ultimatejobs.command.SellHeadCommand;
 import de.warsteiner.ultimatejobs.config.ChatConfig;
 import de.warsteiner.ultimatejobs.config.CommandConfig;
 import de.warsteiner.ultimatejobs.config.HeadHunterConfig;
@@ -21,6 +22,7 @@ import de.warsteiner.ultimatejobs.config.SoundConfig;
 import de.warsteiner.ultimatejobs.config.TopGUI;
 import de.warsteiner.ultimatejobs.config.UtilConfig;
 import de.warsteiner.ultimatejobs.editor.events.EditorMainPageEvent;
+import de.warsteiner.ultimatejobs.events.PlayerClickAtHeadGui;
 import de.warsteiner.ultimatejobs.events.PlayerClickEventAtMainGUI;
 import de.warsteiner.ultimatejobs.events.PlayerEixstEvent;
 import de.warsteiner.ultimatejobs.events.PlayerLevelCheckEvent;
@@ -84,6 +86,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 /*     */ import org.bukkit.plugin.RegisteredServiceProvider;
 /*     */ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.jetbrains.annotations.NotNull;
 /*     */ 
 /*     */ 
 /*     */ 
@@ -269,9 +272,15 @@ import org.bukkit.scheduler.BukkitRunnable;
 				} 
 				if(jb.contains("HeadHunter")) {
 					 Bukkit.getPluginManager().registerEvents((Listener)new Job_HeadHunter(),this);
-					 
-					 if(head.getCustomConfig().getBoolean("HeadHunter.Advanced_Heads")) {
-						 
+					 FileConfiguration cfg = head.getCustomConfig();
+					 if(jobs.getCustomConfig().getBoolean("HeadHunter.Advanced_Heads")) {
+						 List<String> cmds = cfg.getStringList("Command.Command");
+						 Bukkit.getPluginManager().registerEvents((Listener)new PlayerClickAtHeadGui(), this);
+						 if(cfg.getBoolean("Command.Use")) {
+							 for (int i = 0; i < cmds.size(); i++) {
+								 registerCommand(new SellHeadCommand(cmds.get(i)));
+							 }
+						 }
 					 }
 					 
 				}
@@ -477,25 +486,27 @@ public static ChatConfig getChatConfig() {
 /* 197 */     return true;
 /*     */   }
 /*     */ 
-/*     */   
-/*     */   public void onDisable() {
-/* 202 */   //  if (data != null) {
-/* 203 */     	//  data.save();
-/*     */  //   }
-/*     */   }
-/*     */ 
+ 
 /*     */   
 /*     */   public static UltimateJobs getPlugin() {
 /* 209 */     return plugin;
 /*     */   }
 /*     */ 
-
-public    void reloadValues() {
-  
-     reloadConfig();
-     
-}
+ 
 /*     */   
+
+private void registerCommand(Command command) {
+/*  99 */     CommandMap cmap = null;
+/*     */     try {
+/* 101 */       Field field = Bukkit.getServer().getClass().getDeclaredField("commandMap");
+/* 102 */       field.setAccessible(true);
+/* 103 */       cmap = (CommandMap)field.get(Bukkit.getServer());
+/* 104 */       cmap.register("", command);
+/* 105 */     } catch (Exception e) {
+/* 106 */       e.printStackTrace();
+/*     */     } 
+/*     */   }
+
 /*     */   private void loadConfig() {
 	
  

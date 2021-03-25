@@ -12,6 +12,8 @@
 
 Skulls:
 
+  Can_Place_Skulls: false
+
   Display: "&6<skull>'s Head"
   
   Lore:
@@ -33,5 +35,13 @@ Skulls:
     - "0:&cLegendary:50000"
     - "1:&bRare:25000"
     - "2:&7Normal:15000"
+    
+Command:
+
+  Use: true
+  
+  Command:
+    - "head"
+    - "sellhead"
     
   

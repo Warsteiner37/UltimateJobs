@@ -31,3 +31,7 @@ Need_Points: "&cYou dont have enough skill points!"
 Upgrade_Skill: "&7You have bought an skill upgrade for the Job <job>&7!"
 
 Skill_Max: "&cThis skill has reached his maxed level!"
+
+No_Head: "&cYou dont have an validate head in you*r hand."
+
+Try_Head: "&7Use&8: &b/head"
