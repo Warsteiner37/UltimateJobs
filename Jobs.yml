@@ -100,13 +100,7 @@ HeadHunter:
   #
   
   Can_Get_Skulls: true
-  
-  #
-  # Which display should the skull have?
-  #
-  
-  DisplayForKilled: "&6<skull>'s Head"
-  
+ 
   #
   # this enables the config "AdHeadHunter"
   # 

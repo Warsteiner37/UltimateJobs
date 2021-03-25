@@ -7,6 +7,7 @@ import de.warsteiner.ultimatejobs.command.PlayerJobCommand;
 import de.warsteiner.ultimatejobs.command.PlayerJobTabComplete;
 import de.warsteiner.ultimatejobs.config.ChatConfig;
 import de.warsteiner.ultimatejobs.config.CommandConfig;
+import de.warsteiner.ultimatejobs.config.HeadHunterConfig;
 import de.warsteiner.ultimatejobs.config.JobConfig;
 import de.warsteiner.ultimatejobs.config.LevelGUIConfig;
  
@@ -128,6 +129,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 			private static SkillsMainConfug sk;
 			private static PerJobSkills sjob;
 			private static UtilConfig util;
+			private static HeadHunterConfig head;
  
 /*     */   public void onLoad() {
 	 
@@ -169,7 +171,7 @@ import org.bukkit.scheduler.BukkitRunnable;
              jobs = new JobConfig();
              maingui = new MainGUIConfig();
              m = new MessageConfig();
-       
+             head = new HeadHunterConfig();
              cmd = new CommandConfig();
              sjob = new PerJobSkills();
 /*     */ 	rewards = new RewardHandler();
@@ -203,7 +205,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 /*     */     } 
  
 /* 134 */     
-/*     */ 
+/*     */ 		head.createCustomConfig();
 				jobs.createCustomConfig();
 				maingui.createCustomConfig();
 				sjob.createCustomConfig();
@@ -267,6 +269,11 @@ import org.bukkit.scheduler.BukkitRunnable;
 				} 
 				if(jb.contains("HeadHunter")) {
 					 Bukkit.getPluginManager().registerEvents((Listener)new Job_HeadHunter(),this);
+					 
+					 if(head.getCustomConfig().getBoolean("HeadHunter.Advanced_Heads")) {
+						 
+					 }
+					 
 				}
 				 
 				 Bukkit.getPluginManager().registerEvents((Listener)new PlayerBlockPlaceEvent(), (Plugin)this);
@@ -398,6 +405,10 @@ public static ChatConfig getChatConfig() {
 			
 			public static PerJobSkills getSkillsPerJob() {
 				return sjob;
+			}
+			
+			public static HeadHunterConfig getHunterConfig() {
+				return head;
 			}
 			
 			public static QuestsConfig getQuestAPI() {

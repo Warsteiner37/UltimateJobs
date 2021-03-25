@@ -67,7 +67,7 @@ public class RewardHandler {
 		 
 				if( UltimateJobs.getPlugin().getConfig().getBoolean("Use_Levels") == true) {
 					money2 =  money*multi_for_money_2;
-					   Bukkit.broadcastMessage("§a2 -"+money2);
+				 
 				}
 		 
 				
