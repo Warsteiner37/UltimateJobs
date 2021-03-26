@@ -203,22 +203,23 @@ public class Job_HeadHunter implements Listener {
 					   }
 						  
 					   
-					   Double money = Double.valueOf(b[0]);
-				 
-					   Integer chance = Integer.valueOf(b[1]);
+					 
+					   String levelexp = b[1];
+					   String vanilla = b[2];
+					   String points = b[3];
+			 
+					   String mode = b[4];
 					   
-					   Double exp = Double.valueOf(b[2]);
+					   String money = b[5];
 					   
-					   Integer vanilla = Integer.valueOf(b[3]);
-					   
-					   Integer p2 = Integer.valueOf(b[4]);
-					   
+					   Integer chance = Integer.valueOf(b[0]);
+			 
 					   Random r = new Random();
 					    int chance2 = r.nextInt(100);
 				                    
-				       if (chance2 < chance) {
-				    	   UltimateJobs.getRewardHandler().sendRewardMessage(killer, money, exp,vanilla,p2);
-				     
+				       if (chance2 < chance) { // String mat, String levelexp, String vanilla, String points, mode
+				    	   UltimateJobs.getRewardHandler().sendRewardMessage(killer, "PLAYER", levelexp, vanilla, points, mode, money);
+				    	  
 				       }
 					    
 	     }

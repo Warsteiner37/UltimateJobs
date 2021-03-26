@@ -105,37 +105,35 @@ Options:
 #| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
 # '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'
 
-Options:
+#
+# PlaceHolders:
+# <job> = current job
+# <money> = the reward
+# <exp> = the reward
+# <job_exp> = the exp of the current job
+# <job_need> = the needed exp for an levelup
+# <job_level> = the level of the current job
 
-  #
-  # What are the types or reward messages?
-  #
-  # "MESSAGE" -> send a message
-  # "BOSSBAR" -> semd a bossbar
-  # "TITLE" -> send a title"
-  # "ACTIONBAR" -> send a actionbar message
+Options_Rewards:
 
-  Reward_Type: "BOSSBAR"
+  Message: false
   
-Config:
-
-  Message: "<prefix> &8[&a&l+&8] &7$<money> &8- &7<exp> Exp"
+  Message_Type: "&8[&a&l+&8] <job> &8| &7<money> Dollar &8- &7<exp> Exp &8| &7<job_exp>&8/&7<job_need> &8[&6<job_level>&8]"
   
-  Bossbar: 
+  Actionbar: false
   
-    Message: "&8[&a&l+&8] &7$<money> &8- &7<exp> Exp"
+  Actionbar_Type: "&8[&a&l+&8] <job> &8| &7<money> Dollar &8- &7<exp> Exp &8| &7<job_exp>&8/&7<job_need> &8[&6<job_level>&8]"
+  
+  BossBar: true
+  
+  BossBarConfig:
+  
+    Message: "<job> &8| &7<money> Dollar &8- &7<exp> Exp &8| &7<job_exp>&8/&7<job_need> &8[&6<job_level>&8]"
     
-    Color: "RED"
+    Color: "BLUE"
     
     Style: "SEGMENTED_20"
     
-    #20 ticks = 1 second
-    Time: 40
-  
-  Actionbar: "&8[&a&l+&8] &7$<money> &8- &7<exp> Exp"
-  
-  Title:
-  
-    First: "&8| &bRewards &8|"
-    
-    Second: "&7$<money> &8- &7<exp> Exp"
+    #time in ticks = 20 ticks = 1 second
+    Ticks: 45
+ 

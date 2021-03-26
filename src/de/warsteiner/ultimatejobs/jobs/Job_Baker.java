@@ -31,9 +31,7 @@ public class Job_Baker implements Listener {
 	    	if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.EventCancelByWorldGuard")) {
 	    		e.setCancelled(true);
 	    	}
-			/* 113 */      if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
-                Bukkit.getConsoleSender().sendMessage("§4§lWarning§8: §7There is an Error. #7");
-}
+ 
 	    	 return;
 	  }
 	   if (!WorldManager.canWork(p)) {
@@ -47,9 +45,7 @@ public class Job_Baker implements Listener {
 		   UltimateJobs.getData().QuestActionCount(p, ""+block);
 	   }
 	   if(!JobAPI.IsSupported(job, ""+block, true)) {
-			/* 113 */      if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
-                Bukkit.getConsoleSender().sendMessage("§4§lWarning§8: §7There is an Error. #6");
-}
+ 
 		   return;
 	   }
 	  
@@ -69,27 +65,24 @@ public class Job_Baker implements Listener {
 		   int amount = e.getInventory().getResult().getAmount();
 		   
 		  
+		   String levelexp = b[2];
+		   String vanilla = b[3];
+		   String points = b[4];
+ 
+		   String mode = b[5];
 		   
-		   Double money = Double.valueOf(b[1]);
+		   String money = b[6];
 		   
-		   double rechnung = money*amount;
-		   
-		   Integer chance = Integer.valueOf(b[2]);
-		   
-		   Double exp = Double.valueOf(b[3]);
-		   
-		   Integer vanilla = Integer.valueOf(b[4]);
-		   
-		   Integer p2 = Integer.valueOf(b[5]);
-		   
+		   Integer chance = Integer.valueOf(b[1]);
+ 
 		   Random r = new Random();
 		    int chance2 = r.nextInt(100);
 	                    
-	       if (chance2 < chance) {
-	    	   UltimateJobs.getRewardHandler().sendRewardMessage(p, money+rechnung, exp,vanilla,p2);
+	       if (chance2 < chance) { // String mat, String levelexp, String vanilla, String points, mode
+	    	   UltimateJobs.getRewardHandler().sendRewardMessage(p, ""+ty, levelexp, vanilla, points, mode, money);
+	    	 
 	    	   continue;
 	       }
-		 
 		 
 		   
 	   }

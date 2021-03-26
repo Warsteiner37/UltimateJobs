@@ -332,7 +332,7 @@ Hunter:
     - "MAX:&4&lMax Level:0:2"
  
   #
-  #FORMAT: MATERIAL:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS:REWARD_MODE:REWARD
+  #FORMAT: MODE:ID:CHANCE:LEVEL_EXP:VANILLA:POINTS:MODE:REWARD
   # 
   # Modes:
   # "ID" = the minecraft id
@@ -796,5 +796,4 @@ Miner:
  
   IDS:
     - "STONE:70:1.20:2:1:VAULT:2" 
-    - "IRON_ORE:80:1.20:2:1:COMMAND:say hello <player>" 
  

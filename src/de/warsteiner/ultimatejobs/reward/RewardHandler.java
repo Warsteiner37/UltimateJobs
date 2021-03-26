@@ -5,8 +5,12 @@ import java.util.UUID;
 import org.bukkit.Bukkit;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.custom.PlayerLevelExpChangeEvent;
@@ -14,6 +18,8 @@ import de.warsteiner.ultimatejobs.skills.SkillsAPIForJobs;
 import de.warsteiner.ultimatejobs.utils.ActionBar;
 import de.warsteiner.ultimatejobs.utils.BossBarHandler; 
 import de.warsteiner.ultimatejobs.utils.JobAPI;
+import de.warsteiner.ultimatejobs.utils.PlayerData;
+import de.warsteiner.ultimatejobs.utils.RandomNumberHandler;
 import net.milkbowl.vault.economy.Economy;
 
 public class RewardHandler {
@@ -24,22 +30,152 @@ public class RewardHandler {
  
 			@Override
 			public void run() {
-				UUID uuid = p.getUniqueId();
+				String uuid = ""+p.getUniqueId();
 				
 				 Economy eco = UltimateJobs.getEconomy();
 				
-				String job = JobAPI.getCurrentJob(uuid);
-				
-				Bukkit.broadcastMessage("mat: "+mat);
-				Bukkit.broadcastMessage("levelexp: "+levelexp);
-				Bukkit.broadcastMessage("vanilla: "+vanilla);
-				Bukkit.broadcastMessage("points: "+points);
-				Bukkit.broadcastMessage("mode: "+mode);
-				Bukkit.broadcastMessage("money: "+money); 
+				String job = JobAPI.getCurrentJob(p.getUniqueId());
 				 
-				  //FORMAT: MATERIAL:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS:REWARD_MODE:REWARD 
-				 //  - "STONE:70:1.20:2:1:VAULT:2" 
-				 //  - "IRON_ORE:80:1.20:2:1:COMMAND:say hello <player>" 
+				 
+				int rre3 = 0;
+				
+				   if(SkillsAPIForJobs.isEnabled()) {
+					   if(SkillsAPIForJobs.isSkillEnabled("Vanilla", job)) {
+						  
+							 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Vanilla"));
+							 
+							 String multi = SkillsAPIForJobs.getNextLevelMulti(job, "Vanilla", level+1);
+						 
+							// int rrrr = (int) (Integer.valueOf(multi)*money);
+							  
+							 // if(rrrr == 0) {
+								 rre3 = 1;
+								 //	 } else {
+								 //	 rre3 = rrrr;
+								 // }
+					   }
+				   }
+				
+				 
+				if(UltimateJobs.getJobsConfig().getCustomConfig().getBoolean("Get_Vanilla_Exp")) {
+					p.giveExp(Integer.valueOf(vanilla)+rre3);
+				}
+				 
+			 
+				int global = UltimateJobs.getData().getGlobalPoints(""+uuid);
+				int r3 = global + Integer.valueOf(points);
+				UltimateJobs.getData().setGlobalPoints(""+uuid, r3);
+				
+				
+				int jo = UltimateJobs.getData().getPointsByJob(""+uuid, job);
+				int r4 = jo + Integer.valueOf(points);
+				UltimateJobs.getData().setPointsByJob(""+uuid, job, r4);
+			
+				 
+				double rechnrung = 0;
+				
+double multi_for_money = UltimateJobs.getSkillAPI().getMoneyMulti(""+uuid);
+				
+				double multi_for_money_2 = UltimateJobs.getLevelAPI().getMoneyMulti(job, ""+uuid, ""+UltimateJobs.getData().getLevel(""+uuid, job));
+			 
+				 
+				if( UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skills") == true) {
+					rechnrung = Double.valueOf(money)*multi_for_money;
+				}
+				double money2 =0;
+				
+				
+				if( UltimateJobs.getPlugin().getConfig().getBoolean("Use_Levels") == true) {
+					money2 =  Double.valueOf(money)*multi_for_money_2;
+				 
+				}
+		 
+				
+				double re2 = 0;
+				
+				   if(SkillsAPIForJobs.isEnabled()) {
+					   if(SkillsAPIForJobs.isSkillEnabled("Money", job)) {
+						  
+							 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Money"));
+							 
+							 String multi = SkillsAPIForJobs.getNextLevelMulti(job, "Money", level+1);
+						 
+							 double rrrr = Double.valueOf(multi)*Double.valueOf(money);
+							  
+							 re2 = rrrr;
+							 
+					   }
+				   }
+				   
+				double final_money = rechnrung+Double.valueOf(money)+money2+re2;
+				
+				String m = mode.toUpperCase();
+				
+				double multi_for_exp = UltimateJobs.getSkillAPI().getExpMulti(""+uuid);
+				
+				double rechnung = Double.valueOf(levelexp)*multi_for_exp;
+		 
+				double re3 = 0;
+				
+				   if(SkillsAPIForJobs.isEnabled()) {
+					   if(SkillsAPIForJobs.isSkillEnabled("Exp", job)) {
+						  
+							 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Exp"));
+							 
+							 String multi = SkillsAPIForJobs.getNextLevelMulti(job, "Exp", level);
+						 
+							 double rrrr = Double.valueOf(multi)*Double.valueOf(levelexp);
+							  
+							 re3 = rrrr;
+							 
+					   }
+				   }
+				
+					double count_one = UltimateJobs.getData().getCountOne(""+uuid, job);
+					int count_two = UltimateJobs.getData().getCountTwo(""+uuid, job);
+					
+					UltimateJobs.getData().setCountOne(""+uuid, job, count_one+final_money);
+					UltimateJobs.getData().setCountTwo(""+uuid, job, count_two+1);
+				 
+				double final_exp = rechnung+Double.valueOf(levelexp)+re3;
+ 
+				double current_exp = UltimateJobs.getData().getExp(""+uuid, job);
+				 
+				 
+				UltimateJobs.getData().setExp(""+uuid, job, current_exp+final_exp);
+				
+				String formated_money = UltimateJobs.getLevelAPI().getFormatedMoney(final_money);
+				String formated_exo = UltimateJobs.getLevelAPI().getFormatedMoney(final_exp);
+				 
+				if(m.equalsIgnoreCase("VAULT")) {
+					eco.depositPlayer(p, Double.valueOf(formated_money));
+				}    
+				
+				 FileConfiguration cfg = UltimateJobs.getPlugin().getConfig();
+   
+				 if(cfg.getBoolean("Options_Rewards.Message")) {
+					 String message = cfg.getString("Options_Rewards.Message_Type")
+							  .replaceAll("<job_need>", ""+UltimateJobs.getLevelAPI().getNeed(job, p.getUniqueId()))		  .replaceAll("<job_level>", ""+UltimateJobs.getData().getLevel(uuid, job))            .replaceAll("<job_exp>", ""+UltimateJobs.getLevelAPI().getFormatedExp(job, uuid)).replaceAll("<exp>", formated_exo).replaceAll("<money>", formated_money)	.replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)) .replaceAll("&", "§");
+					 p.sendMessage(message);
+				 }
+				 
+				 if(cfg.getBoolean("Options_Rewards.Actionbar")) {
+					 String message = cfg.getString("Options_Rewards.Actionbar_Type")
+							  .replaceAll("<job_need>", ""+UltimateJobs.getLevelAPI().getNeed(job, p.getUniqueId()))		  .replaceAll("<job_level>", ""+UltimateJobs.getData().getLevel(uuid, job))            .replaceAll("<job_exp>", ""+UltimateJobs.getLevelAPI().getFormatedExp(job, uuid)).replaceAll("<exp>", formated_exo).replaceAll("<money>", formated_money)	.replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)) .replaceAll("&", "§");
+					 ActionBar.sendActionbar(p, message);
+				 }
+				 
+				 if(cfg.getBoolean("Options_Rewards.BossBar")) {
+					 String message = cfg.getString("Options_Rewards.BossBarConfig.Message")
+							  .replaceAll("<job_need>", ""+UltimateJobs.getLevelAPI().getNeed(job, p.getUniqueId()))		  .replaceAll("<job_level>", ""+UltimateJobs.getData().getLevel(uuid, job))            .replaceAll("<job_exp>", ""+UltimateJobs.getLevelAPI().getFormatedExp(job, uuid)).replaceAll("<exp>", formated_exo).replaceAll("<money>", formated_money)	.replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)) .replaceAll("&", "§");
+				 
+					 String color = cfg.getString("Options_Rewards.BossBarConfig.Color");
+					 String style = cfg.getString("Options_Rewards.BossBarConfig.Style");
+					 String ticks = cfg.getString("Options_Rewards.BossBarConfig.Ticks");
+					 
+					 UltimateJobs.getBossBarHandler().sendBar(p, BarColor.valueOf(color), BarStyle.valueOf(style), Integer.valueOf(ticks) , message);
+					 
+				 }
 				
 			}
 			
@@ -50,3 +186,24 @@ public class RewardHandler {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

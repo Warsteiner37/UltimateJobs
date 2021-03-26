@@ -111,25 +111,25 @@ public class Job_Hunter implements Listener {
 					   }
 				   }
 					  
+			 
+				   String levelexp = b[3];
+				   String vanilla = b[4];
+				   String points = b[5];
+		 
+				   String mode2 = b[6];
 				   
-				   Double money = Double.valueOf(b[2]);
+				   String money = b[7];
 				   
-				   Integer chance = Integer.valueOf(b[3]);
-				   
-				   Double exp = Double.valueOf(b[4]);
-				   
-				   Integer vanilla = Integer.valueOf(b[5]);
-				   
-				   Integer p2 = Integer.valueOf(b[6]);
-				   
+				   Integer chance = Integer.valueOf(b[2]);
+		 
 				   Random r = new Random();
 				    int chance2 = r.nextInt(100);
 			                    
-			       if (chance2 < chance) {
-			    	   UltimateJobs.getRewardHandler().sendRewardMessage(killer, money, exp,vanilla,p2);
-			    	   continue;  
+			       if (chance2 < chance) { // String mat, String levelexp, String vanilla, String points, mode
+			    	   UltimateJobs.getRewardHandler().sendRewardMessage(killer, ""+e.getEntity().getType(), levelexp, vanilla, points, mode2, money);
+			    	  
 			       }
-				    continue; 
+				 
 		   }  if(mode.equalsIgnoreCase("DIS")) {
 			  
 			   String ty = String.valueOf(b[1]).replaceAll("&", "§");
@@ -142,22 +142,22 @@ public class Job_Hunter implements Listener {
 			   		continue;
 			   	}
 				   
-				   Double money = Double.valueOf(b[2]);
+				   String levelexp = b[3];
+				   String vanilla = b[4];
+				   String points = b[5];
+		 
+				   String mode2 = b[6];
 				   
-				   Integer chance = Integer.valueOf(b[3]);
+				   String money = b[7];
 				   
-				   Double exp = Double.valueOf(b[4]);
-				   
-				   Integer vanilla = Integer.valueOf(b[5]);
-				   
-				   Integer p2 = Integer.valueOf(b[6]);
-				   
+				   Integer chance = Integer.valueOf(b[2]);
+		 
 				   Random r = new Random();
 				    int chance2 = r.nextInt(100);
 			                    
-			       if (chance2 < chance) {
-			    	   UltimateJobs.getRewardHandler().sendRewardMessage(killer, money, exp,vanilla,p2);
-			    	   continue; 
+			       if (chance2 < chance) { // String mat, String levelexp, String vanilla, String points, mode
+			    	   UltimateJobs.getRewardHandler().sendRewardMessage(killer, ""+e.getEntity().getType(), levelexp, vanilla, points, mode2, money);
+			    	  
 			       }
 			       
 		   }  

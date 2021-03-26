@@ -44,9 +44,7 @@ public class Job_MilkMan implements Listener {
 				    	if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.EventCancelByWorldGuard")) {
 				    		e.setCancelled(true);
 				    	}
-						/* 113 */      if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
-				            Bukkit.getConsoleSender().sendMessage("§4§lWarning§8: §7There is an Error. #7");
-				}
+ 
 				    	 return;
 				  }
 				   if (!WorldManager.canWork(p)) {
@@ -57,7 +55,7 @@ public class Job_MilkMan implements Listener {
 					   return;
 				   }
 				   if(UltimateJobs.getQuestAPI().getCustomConfig().getBoolean("Enable_Quests") ) {
-					   UltimateJobs.getData().QuestActionCount(p, "BUCKET");
+					   UltimateJobs.getData().QuestActionCount(p, "MILK");
 				   }
  
 				  
@@ -70,22 +68,22 @@ public class Job_MilkMan implements Listener {
 					   
 		 
 					   
-					   Double money = Double.valueOf(b[0]);
+					   String levelexp = b[1];
+					   String vanilla = b[2];
+					   String points = b[3];
+			 
+					   String mode2 = b[4];
 					   
-					   Integer chance = Integer.valueOf(b[1]);
+					   String money = b[5];
 					   
-					   Double exp = Double.valueOf(b[2]);
-					   
-					   Integer vanilla = Integer.valueOf(b[3]);
-					   
-					   Integer p2 = Integer.valueOf(b[4]);
-					   
+					   Integer chance = Integer.valueOf(b[0]);
+			 
 					   Random r = new Random();
 					    int chance2 = r.nextInt(100);
 				                    
-				       if (chance2 < chance) {
-				    	   UltimateJobs.getRewardHandler().sendRewardMessage(p, money, exp,vanilla,p2);
-				    	   continue;
+				       if (chance2 < chance) { // String mat, String levelexp, String vanilla, String points, mode
+				    	   UltimateJobs.getRewardHandler().sendRewardMessage(p, "MILK", levelexp, vanilla, points, mode2, money);
+				    	  
 				       }
 				 
 					   

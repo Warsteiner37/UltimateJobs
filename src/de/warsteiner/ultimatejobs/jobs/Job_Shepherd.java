@@ -46,9 +46,7 @@ public class Job_Shepherd implements Listener {
 		    	if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.EventCancelByWorldGuard")) {
 		    		e.setCancelled(true);
 		    	}
-				/* 113 */      if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
-	                Bukkit.getConsoleSender().sendMessage("§4§lWarning§8: §7There is an Error. #7");
-	}
+ 
 		    	 return;
 		  }
 		    
@@ -63,9 +61,7 @@ public class Job_Shepherd implements Listener {
 			   UltimateJobs.getData().QuestActionCount(p, ""+color);
 		   }
 		   if(!JobAPI.IsSupported(job, ""+color, false)) {
-				/* 113 */      if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
-	                 Bukkit.getConsoleSender().sendMessage("§4§lWarning§8: §7There is an Error. #6");
-	}
+ 
 			   return;
 		   }
 		  
@@ -114,16 +110,15 @@ public class Job_Shepherd implements Listener {
 				   }
 			   }
 			   
-			   String levelexp = b[1];
-			   String vanilla = b[2];
-			   String points = b[3];
+			   String levelexp = b[2];
+			   String vanilla = b[3];
+			   String points = b[4];
 	 
-			   String mode = b[4];
+			   String mode = b[5];
 			   
-			   String money = b[5];
+			   String money = b[6];
 			   
 			   Integer chance = Integer.valueOf(b[1]);
-	 
 			   Random r = new Random();
 			    int chance2 = r.nextInt(100);
 		                    

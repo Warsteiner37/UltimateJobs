@@ -41,9 +41,7 @@ public class Job_BeeKeeper  implements Listener {
 	    	if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.EventCancelByWorldGuard")) {
 	    		e.setCancelled(true);
 	    	}
-			/* 113 */      if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
-              Bukkit.getConsoleSender().sendMessage("§4§lWarning§8: §7There is an Error. #7");
-}
+ 
 	    	 return;
 	  }
 	   if (!WorldManager.canWork(p)) {
@@ -89,22 +87,22 @@ public class Job_BeeKeeper  implements Listener {
 					// "15:80:0.25:3:1"
 					
 					 String[] b = list.split(":");
-		 
+					 
+					   String levelexp = b[1];
+					   String vanilla = b[2];
+					   String points = b[3];
+			 
+					   String mode = b[4];
 					   
-					   Double money = Double.valueOf(b[0]);
+					   String money = b[5];
 					   
-					   Integer chance = Integer.valueOf(b[1]);
-					   
-					   Double exp = Double.valueOf(b[2]);
-					   
-					   Integer vanilla = Integer.valueOf(b[3]);
-					   
-					   Integer p2 = Integer.valueOf(b[4]);
+					   Integer chance = Integer.valueOf(b[0]);
+			 
 					   Random r = new Random();
 					    int chance2 = r.nextInt(100);
 				                    
-				       if (chance2 < chance) {
-				    	   UltimateJobs.getRewardHandler().sendRewardMessage(p, money, exp,vanilla,p2);
+				       if (chance2 < chance) { // String mat, String levelexp, String vanilla, String points, mode
+				    	   UltimateJobs.getRewardHandler().sendRewardMessage(p, ""+clickedBlock.getType(), levelexp, vanilla, points, mode, money);
 				    	  
 				       }
 				}
