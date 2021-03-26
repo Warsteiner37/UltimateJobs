@@ -22,6 +22,9 @@ import de.warsteiner.ultimatejobs.custom.QuestDataChangeEvent;
 /*     */   
 /*     */   public void createPlayer(UUID uuid) {
 /*  19 */     get().set("Job." + uuid + ".Current", UltimateJobs.getJobsConfig().getCustomConfig().getString("Default_Job"));
+if(!UltimateJobs.getJobsConfig().getCustomConfig().getString("Default_Job").equalsIgnoreCase("None")) {
+	addJobToBought(uuid, UltimateJobs.getJobsConfig().getCustomConfig().getString("Default_Job"));
+}
 			get().set("Job." + uuid + ".SkillPoints", 1);
 			get().set("Job." + uuid + ".LEVELEXP.Level", 1);
 			get().set("Job." + uuid + ".MONEY.Level", 1);

@@ -124,22 +124,22 @@ public class Job_Miner implements Listener {
 					   }
 			   }
 		   }
+		   //ATERIAL:CHANCE:LEVEL_EXP:VANILLA_EXP:POINTS:REWARD_MODE:REWARD
+		   String levelexp = b[1];
+		   String vanilla = b[2];
+		   String points = b[3];
+ 
+		   String mode = b[4];
 		   
-		   Double money = Double.valueOf(b[1]);
+		   String money = b[5];
 		   
-		   Integer chance = Integer.valueOf(b[2]);
-		   
-		   Double exp = Double.valueOf(b[3]);
-		   
-		   Integer vanilla = Integer.valueOf(b[4]);
-		   
-		   Integer p2 = Integer.valueOf(b[5]);
-		   
+		   Integer chance = Integer.valueOf(b[1]);
+ 
 		   Random r = new Random();
 		    int chance2 = r.nextInt(100);
 	                    
-	       if (chance2 < chance) {
-	    	   UltimateJobs.getRewardHandler().sendRewardMessage(p, money, exp,vanilla,p2);
+	       if (chance2 < chance) { // String mat, String levelexp, String vanilla, String points, mode
+	    	   UltimateJobs.getRewardHandler().sendRewardMessage(p, ""+ty, levelexp, vanilla, points, mode, money);
 	    	 
 	    	   continue;
 	       }
