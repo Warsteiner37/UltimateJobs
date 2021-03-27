@@ -9,6 +9,12 @@
 #| |              | || |              | || |              | || |              | || |              | || |              | || |              | || |              | || |              | || |              | || |              | || |              | |
 #| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |
 # '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------' 
+
+States:
+
+  Price: "&7To Upgrade this skill, you need &c<price> &7Points"
+  
+  Maxed: "&7This skill has reached his maximum level!"
  
 SillJobs:
 
@@ -49,7 +55,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Chance&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Heal:
      
@@ -78,7 +84,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Chance&8: &6<m>% &8/ &a<b> Health"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Blood:
      
@@ -107,7 +113,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Chance&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Vanilla:
      
@@ -136,7 +142,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Exp:
      
@@ -165,7 +171,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Money:
      
@@ -194,7 +200,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
 
   BeeKeeper:
    
@@ -231,7 +237,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Chance&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Vanilla:
      
@@ -260,7 +266,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Exp:
      
@@ -289,7 +295,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Money:
      
@@ -318,7 +324,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
 
   Baker:
    
@@ -354,7 +360,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Exp:
      
@@ -383,7 +389,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Money:
      
@@ -412,7 +418,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
 
   Farmer:
    
@@ -448,7 +454,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Exp:
      
@@ -477,7 +483,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Money:
      
@@ -506,7 +512,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
   Hunter:
    
@@ -543,7 +549,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Chance&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Vanilla:
      
@@ -572,7 +578,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Exp:
      
@@ -601,7 +607,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Money:
      
@@ -630,7 +636,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
 
   FoodEater:
    
@@ -667,7 +673,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Chance&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Vanilla:
      
@@ -696,7 +702,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Exp:
      
@@ -725,7 +731,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Money:
      
@@ -754,7 +760,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
 
   CookingMaster:
    
@@ -790,7 +796,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Exp:
      
@@ -819,7 +825,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Money:
      
@@ -848,7 +854,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
   Shepherd:
    
@@ -886,7 +892,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Vanilla:
      
@@ -915,7 +921,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Dupe:
      
@@ -944,7 +950,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Chance&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Exp:
      
@@ -973,7 +979,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Money:
      
@@ -1002,7 +1008,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
 
   Fisherman:
    
@@ -1039,7 +1045,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Dupe:
      
@@ -1068,7 +1074,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Chance&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Exp:
      
@@ -1097,7 +1103,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Money:
      
@@ -1126,7 +1132,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
   Crafter:
    
@@ -1162,7 +1168,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Exp:
      
@@ -1191,7 +1197,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Money:
      
@@ -1220,7 +1226,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
 
   Milkman:
@@ -1257,7 +1263,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Exp:
      
@@ -1286,7 +1292,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Money:
      
@@ -1315,7 +1321,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
   Builder:
    
@@ -1351,7 +1357,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
      Exp:
      
@@ -1380,7 +1386,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Money:
      
@@ -1409,7 +1415,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
 
   Digger:
    
@@ -1447,7 +1453,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Speed:
      
@@ -1478,7 +1484,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Chance&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Dupe:
      
@@ -1507,7 +1513,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Chance&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Exp:
      
@@ -1536,7 +1542,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Money:
      
@@ -1565,7 +1571,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
 
   Lumberjack:
    
@@ -1603,7 +1609,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Speed:
      
@@ -1634,7 +1640,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Chance&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Dupe:
      
@@ -1663,7 +1669,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Chance&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Exp:
      
@@ -1692,7 +1698,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Money:
      
@@ -1721,7 +1727,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
  
   Miner:
    
@@ -1759,7 +1765,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Speed:
      
@@ -1790,7 +1796,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Chance&8: &6<m>% "
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Dupe:
      
@@ -1819,7 +1825,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Chance&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Exp:
      
@@ -1848,7 +1854,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
        
      Money:
      
@@ -1877,7 +1883,7 @@ SillJobs:
          - "&8> &7Skill-Level&8: &b#<level>"
          - "&8> &7Current Multiplier&8: &6<m>%"
          - "&7"
-         - "&8-> &7To Upgrade this skill, you need &c<price> &7Points."
+         - "&8-> <state>"
 
 Items:
  

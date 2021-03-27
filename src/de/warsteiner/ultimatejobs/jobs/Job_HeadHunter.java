@@ -98,7 +98,7 @@ public class Job_HeadHunter implements Listener {
 		      return;
 		    } 
 		   if(UltimateJobs.getQuestAPI().getCustomConfig().getBoolean("Enable_Quests") ) {
-			   UltimateJobs.getData().QuestActionCount(killer, ""+ent_type);
+			   UltimateJobs.getData().QuestActionCount(killer, "PLAYER");
 		   }
 		   if(!job.equalsIgnoreCase("HeadHunter")) {
 			   return;

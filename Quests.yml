@@ -67,6 +67,11 @@ Quests:
     - "Quest2"
     - "Quest3"
     - "Quest4" 
+    - "Quest5" 
+    - "Quest6" 
+    - "Quest7" 
+    - "Quest8" 
+    - "Quest9"  
     
   #this only can show up if you add more quest slots
   No_Quest_Found:
@@ -168,6 +173,111 @@ Quests:
     Lore: 
       - "&8-------"
       - "&7Place 15 Quartz Blocks"
+      - "&c"
+      - "&7Progress&8:"
+      - " &8-> &b<complete>% &7Completed"
+      - " &8-> &a<has>&8/&a<need> &7Blocks"
+      
+  Quest5:
+
+    Action: "Digger:250:GRAVEO"
+    
+    Display: "&8× &7Quest&8: <job> &8×"
+    
+    Material: "GRAVEL"
+    
+    #this shows if the player completes the quest
+    ID: "&7250 Gravel"
+      
+    Reward: "COMMAND:eco give <player> 500"
+    
+    Lore: 
+      - "&8-------"
+      - "&7Break 250 Gravel Blocks"
+      - "&c"
+      - "&7Progress&8:"
+      - " &8-> &b<complete>% &7Completed"
+      - " &8-> &a<has>&8/&a<need> &7Blocks"
+      
+  Quest6:
+
+    Action: "Milkman:15:MILK"
+    
+    Display: "&8× &7Quest&8: <job> &8×"
+    
+    Material: "BUCKET"
+    
+    #this shows if the player completes the quest
+    ID: "&715 Milk Bucket"
+      
+    Reward: "COMMAND:eco give <player> 500"
+    
+    Lore: 
+      - "&8-------"
+      - "&7Milk 15 Cows"
+      - "&c"
+      - "&7Progress&8:"
+      - " &8-> &b<complete>% &7Completed"
+      - " &8-> &a<has>&8/&a<need> &7Blocks"
+      
+  Quest7:
+
+    Action: "Hunter:15:ZOMBIE"
+    
+    Display: "&8× &7Quest&8: <job> &8×"
+    
+    Material: "IRON_SWORD"
+    
+    #this shows if the player completes the quest
+    ID: "&715 Zombies"
+      
+    Reward: "COMMAND:eco give <player> 500"
+    
+    Lore: 
+      - "&8-------"
+      - "&7Kill 15 Zombies"
+      - "&c"
+      - "&7Progress&8:"
+      - " &8-> &b<complete>% &7Completed"
+      - " &8-> &a<has>&8/&a<need> &7Blocks"
+      
+  Quest8:
+
+    Action: "HeadHunter:5:PLAYER"
+    
+    Display: "&8× &7Quest&8: <job> &8×"
+    
+    Material: "GOLD_NUGGET"
+    
+    #this shows if the player completes the quest
+    ID: "&75 Players"
+      
+    Reward: "COMMAND:eco give <player> 500"
+    
+    Lore: 
+      - "&8-------"
+      - "&7Kill 5 Players"
+      - "&c"
+      - "&7Progress&8:"
+      - " &8-> &b<complete>% &7Completed"
+      - " &8-> &a<has>&8/&a<need> &7Blocks"
+      
+  Quest9:
+
+    Action: "Shepherd:50:BLACK"
+    
+    Display: "&8× &7Quest&8: <job> &8×"
+    
+    Material: "BLACK_WOOL"
+    
+    #this shows if the player completes the quest
+    ID: "&750 Black Sheeps"
+      
+    Reward: "COMMAND:eco give <player> 500"
+    
+    Lore: 
+      - "&8-------"
+      - "&7Shear 50 Black Sheeps"
       - "&c"
       - "&7Progress&8:"
       - " &8-> &b<complete>% &7Completed"

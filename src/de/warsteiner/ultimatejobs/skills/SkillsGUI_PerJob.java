@@ -91,7 +91,14 @@ public class SkillsGUI_PerJob {
 										 ss3 = ""+a;
 									 }
 									 
-									 l.add(lore.get(i2).replaceAll("<b>", ""+ss3).replaceAll("<potion>", ""+ss1).replaceAll("<s>", ""+ss2).replaceAll("<m>", ""+multi).replaceAll("<price>", ""+price).replaceAll("<level>", ""+level).replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)).replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
+									 String state = null;
+									if(SkillsAPIForJobs.isMaxLevel(job, b, level)) {
+										state = cfg.getString("States.Maxed");
+		} else {
+			state = cfg.getString("States.Price");
+		}
+									 
+									 l.add(lore.get(i2).replaceAll("<state>", state).replaceAll("<b>", ""+ss3).replaceAll("<potion>", ""+ss1).replaceAll("<s>", ""+ss2).replaceAll("<m>", ""+multi).replaceAll("<price>", ""+price).replaceAll("<level>", ""+level).replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)).replaceAll("<points>", ""+points).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
 								 }
 								 
 								 meta.setLore(l);

@@ -33,6 +33,24 @@ public class SkillsAPIForJobs {
 		
 	}
 	
+	public static boolean isMaxLevel(String name, String s, int current) {
+		FileConfiguration cfg = UltimateJobs.getSkillsPerJob().getCustomConfig();
+		 List<String> a = cfg.getStringList("SillJobs."+name+"."+s+".Levels");
+		 
+	 
+			 String l =a.get(a.size()-1);
+		 
+			 String[] b = l.split(":");
+			 
+			 int level = Integer.valueOf(b[0]);
+	 
+			 if(level == current) {
+				 return true;
+			 }
+		 
+		return false;
+	}
+	
 	public static String getItemStackForDupe(String mat) {
 		
 		FileConfiguration cfg = UltimateJobs.getUtil().getCustomConfig();
