@@ -110,19 +110,19 @@ public class Job_Lumberjack implements Listener {
 						   }
 						   
 						 
-					   }
+					   }  
 			   }
 		   }
 		   
-		   String levelexp = b[1];
-		   String vanilla = b[2];
-		   String points = b[3];
+		   String levelexp = b[2];
+		   String vanilla = b[3];
+		   String points = b[4];
  
-		   String mode = b[4];
+		   String mode = b[5];
 		   
-		   String money = b[5];
+		   String money = b[6];
 		   
-		   Integer chance = Integer.valueOf(b[0]);
+		   Integer chance = Integer.valueOf(b[1]);
  
 		   Random r = new Random();
 		    int chance2 = r.nextInt(100);

@@ -20,7 +20,3 @@ import net.minecraft.server.v1_16_R3.PacketPlayOutTitle;
 /*    */ }
 
 
-/* Location:              C:\Users\hypas\Desktop\UltimateJobs.jar!\de\warsteine\\ultimatejob\\utils\ActionBar.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.1.3
- */
