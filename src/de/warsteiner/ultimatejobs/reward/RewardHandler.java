@@ -46,13 +46,15 @@ public class RewardHandler {
 							 
 							 String multi = SkillsAPIForJobs.getNextLevelMulti(job, "Vanilla", level+1);
 						 
-							// int rrrr = (int) (Integer.valueOf(multi)*money);
+							 int idk = Integer.valueOf(multi);
+							 
+						 int rrrr =  idk*Integer.valueOf(vanilla);
 							  
-							 // if(rrrr == 0) {
+							  if(rrrr == 0) {
 								 rre3 = 1;
-								 //	 } else {
-								 //	 rre3 = rrrr;
-								 // }
+							  } else {
+								 	 rre3 = rrrr;
+								 }
 					   }
 				   }
 				
@@ -153,27 +155,64 @@ double multi_for_money = UltimateJobs.getSkillAPI().getMoneyMulti(""+uuid);
 				
 				 FileConfiguration cfg = UltimateJobs.getPlugin().getConfig();
    
-				 if(cfg.getBoolean("Options_Rewards.Message")) {
-					 String message = cfg.getString("Options_Rewards.Message_Type")
-							  .replaceAll("<job_need>", ""+UltimateJobs.getLevelAPI().getNeed(job, p.getUniqueId()))		  .replaceAll("<job_level>", ""+UltimateJobs.getData().getLevel(uuid, job))            .replaceAll("<job_exp>", ""+UltimateJobs.getLevelAPI().getFormatedExp(job, uuid)).replaceAll("<exp>", formated_exo).replaceAll("<money>", formated_money)	.replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)) .replaceAll("&", "§");
-					 p.sendMessage(message);
-				 }
-				 
-				 if(cfg.getBoolean("Options_Rewards.Actionbar")) {
-					 String message = cfg.getString("Options_Rewards.Actionbar_Type")
-							  .replaceAll("<job_need>", ""+UltimateJobs.getLevelAPI().getNeed(job, p.getUniqueId()))		  .replaceAll("<job_level>", ""+UltimateJobs.getData().getLevel(uuid, job))            .replaceAll("<job_exp>", ""+UltimateJobs.getLevelAPI().getFormatedExp(job, uuid)).replaceAll("<exp>", formated_exo).replaceAll("<money>", formated_money)	.replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)) .replaceAll("&", "§");
-					 ActionBar.sendActionbar(p, message);
-				 }
-				 
-				 if(cfg.getBoolean("Options_Rewards.BossBar")) {
-					 String message = cfg.getString("Options_Rewards.BossBarConfig.Message")
-							  .replaceAll("<job_need>", ""+UltimateJobs.getLevelAPI().getNeed(job, p.getUniqueId()))		  .replaceAll("<job_level>", ""+UltimateJobs.getData().getLevel(uuid, job))            .replaceAll("<job_exp>", ""+UltimateJobs.getLevelAPI().getFormatedExp(job, uuid)).replaceAll("<exp>", formated_exo).replaceAll("<money>", formated_money)	.replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)) .replaceAll("&", "§");
-				 
-					 String color = cfg.getString("Options_Rewards.BossBarConfig.Color");
-					 String style = cfg.getString("Options_Rewards.BossBarConfig.Style");
-					 String ticks = cfg.getString("Options_Rewards.BossBarConfig.Ticks");
+				 if(cfg.getString("RewardMode").toUpperCase().equalsIgnoreCase("PUBLIC")) {
+					 if(cfg.getBoolean("Options_Rewards.public.Message")) {
+						 String message = cfg.getString("Options_Rewards.public.Message_Type")
+								  .replaceAll("<job_need>", ""+UltimateJobs.getLevelAPI().getNeed(job, p.getUniqueId()))		  .replaceAll("<job_level>", ""+UltimateJobs.getData().getLevel(uuid, job))            .replaceAll("<job_exp>", ""+UltimateJobs.getLevelAPI().getFormatedExp(job, uuid)).replaceAll("<exp>", formated_exo).replaceAll("<money>", formated_money)	.replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)) .replaceAll("&", "§");
+						 p.sendMessage(message);
+						 return;
+					 }
 					 
-					 UltimateJobs.getBossBarHandler().sendBar(p, BarColor.valueOf(color), BarStyle.valueOf(style), Integer.valueOf(ticks) , message);
+					 if(cfg.getBoolean("Options_Rewards.public.Actionbar")) {
+						 String message = cfg.getString("Options_Rewards.public.Actionbar_Type")
+								  .replaceAll("<job_need>", ""+UltimateJobs.getLevelAPI().getNeed(job, p.getUniqueId()))		  .replaceAll("<job_level>", ""+UltimateJobs.getData().getLevel(uuid, job))            .replaceAll("<job_exp>", ""+UltimateJobs.getLevelAPI().getFormatedExp(job, uuid)).replaceAll("<exp>", formated_exo).replaceAll("<money>", formated_money)	.replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)) .replaceAll("&", "§");
+						 ActionBar.sendActionbar(p, message);
+						 return;
+					 }
+					 
+					 if(cfg.getBoolean("Options_Rewards.public.BossBar")) {
+						 String message = cfg.getString("Options_Rewards.public.BossBarConfig.Message")
+								  .replaceAll("<job_need>", ""+UltimateJobs.getLevelAPI().getNeed(job, p.getUniqueId()))		  .replaceAll("<job_level>", ""+UltimateJobs.getData().getLevel(uuid, job))            .replaceAll("<job_exp>", ""+UltimateJobs.getLevelAPI().getFormatedExp(job, uuid)).replaceAll("<exp>", formated_exo).replaceAll("<money>", formated_money)	.replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)) .replaceAll("&", "§");
+					 
+						 String color = cfg.getString("Options_Rewards.public.BossBarConfig.Color");
+						 String style = cfg.getString("Options_Rewards.public.BossBarConfig.Style");
+						 String ticks = cfg.getString("Options_Rewards.public.BossBarConfig.Ticks");
+						 
+						 UltimateJobs.getBossBarHandler().sendBar(p, BarColor.valueOf(color), BarStyle.valueOf(style), Integer.valueOf(ticks) , message);
+						 return;
+					 }
+				 } else {
+					 
+					 String type = cfg.getString("Options_Rewards."+job+".Type").toUpperCase();
+					 
+					 if(type.equalsIgnoreCase("BOSSBAR")) {
+						 
+						 String message = cfg.getString("Options_Rewards."+job+".Message") .replaceAll("<job_need>", ""+UltimateJobs.getLevelAPI().getNeed(job, p.getUniqueId()))		  .replaceAll("<job_level>", ""+UltimateJobs.getData().getLevel(uuid, job))            .replaceAll("<job_exp>", ""+UltimateJobs.getLevelAPI().getFormatedExp(job, uuid)).replaceAll("<exp>", formated_exo).replaceAll("<money>", formated_money)	.replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)) .replaceAll("&", "§");
+						 
+						 
+						 String color = cfg.getString("Options_Rewards."+job+".Color");
+						 String style = cfg.getString("Options_Rewards."+job+".Style");
+						 String ticks = cfg.getString("Options_Rewards."+job+".Ticks");
+						 
+						 UltimateJobs.getBossBarHandler().sendBar(p, BarColor.valueOf(color), BarStyle.valueOf(style), Integer.valueOf(ticks) , message);
+						 return;
+					 } else  if(type.equalsIgnoreCase("MESSAGE")) {
+						 
+						 String message = cfg.getString("Options_Rewards."+job+".Message") .replaceAll("<job_need>", ""+UltimateJobs.getLevelAPI().getNeed(job, p.getUniqueId()))		  .replaceAll("<job_level>", ""+UltimateJobs.getData().getLevel(uuid, job))            .replaceAll("<job_exp>", ""+UltimateJobs.getLevelAPI().getFormatedExp(job, uuid)).replaceAll("<exp>", formated_exo).replaceAll("<money>", formated_money)	.replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)) .replaceAll("&", "§");
+						 
+ 
+						 p.sendMessage(message);
+						 
+						 return ;
+					 }   else  if(type.equalsIgnoreCase("ACTIONBAR")) {
+						 
+						 String message = cfg.getString("Options_Rewards."+job+".Message") .replaceAll("<job_need>", ""+UltimateJobs.getLevelAPI().getNeed(job, p.getUniqueId()))		  .replaceAll("<job_level>", ""+UltimateJobs.getData().getLevel(uuid, job))            .replaceAll("<job_exp>", ""+UltimateJobs.getLevelAPI().getFormatedExp(job, uuid)).replaceAll("<exp>", formated_exo).replaceAll("<money>", formated_money)	.replaceAll("<job>", JobAPI.fromOriginalConfigIDToCustomDisplay(job)) .replaceAll("&", "§");
+						 
+ 
+						 ActionBar.sendActionbar(p, message);
+						 
+						 return;
+					 } 
 					 
 				 }
 				

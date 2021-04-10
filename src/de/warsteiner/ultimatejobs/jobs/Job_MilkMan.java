@@ -34,6 +34,10 @@ public class Job_MilkMan implements Listener {
 			/*    */       
 			 Cow c = (Cow)clicked;
 		
+			 	if(e.getPlayer().getItemInHand() == null) {
+			 		return;
+			 	}
+			 
 			   if (e.isCancelled())
 					/*    */       return; 
  
@@ -57,7 +61,12 @@ public class Job_MilkMan implements Listener {
 				   if(UltimateJobs.getQuestAPI().getCustomConfig().getBoolean("Enable_Quests") ) {
 					   UltimateJobs.getData().QuestActionCount(p, "MILK");
 				   }
+				   
+				   @NotNull ItemStack item = e.getPlayer().getItemInHand();
  
+				   if(item.getType() != Material.BUCKET) {
+					   return;
+				   }
 				  
 				   List<String> list = JobAPI.getSupportedList(job);
 				   

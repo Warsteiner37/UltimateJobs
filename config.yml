@@ -114,26 +114,85 @@ Options:
 # <job_need> = the needed exp for an levelup
 # <job_level> = the level of the current job
 
+#
+# You want to display a different reward message for every job? 
+#
+# "JOB" means, every job has his own diffent message
+# "PUBLIC" means, that every job has the same message
+#
+# NOTE:
+#
+# All examples of different job messages can be found here: -> https://github.com/Warsteiner37/UltimateJobs/wiki
+#
+
+RewardMode: "PUBLIC"
+
 Options_Rewards:
 
-  Message: false
+  public:
+
+    Message: false
   
-  Message_Type: "&8[&a&l+&8] <job> &8| &7<money> Dollar &8- &7<exp> Exp &8| &7<job_exp>&8/&7<job_need> &8[&6<job_level>&8]"
+    Message_Type: "&8[&a&l+&8] <job> &8| &7<money> Dollar &8- &7<exp> Exp &8| &7<job_exp>&8/&7<job_need> &8[&6<job_level>&8]"
   
-  Actionbar: false
+    Actionbar: false
   
-  Actionbar_Type: "&8[&a&l+&8] <job> &8| &7<money> Dollar &8- &7<exp> Exp &8| &7<job_exp>&8/&7<job_need> &8[&6<job_level>&8]"
+    Actionbar_Type: "&8[&a&l+&8] <job> &8| &7<money> Dollar &8- &7<exp> Exp &8| &7<job_exp>&8/&7<job_need> &8[&6<job_level>&8]"
   
-  BossBar: true
+    BossBar: true
   
-  BossBarConfig:
+    BossBarConfig:
   
+      Message: "<job> &8| &7<money> Dollar &8- &7<exp> Exp &8| &7<job_exp>&8/&7<job_need> &8[&6<job_level>&8]"
+    
+      Color: "BLUE"
+    
+      Style: "SEGMENTED_20"
+    
+      #time in ticks = 20 ticks = 1 second
+      Ticks: 45
+      
+  Miner:
+  
+    Type: "BOSSBAR"
+    
     Message: "<job> &8| &7<money> Dollar &8- &7<exp> Exp &8| &7<job_exp>&8/&7<job_need> &8[&6<job_level>&8]"
     
-    Color: "BLUE"
+    Color: "RED"
     
     Style: "SEGMENTED_20"
     
     #time in ticks = 20 ticks = 1 second
     Ticks: 45
+    
+  Lumberjack:
+  
+    Type: "MESSAGE"
+    
+    Message: "&8[&a&l+&8] <job> &8| &7<money> Dollar &8- &7<exp> Exp &8| &7<job_exp>&8/&7<job_need> &8[&6<job_level>&8]"
+    
+  Builder:
+  
+    Type: "ACTIONBAR"
+    
+    Message: " &7<money> Dollar &8- &7<exp> Exp &8| &7<job_exp>&8/&7<job_need> &8[&6<job_level>&8]"
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
  

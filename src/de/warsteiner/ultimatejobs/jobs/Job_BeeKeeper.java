@@ -62,16 +62,19 @@ public class Job_BeeKeeper  implements Listener {
 		/*  97 */     if (action == Action.RIGHT_CLICK_BLOCK && clickedBlock != null && (
 				/*  98 */       clickedBlock.getType().equals(Material.BEEHIVE) || clickedBlock.getType().equals(Material.BEE_NEST))) {
 			
-			 @NotNull Material item = p.getItemInHand().getType();
+		      Material item = p.getItemInHand().getType();
 			 
 			 if(item != null) {
 				if(item == Material.GLASS_BOTTLE) {
 					
 					/*  99 */    BlockData bdata = clickedBlock.getBlockData();
 					  Beehive beehive = (Beehive)bdata; 
-					  
-					  if( beehive.getHoneyLevel() >= 1) {
-					
+				 
+					  if( beehive.getHoneyLevel() != beehive.getMaximumHoneyLevel()) {
+						  e.setCancelled(true);
+						  return;
+					  }
+					 
 					
 						  if(SkillsAPIForJobs.isEnabled()) {
 							   if(SkillsAPIForJobs.isSkillEnabled("Refill", job)) {
@@ -79,7 +82,7 @@ public class Job_BeeKeeper  implements Listener {
 									 int level = UltimateJobs.getData().getSkilledLevelOfJob(""+p.getUniqueId(), job, SkillsAPIForJobs.getPosOfSkillInList(job, "Refill"));
 									 
 								   if(randDouble <= Double.valueOf(SkillsAPIForJobs.getChance(job, "Refill", level))) {
-									   beehive.setHoneyLevel(beehive.getHoneyLevel()+1);
+									   beehive.setHoneyLevel(beehive.getHoneyLevel()-1);
 								   }
 							   }
 						  }
@@ -107,7 +110,7 @@ public class Job_BeeKeeper  implements Listener {
 				       }
 				}
 			 }
-			 }
+			 
 		 
 			
 		}
