@@ -16,6 +16,8 @@
 #
                
 Advanced:
+
+  BStats: true
  
   Console_Logs: false
   

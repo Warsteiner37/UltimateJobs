@@ -19,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
 
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.skills.SkillsAPIForJobs;
-import de.warsteiner.ultimatejobs.skills.SkillsAPIForPlayer;
+ 
 import de.warsteiner.ultimatejobs.utils.JobAPI;
 import de.warsteiner.ultimatejobs.utils.WorldManager;
  

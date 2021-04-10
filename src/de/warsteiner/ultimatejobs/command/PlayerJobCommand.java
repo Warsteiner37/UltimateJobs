@@ -25,8 +25,7 @@ import de.warsteiner.ultimatejobs.levels.levelgui.LevelCreatingGUI;
 import de.warsteiner.ultimatejobs.quests.QuestGUI;
 import de.warsteiner.ultimatejobs.ranking.GlobalRankingGUI;
 import de.warsteiner.ultimatejobs.ranking.JobRankingGUI;
-import de.warsteiner.ultimatejobs.skills.SkillsGUI_PerJob;
-import de.warsteiner.ultimatejobs.skills.SkillsGUI_PerPlayer;
+import de.warsteiner.ultimatejobs.skills.SkillsGUI_PerJob; 
 import de.warsteiner.ultimatejobs.utils.JobAPI;
  
 public class PlayerJobCommand implements CommandExecutor {
@@ -167,9 +166,7 @@ public class PlayerJobCommand implements CommandExecutor {
 					return true;
 				}
 				
-				 if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").toUpperCase().equalsIgnoreCase("PER_PLAYER")) {
-					p.openInventory(SkillsGUI_PerPlayer.load(p));
-				} else 	 if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").toUpperCase().equalsIgnoreCase("PER_JOB")) {
+				  if(UltimateJobs.getSkillsMainConfig().getCustomConfig().getString("Mode").toUpperCase().equalsIgnoreCase("PER_JOB")) {
 					if(job.equalsIgnoreCase("None")) {
 						String a = m.getString("Prefix")+tab.getString("Messages.No_Job");
 						p.sendMessage(a.replaceAll("&", "§"));

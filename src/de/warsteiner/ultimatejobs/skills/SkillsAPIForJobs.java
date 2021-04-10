@@ -33,6 +33,8 @@ public class SkillsAPIForJobs {
 		
 	}
 	
+	
+	
 	public static boolean isMaxLevel(String name, String s, int current) {
 		FileConfiguration cfg = UltimateJobs.getSkillsPerJob().getCustomConfig();
 		 List<String> a = cfg.getStringList("SillJobs."+name+"."+s+".Levels");

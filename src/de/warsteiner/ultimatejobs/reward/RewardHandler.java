@@ -75,15 +75,11 @@ public class RewardHandler {
 			
 				 
 				double rechnrung = 0;
-				
-double multi_for_money = UltimateJobs.getSkillAPI().getMoneyMulti(""+uuid);
-				
+ 
 				double multi_for_money_2 = UltimateJobs.getLevelAPI().getMoneyMulti(job, ""+uuid, ""+UltimateJobs.getData().getLevel(""+uuid, job));
 			 
 				 
-				if( UltimateJobs.getSkillsMainConfig().getCustomConfig().getBoolean("Enable_Skills") == true) {
-					rechnrung = Double.valueOf(money)*multi_for_money;
-				}
+ 
 				double money2 =0;
 				
 				
@@ -112,11 +108,7 @@ double multi_for_money = UltimateJobs.getSkillAPI().getMoneyMulti(""+uuid);
 				double final_money = rechnrung+Double.valueOf(money)+money2+re2;
 				
 				String m = mode.toUpperCase();
-				
-				double multi_for_exp = UltimateJobs.getSkillAPI().getExpMulti(""+uuid);
-				
-				double rechnung = Double.valueOf(levelexp)*multi_for_exp;
-		 
+ 
 				double re3 = 0;
 				
 				   if(SkillsAPIForJobs.isEnabled()) {
@@ -139,7 +131,7 @@ double multi_for_money = UltimateJobs.getSkillAPI().getMoneyMulti(""+uuid);
 					UltimateJobs.getData().setCountOne(""+uuid, job, count_one+final_money);
 					UltimateJobs.getData().setCountTwo(""+uuid, job, count_two+1);
 				 
-				double final_exp = rechnung+Double.valueOf(levelexp)+re3;
+				double final_exp = Double.valueOf(levelexp)+re3;
  
 				double current_exp = UltimateJobs.getData().getExp(""+uuid, job);
 				 
