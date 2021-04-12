@@ -1,4 +1,4 @@
-package de.warsteiner.ultimatejobs.editor.events;
+package de.warsteiner.ultimatejobs.events;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -12,6 +12,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import de.warsteiner.ultimatejobs.UltimateJobs;
 import de.warsteiner.ultimatejobs.editor.EditorGUI;
 import de.warsteiner.ultimatejobs.editor.EditorMainGUI;
+import de.warsteiner.ultimatejobs.editor.PlayerEdit;
 import de.warsteiner.ultimatejobs.editor.PlayerGUI;
 import de.warsteiner.ultimatejobs.editor.ReloadGUI;
 
@@ -45,27 +46,47 @@ public class EditorMainPageEvent implements Listener {
 	 				 
 	 				String reload = "§bUltimateJobs §8: §cPlugin Reload";
 	 				String dis = e.getCurrentItem().getItemMeta().getDisplayName();
-	 				
-	 				if (e.getView().getTitle().startsWith("§bUltimateJobs §8: §cEdit")) {
-	 					e.setCancelled(true);
-	 					
-	 					if(dis.equalsIgnoreCase("§8< §cGo Back §8>")) {
-	 						p.openInventory(EditorMainGUI.load(p));
-	 					}
-	 					
-	 					if(dis.contains("§8< §8(")
-	 							&& dis.contains("§8) §8>")) {
-		 		 
-		 				}
-	 					
-	 				}
-	 				
+ 
 	 				
 	 				
 	 			 
 	 				
 	 				
-	 				
+	 				if (e.getView().getTitle().startsWith("§bUltimateJobs §8: §7Player §8: §4")) {
+	 					e.setCancelled(true);
+	 					
+	 					String[] n2 = e.getView().getTitle().split(":");
+	 					
+	 					String name = n2[2].replaceAll("§4", " ").replaceAll(" ", "");
+	 					
+	 					if(dis.equalsIgnoreCase("§8< §bRemove Jobs §8>")) {
+	 						p.sendMessage("§c§lThis feature is in work!");
+	 					//	p.openInventory(PlayerEdit.Load_Job_RemovePage(p, name));
+	 					}
+	 					
+	 					if(dis.equalsIgnoreCase("§8< §bManage Jobs §8>")) {
+	 						p.sendMessage("§c§lThis feature is in work!");
+	 					//	p.openInventory(PlayerEdit.Load_Job_RemovePage(p, name));
+	 					}
+	 					
+	 					if(dis.equalsIgnoreCase("§8< §bAdd Jobs §8>")) {
+	 						p.sendMessage("§c§lThis feature is in work!");
+	 					//	p.openInventory(PlayerEdit.Load_Job_RemovePage(p, name));
+	 					}
+	 					
+	 					if(dis.equalsIgnoreCase("§8< §cGo Back §8>")) {
+	 						
+	 						int latestpage = e.getCurrentItem().getAmount();
+	 						
+	 						 int n = latestpage;
+	 							int next_page = 36*n;
+	 							int from = next_page-36;
+	 							
+	 							p.openInventory(PlayerGUI.load(p, from, next_page, n));
+	 						
+	 					}
+	 					
+	 				}
 	 				
 	 				
 	 				
@@ -83,9 +104,17 @@ public class EditorMainPageEvent implements Listener {
 	 				 
 	 					int g = Integer.valueOf(t);
 	 				
-	 					if(dis.contains("§8< §8(")
-	 							&& dis.contains("§8) §8>")) {
-	 						p.sendMessage("§cThe feature to manage players is currently in work!");
+	 					if(dis.contains("§8-")
+	 							&& dis.contains("§8-")) {
+	 						
+	 						String name = dis.replaceAll("§7", "   ").replaceAll("§8", "   ").replaceAll("-", " ").replaceAll("-", " ").replaceAll(" ", "");
+	 								
+	 						if(UltimateJobs.getData().getUUIDByName(name) == null) {
+	 							p.sendMessage("§cThat player doesnt exist!");
+	 							return;
+	 						} else {
+	 							p.openInventory(PlayerEdit.load(p, name, g));
+	 						}
 	 					}
 	 					
 	 					if(dis.equalsIgnoreCase("§8< §7Next Page §8>")) {

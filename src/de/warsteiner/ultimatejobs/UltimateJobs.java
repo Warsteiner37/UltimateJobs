@@ -21,8 +21,8 @@ import de.warsteiner.ultimatejobs.config.SkillsMainConfug;
 import de.warsteiner.ultimatejobs.config.SoundConfig;
 import de.warsteiner.ultimatejobs.config.TopGUI;
 import de.warsteiner.ultimatejobs.config.UtilConfig;
-import de.warsteiner.ultimatejobs.editor.events.EditorMainPageEvent;
-import de.warsteiner.ultimatejobs.events.PlayerClickAtHeadGui;
+import de.warsteiner.ultimatejobs.events.EditorMainPageEvent;
+import de.warsteiner.ultimatejobs.events.PlayerClickAtHeadGui; 
 import de.warsteiner.ultimatejobs.events.PlayerClickEventAtMainGUI;
 import de.warsteiner.ultimatejobs.events.PlayerEixstEvent;
 import de.warsteiner.ultimatejobs.events.PlayerLevelCheckEvent;
@@ -228,7 +228,7 @@ import org.jetbrains.annotations.NotNull;
 /*     */     
 /* 138 */     Bukkit.getPluginManager().registerEvents((Listener)new PlayerEixstEvent(), (Plugin)this);
 				Bukkit.getPluginManager().registerEvents((Listener)new PlayerClickEventAtMainGUI(), (Plugin)this);
-				Bukkit.getPluginManager().registerEvents((Listener)new EditorMainPageEvent(), (Plugin)this);
+				Bukkit.getPluginManager().registerEvents((Listener)new EditorMainPageEvent(), (Plugin)this); 
 				List<String> jb = jobs.getCustomConfig().getStringList("Options.GUI");
 /*     */     
 				if(jb.contains("Miner")) {

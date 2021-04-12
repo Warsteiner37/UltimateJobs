@@ -24,7 +24,7 @@ Advanced:
   #for example: json, yml
   SavingFile: "yml"
   
-  EventCancelByWorldGuard: false
+  EventCancelByWorldGuard: true
                         
 Plugin:
 

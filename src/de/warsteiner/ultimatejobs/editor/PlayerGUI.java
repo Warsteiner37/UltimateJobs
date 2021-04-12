@@ -67,7 +67,7 @@ public class PlayerGUI {
 						  
 							ItemStack d = generateSkull(pl);
 							/* 42 */ ItemMeta dm = d.getItemMeta();
-							/* 43 */ dm.setDisplayName("§8< §8(§7"+pl+"§8) §8>");
+							/* 43 */ dm.setDisplayName("§8- §7"+pl+" §8-");
 							ArrayList<String> dore = new ArrayList<String>();
 							 
 								dore.add("§7Name§8: §a"+pl);  
