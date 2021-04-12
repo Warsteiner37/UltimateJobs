@@ -46,15 +46,16 @@ public class RewardHandler {
 							 
 							 String multi = SkillsAPIForJobs.getNextLevelMulti(job, "Vanilla", level+1);
 						 
-							 int idk = Integer.valueOf(multi);
+							 Double idk = Double.parseDouble(multi);
 							 
-						 int rrrr =  idk*Integer.valueOf(vanilla);
-							  
-							  if(rrrr == 0) {
-								 rre3 = 1;
-							  } else {
-								 	 rre3 = rrrr;
-								 }
+						 double rrrr =  idk*Integer.valueOf(vanilla);
+							 
+						 Double lvl22 = Math.ceil(rrrr);
+
+					 
+						 int a32 = lvl22.intValue();
+					 
+						 rre3 = a32;
 					   }
 				   }
 				
