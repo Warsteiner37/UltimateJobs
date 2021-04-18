@@ -10,6 +10,22 @@
 #| '--------------' || '--------------' || '--------------' || '--------------' |
 # '----------------'  '----------------'  '----------------'  '----------------'
 
+Reward_Multiplier_By_Permission:
+
+  Options:
+  
+    Use: false
+    
+    #FORMAT: TYPE:PERMISSION:Multiplier
+    
+    #
+    # Types: EXP,MONEY,VANILLA
+    #
+    
+    List:
+      - "EXP:jobs.exp.1:1.10"
+      - "MONEY:jobs.money.1:1.20"
+
 #
 # WHAT is the WorldMode?
 #

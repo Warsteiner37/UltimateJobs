@@ -1,5 +1,6 @@
 package de.warsteiner.ultimatejobs.reward;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
@@ -24,6 +25,35 @@ import net.milkbowl.vault.economy.Economy;
 
 public class RewardHandler {
 	
+	public static Double getRewardM(Player p, String typeofm) {
+		
+		List<String> list = UltimateJobs.getJobsConfig().getCustomConfig().getStringList("Reward_Multiplier_By_Permission.Options.List");
+		
+		// - "EXP:jobs.exp.1:2"
+	    //  - "MONEY:jobs.money.1:1.20"
+		
+		for(String b : list) {
+			
+			String[] a = b.split(":");
+			
+			String type = a[0];
+			String perm = a[1];
+			String m = a[2];
+			
+			if(type.equalsIgnoreCase(typeofm)) {
+				if(p.hasPermission(perm)) {
+					return Double.valueOf(m);
+				}
+			}
+			
+			
+		}
+		
+		
+		return null;
+		
+	}
+	
 	public void sendRewardMessage(Player p, String mat, String levelexp, String vanilla, String points, String mode, String money) {
 		new PlayerLevelExpChangeEvent(p);
 		Bukkit.getScheduler().runTaskAsynchronously((Plugin) UltimateJobs.getPlugin(), new Runnable() {
@@ -38,6 +68,35 @@ public class RewardHandler {
 				 
 				 
 				int rre3 = 0;
+				
+				double perm_money = 0;
+				double perm_exp = 0;
+				int perm_vanilla = 0;
+				
+				//EXP,MONEY,VANILLA
+				
+				if(UltimateJobs.getJobsConfig().getCustomConfig().getBoolean("Reward_Multiplier_By_Permission.Options.Use")) {
+					
+					if(getRewardM(p, "MONEY") != null) {
+						perm_money = getRewardM(p, "MONEY") * Double.valueOf(money);
+					}
+					
+					if(getRewardM(p, "EXP") != null) {
+						perm_exp = getRewardM(p, "EXP") * Double.valueOf(levelexp);
+					}
+					
+					if(getRewardM(p, "VANILLA") != null) {
+						double t = getRewardM(p, "VANILLA") * Double.valueOf(money);
+					
+						Double b = Math.ceil(t);;
+						
+						int d = b.intValue();
+						
+						perm_vanilla = d;
+					}
+					
+				}
+				
 				
 				   if(SkillsAPIForJobs.isEnabled()) {
 					   if(SkillsAPIForJobs.isSkillEnabled("Vanilla", job)) {
@@ -61,7 +120,7 @@ public class RewardHandler {
 				
 				 
 				if(UltimateJobs.getJobsConfig().getCustomConfig().getBoolean("Get_Vanilla_Exp")) {
-					p.giveExp(Integer.valueOf(vanilla)+rre3);
+					p.giveExp(Integer.valueOf(vanilla)+rre3+perm_vanilla);
 				}
 				 
 			 
@@ -90,6 +149,10 @@ public class RewardHandler {
 				}
 		 
 				
+				 
+			//	double perm_exp = 0;
+			//	int perm_vanilla = 0;
+				
 				double re2 = 0;
 				
 				   if(SkillsAPIForJobs.isEnabled()) {
@@ -106,7 +169,7 @@ public class RewardHandler {
 					   }
 				   }
 				   
-				double final_money = rechnrung+Double.valueOf(money)+money2+re2;
+				double final_money = rechnrung+Double.valueOf(money)+money2+re2+perm_money;
 				
 				String m = mode.toUpperCase();
  
@@ -126,13 +189,15 @@ public class RewardHandler {
 					   }
 				   }
 				
+				   
+				   
 					double count_one = UltimateJobs.getData().getCountOne(""+uuid, job);
 					int count_two = UltimateJobs.getData().getCountTwo(""+uuid, job);
 					
 					UltimateJobs.getData().setCountOne(""+uuid, job, count_one+final_money);
 					UltimateJobs.getData().setCountTwo(""+uuid, job, count_two+1);
 				 
-				double final_exp = Double.valueOf(levelexp)+re3;
+				double final_exp = Double.valueOf(levelexp)+re3+perm_exp;
  
 				double current_exp = UltimateJobs.getData().getExp(""+uuid, job);
 				 
