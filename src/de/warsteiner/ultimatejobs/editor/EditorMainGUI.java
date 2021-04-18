@@ -64,31 +64,7 @@ Bukkit.getScheduler().runTaskAsynchronously((Plugin) UltimateJobs.getPlugin(), n
 					inv.setItem(43, item);
 					inv.setItem(44, item);
 					
-					ItemStack d1 = new ItemStack(Material.FIRE_CHARGE,1);
-					/* 42 */ ItemMeta dm1 = d1.getItemMeta();
-					/* 43 */ dm1.setDisplayName("§8< §7Manage Players §8>");
-					ArrayList<String> d1ore = new ArrayList<String>();
-					d1ore.add("§8-> §bManage online players");
-					dm1.setLore(d1ore);
-					
-					/* 44 */ d1.setItemMeta(dm1);
-					/*     */
-							inv.setItem(22, d1);
-					
-					ItemStack d = new ItemStack(Material.BOOK,1);
-					/* 42 */ ItemMeta dm = d.getItemMeta();
-					/* 43 */ dm.setDisplayName("§8< §7Plugin Data §8>");
-					ArrayList<String> dore = new ArrayList<String>();
-					dore.add("§8-> §7Version§8: §c"+UltimateJobs.getPlugin().getDescription().getVersion());
-					dore.add("§8-> §7Players§8: §a#"+UltimateJobs.getData().getPlayerList().size());
-					dore.add("§a");
-					dore.add("§7This plugin is coded by §bWarsteiner37§7.");
-					dm.setLore(dore);
-					
-					/* 44 */ d.setItemMeta(dm);
-					/*     */
-							inv.setItem(4, d);
-					
+ 
 								if(Bukkit.getPluginManager().getPlugin("PlugMan") != null) {
 									ItemStack rl = new ItemStack(Material.REDSTONE_TORCH,1);
 									/* 42 */ ItemMeta rlm = rl.getItemMeta();
@@ -99,7 +75,7 @@ Bukkit.getScheduler().runTaskAsynchronously((Plugin) UltimateJobs.getPlugin(), n
 									
 									/* 44 */ rl.setItemMeta(rlm);
 									/*     */
-											inv.setItem(24, rl);
+											inv.setItem(23, rl);
 								} else {
 									ItemStack rl = new ItemStack(Material.BARRIER,1);
 									/* 42 */ ItemMeta rlm = rl.getItemMeta();
@@ -110,7 +86,7 @@ Bukkit.getScheduler().runTaskAsynchronously((Plugin) UltimateJobs.getPlugin(), n
 									
 									/* 44 */ rl.setItemMeta(rlm);
 									/*     */
-											inv.setItem(24, rl);
+											inv.setItem(23, rl);
 								}
 			 
 					/* 41 */ ItemStack dc = generateSkull("Mhf_Discord");
@@ -145,7 +121,7 @@ Bukkit.getScheduler().runTaskAsynchronously((Plugin) UltimateJobs.getPlugin(), n
 									
 									/* 44 */ ed.setItemMeta(med);
 									/*     */
-											inv.setItem(20, ed);
+											inv.setItem(21, ed);
 							
 		
 	}

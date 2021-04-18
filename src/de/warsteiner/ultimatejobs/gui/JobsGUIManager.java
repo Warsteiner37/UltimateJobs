@@ -49,6 +49,15 @@ import de.warsteiner.ultimatejobs.utils.JobAPI;
 			/*     */
 			/* 46 */ inv.setItem(slot, item);
 			/*     */ }
+		
+		String jobwithcolor = null;
+		
+		if(UltimateJobs.getJobAPI().getCurrentJob(p.getUniqueId()).equalsIgnoreCase("None")) {
+			jobwithcolor = UltimateJobs.getPlugin().getConfig().getString("PlaceHolders.No_Job");
+		} else {
+			jobwithcolor =  UltimateJobs.getJobAPI().JobNameWithColor(UltimateJobs.getJobAPI().getCurrentJob(p.getUniqueId()));
+		}
+		
 		 for (int i = 0; i < list_own_items.size(); i++) {
 			 
 			 String b = list_own_items.get(i);
@@ -88,7 +97,7 @@ import de.warsteiner.ultimatejobs.utils.JobAPI;
 							 ArrayList<String> l = new ArrayList<String>();
 							 
 							 for (int i2 = 0; i2 < a.size(); i2++) {
-								 l.add(a.get(i2).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
+								 l.add(a.get(i2).replaceAll("<job>", jobwithcolor).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
 							 }
 							 
 							 meta.setLore(l);
@@ -125,7 +134,7 @@ import de.warsteiner.ultimatejobs.utils.JobAPI;
 							 ArrayList<String> l = new ArrayList<String>();
 							 
 							 for (int i2 = 0; i2 < a.size(); i2++) {
-								 l.add(a.get(i2).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
+								 l.add(a.get(i2).replaceAll("<job>", jobwithcolor).replaceAll("<name>", p.getName()).replaceAll("&", "§"));
 							 }
 							 
 							 meta.setLore(l);

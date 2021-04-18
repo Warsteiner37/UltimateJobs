@@ -110,9 +110,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 					 }
 					 
 				}
-				/* 113 */      if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
-	                 Bukkit.getConsoleSender().sendMessage("§4§lWarning§8: §7There is an Error. #4");
-	}
+ 
 				return "NONE_FOUND";
 				
 			}
@@ -133,9 +131,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 					 }
 					 
 				}
-				/* 113 */      if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
-	                 Bukkit.getConsoleSender().sendMessage("§4§lWarning§8: §7There is an Error. #4");
-	}
+ 
 				return "NONE_FOUND";
 				
 			}
@@ -154,9 +150,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 					 }
 					 
 				}
-				/* 113 */      if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
-	                 Bukkit.getConsoleSender().sendMessage("§4§lWarning§8: §7There is an Error. #4");
-	}
+ 
 				return "NONE_FOUND";
 			}
 			
@@ -180,9 +174,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 					 }
 					 
 				}
-				/* 113 */      if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
-	                 Bukkit.getConsoleSender().sendMessage("§4§lWarning§8: §7There is an Error. #4");
-	}
+ 
 				return "NONE_FOUND";
 			}
 			
@@ -208,9 +200,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 				if(list_of_jobs.contains(or_id)) {
 					return true;
 				}
-				/* 113 */      if(UltimateJobs.getPlugin().getConfig().getBoolean("Advanced.Console_Logs")) {
-	                 Bukkit.getConsoleSender().sendMessage("§4§lWarning§8: §7There is an Error. #5");
-	}
+ 
 				return false;
 				
 			}
